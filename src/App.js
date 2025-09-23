@@ -1,22 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+// Import your .webm animation file
+import logoAnimation from './assets/logo-animation.webm';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App-container">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* Use a <video> tag for .webm files */}
+        <video 
+          className="App-video" 
+          src={logoAnimation} 
+          autoPlay 
+          loop 
+          muted 
+        />
+        <h1>We're working on it!</h1>
+        <p>Our new page is coming soon. Stay tuned!</p>
       </header>
     </div>
   );
