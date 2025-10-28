@@ -13,7 +13,8 @@
     <meta property="og:description" content="Automatizamos el cálculo de la huella de carbono y la generación de reportes ESG para bancos en Latinoamérica.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rastrocero.com">
-    <meta property="og:image" content="https://rastrocero.com/img/og-image.png"> <link rel="icon" type="image/x-icon" href="img/icon-11.png">
+    <meta property="og:image" content="https://rastrocero.com/img/og-image.png">
+    <link rel="icon" type="image/x-icon" href="img/icon-11.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,48 +43,91 @@
 </head>
 
 <body>
+    <!-- Anclas para CSS-only language switch -->
+    <span id="en" class="lang-root" aria-hidden="true"></span>
+    <span id="es" class="lang-root" aria-hidden="true"></span>
+
+    <!-- Selector de idioma -->
+    <nav class="lang-switch" aria-label="Selector de idioma / Language switcher">
+      <a class="lang-btn" href="#es" aria-label="Español">ES</a>
+      <a class="lang-btn" href="#en" aria-label="English">EN</a>
+    </nav>
+
     <header class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>
-                    Rastrea. Reporta. <span class="highlight">Transforma.</span>
+                    <span class="t-es">Rastrea. Reporta. <span class="highlight">Transforma.</span></span>
+                    <span class="t-en">Track. Report. <span class="highlight">Transform.</span></span>
                 </h1>
                 
                 <p class="hero-subtitle">
-                    Plataforma líder en Latinoamérica para que los bancos midan su <strong>huella de carbono</strong> y generen <strong>reportes ESG</strong> para acceder a financiamiento sostenible. Automatizamos el proceso completo.
+                    <span class="t-es">Plataforma líder en Latinoamérica para que los bancos midan su <strong>huella de carbono</strong> y generen <strong>reportes ESG</strong> para acceder a financiamiento sostenible. Automatizamos el proceso completo.</span>
+                    <span class="t-en">Latin America’s leading platform for banks to measure their <strong>carbon footprint</strong> and generate <strong>ESG reports</strong> to access sustainable finance. We automate the end-to-end process.</span>
                 </p>
                 
                 <div class="hero-buttons">
-                    <a href="#demo" class="btn btn-primary">Ver producto</a>
-                    <a href="#como-funciona" class="btn btn-outline">¿Cómo funciona?</a>
+                    <!-- ES -->
+                    <a href="#demo" class="btn btn-primary t-es">Ver producto</a>
+                    <a href="#como-funciona" class="btn btn-outline t-es">¿Cómo funciona?</a>
+                    <!-- EN -->
+                    <a href="#en-demo" class="btn btn-primary t-en">See product</a>
+                    <a href="#en-como-funciona" class="btn btn-outline t-en">How it works</a>
                 </div>
             </div>
         </div>
     </header>
 
     <main>
+        <!-- Ancla equivalente en EN para mantener el idioma al navegar -->
+        <span id="en-como-funciona" class="lang-anchor" aria-hidden="true"></span>
+
         <section class="section" id="como-funciona">
             <div class="container">
                 <div class="section-header">
-                    <h2>Cómo Automatizamos la Huella de Carbono para Bancos</h2>
-                    <p class="section-subtitle">Tres pasos simples: conectamos tu core, calculamos las emisiones y generas reportes bajo estándares globales.</p>
+                    <h2>
+                      <span class="t-es">Cómo Automatizamos la Huella de Carbono para Bancos</span>
+                      <span class="t-en">How We Automate Carbon Accounting for Banks</span>
+                    </h2>
+                    <p class="section-subtitle">
+                      <span class="t-es">Tres pasos simples: conectamos tu core, calculamos las emisiones y generas reportes bajo estándares globales.</span>
+                      <span class="t-en">Three simple steps: connect your core, calculate emissions, and generate reports aligned to global standards.</span>
+                    </p>
                 </div>
                 
                 <ol class="steps">
                     <li class="step">
                         <div class="step-number">1</div>
-                        <h3>Conexión Segura con tu Sistema</h3>
-                        <p>Una sola integración vía API con tu core bancario. Seguro, rápido y sin alterar tu operación actual.</p>
+                        <h3>
+                          <span class="t-es">Conexión Segura con tu Sistema</span>
+                          <span class="t-en">Secure Connection to Your Core</span>
+                        </h3>
+                        <p>
+                          <span class="t-es">Una sola integración vía API con tu core bancario. Seguro, rápido y sin alterar tu operación actual.</span>
+                          <span class="t-en">A single API integration with your banking core. Secure, fast, and without disrupting your current operations.</span>
+                        </p>
                     </li>
                     <li class="step">
                         <div class="step-number">2</div>
-                        <h3>Cálculo Automático de Emisiones</h3>
-                        <p>Cada transacción se analiza para asignarle una huella de CO₂ precisa, basada en metodologías como PCAF.</p>
+                        <h3>
+                          <span class="t-es">Cálculo Automático de Emisiones</span>
+                          <span class="t-en">Automatic Emissions Calculation</span>
+                        </h3>
+                        <p>
+                          <span class="t-es">Cada transacción se analiza para asignarle una huella de CO₂ precisa, basada en metodologías como PCAF.</span>
+                          <span class="t-en">Every transaction is analyzed to assign a precise CO₂ footprint, based on methodologies like PCAF.</span>
+                        </p>
                     </li>
                     <li class="step">
                         <div class="step-number">3</div>
-                        <h3>Generación de Reportes Estándar</h3>
-                        <p>Reportes listos para <strong>ISSB, GHG Protocol</strong> y otros estándares que exigen los inversionistas y reguladores.</p>
+                        <h3>
+                          <span class="t-es">Generación de Reportes Estándar</span>
+                          <span class="t-en">Standardized Report Generation</span>
+                        </h3>
+                        <p>
+                          <span class="t-es">Reportes listos para <strong>ISSB, GHG Protocol</strong> y otros estándares que exigen los inversionistas y reguladores.</span>
+                          <span class="t-en">Reports ready for <strong>ISSB, GHG Protocol</strong>, and other standards required by investors and regulators.</span>
+                        </p>
                     </li>
                 </ol>
             </div>
@@ -92,50 +136,94 @@
         <section class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2>La Diferencia: Solución Técnica, no Consultoría</h2>
-                    <p class="section-subtitle">Otros venden consultoría por meses. Nosotros te damos una solución tecnológica que funciona desde el primer día.</p>
+                    <h2>
+                      <span class="t-es">La Diferencia: Solución Técnica, no Consultoría</span>
+                      <span class="t-en">The Difference: A Product, Not Months of Consulting</span>
+                    </h2>
+                    <p class="section-subtitle">
+                      <span class="t-es">Otros venden consultoría por meses. Nosotros te damos una solución tecnológica que funciona desde el primer día.</span>
+                      <span class="t-en">Others sell months of consulting. We deliver a technology solution that works from day one.</span>
+                    </p>
                 </div>
                 
                 <ul class="benefits-modern">
                     <li class="benefit-modern">
                         <div class="benefit-number">01</div>
-                        <h3>Implementación Rápida y Enfocada</h3>
-                        <p>Una integración API seria toma tiempo, pero no 6 meses. Conectamos, calibramos los cálculos y empiezas a generar reportes de sostenibilidad.</p>
+                        <h3>
+                          <span class="t-es">Implementación Rápida y Enfocada</span>
+                          <span class="t-en">Fast, Focused Implementation</span>
+                        </h3>
+                        <p>
+                          <span class="t-es">Una integración API seria toma tiempo, pero no 6 meses. Conectamos, calibramos los cálculos y empiezas a generar reportes de sostenibilidad.</span>
+                          <span class="t-en">A serious API integration takes time—but not six months. We connect, calibrate, and you start producing sustainability reports.</span>
+                        </p>
                     </li>
                     <li class="benefit-modern">
                         <div class="benefit-number">02</div>
-                        <h3>Cumplimiento con Estándares Globales</h3>
-                        <p>Nos enfocamos en los estándares que realmente importan: <strong>ISSB</strong> para fondos internacionales, <strong>GHG Protocol</strong> como estándar de oro y <strong>PCAF</strong> para emisiones financiadas.</p>
+                        <h3>
+                          <span class="t-es">Cumplimiento con Estándares Globales</span>
+                          <span class="t-en">Aligned to Global Standards</span>
+                        </h3>
+                        <p>
+                          <span class="t-es">Nos enfocamos en los estándares que realmente importan: <strong>ISSB</strong> para fondos internacionales, <strong>GHG Protocol</strong> como estándar de oro y <strong>PCAF</strong> para emisiones financiadas.</span>
+                          <span class="t-en">We focus on the standards that truly matter: <strong>ISSB</strong> for international funds, <strong>GHG Protocol</strong> as the gold standard, and <strong>PCAF</strong> for financed emissions.</span>
+                        </p>
                     </li>
                     <li class="benefit-modern">
                         <div class="benefit-number">03</div>
-                        <h3>ROI Medible en Financiamiento Sostenible</h3>
-                        <p>Bancos con reportes ESG sólidos acceden a mejores condiciones. El mercado de bonos verdes en LATAM está en pleno auge. Nuestras métricas te posicionan para capturar estas oportunidades.</p>
+                        <h3>
+                          <span class="t-es">ROI Medible en Financiamiento Sostenible</span>
+                          <span class="t-en">Measurable ROI via Sustainable Finance</span>
+                        </h3>
+                        <p>
+                          <span class="t-es">Bancos con reportes ESG sólidos acceden a mejores condiciones. El mercado de bonos verdes en LATAM está en pleno auge. Nuestras métricas te posicionan para capturar estas oportunidades.</span>
+                          <span class="t-en">Banks with robust ESG reports access better terms. LATAM’s green-bond market is booming. Our metrics position you to capture these opportunities.</span>
+                        </p>
                     </li>
                     <li class="benefit-modern">
                         <div class="benefit-number">04</div>
-                        <h3>Soporte Experto en la Banca de LATAM</h3>
-                        <p>Entendemos las regulaciones locales, los sistemas legacy y las realidades operativas de la región. No es una solución europea adaptada, es una creada para Latinoamérica.</p>
+                        <h3>
+                          <span class="t-es">Soporte Experto en la Banca de LATAM</span>
+                          <span class="t-en">LATAM Banking Expertise</span>
+                        </h3>
+                        <p>
+                          <span class="t-es">Entendemos las regulaciones locales, los sistemas legacy y las realidades operativas de la región. No es una solución europea adaptada, es una creada para Latinoamérica.</span>
+                          <span class="t-en">We understand local regulations, legacy systems, and the region’s realities. Not a European solution adapted—built for Latin America.</span>
+                        </p>
                     </li>
                 </ul>
             </div>
         </section>
 
+        <!-- Ancla equivalente en EN para mantener el idioma al navegar -->
+        <span id="en-demo" class="lang-anchor" aria-hidden="true"></span>
+
         <section class="section demo-section" id="demo">
             <div class="container">
                 <div class="section-header">
-                    <h2>Nuestro Producto: La Plataforma RastroCero</h2>
-                    <p class="section-subtitle">Herramientas integradas para automatizar completamente tus reportes de sostenibilidad y cálculo de emisiones.</p>
+                    <h2>
+                      <span class="t-es">Nuestro Producto: La Plataforma RastroCero</span>
+                      <span class="t-en">Our Product: The RastroCero Platform</span>
+                    </h2>
+                    <p class="section-subtitle">
+                      <span class="t-es">Herramientas integradas para automatizar completamente tus reportes de sostenibilidad y cálculo de emisiones.</span>
+                      <span class="t-en">Integrated tools to fully automate your sustainability reporting and emissions calculations.</span>
+                    </p>
                 </div>
                 
                 <div class="product-showcase-redesign">
                     <div class="product-block" data-product="1">
                         <div class="product-content-side">
                             <div class="product-number">01</div>
-                            <h3>App Bancaria con Impacto ESG</h3>
-                            <p>Tus clientes ven el CO₂ de cada transacción en tiempo real. Transparencia que construye lealtad y posiciona tu banco como líder en sostenibilidad en el sector financiero.</p>
-                            <div class="product-stats">
-                                </div>
+                            <h3>
+                              <span class="t-es">App Bancaria con Impacto ESG</span>
+                              <span class="t-en">Banking App with ESG Impact</span>
+                            </h3>
+                            <p>
+                              <span class="t-es">Tus clientes ven el CO₂ de cada transacción en tiempo real. Transparencia que construye lealtad y posiciona tu banco como líder en sostenibilidad en el sector financiero.</span>
+                              <span class="t-en">Your customers see CO₂ per transaction in real-time. Transparency that builds loyalty and positions your bank as a sustainability leader.</span>
+                            </p>
+                            <div class="product-stats"></div>
                         </div>
                         <div class="product-visual-side">
                             <div class="image-container">
@@ -148,10 +236,17 @@
                     <div class="product-block reverse" data-product="2">
                         <div class="product-content-side">
                             <div class="product-number">02</div>
-                            <h3>Calculadora de Emisiones Financiadas</h3>
-                            <p>Automatiza el cálculo de Alcance 1, 2 y 3 (incluyendo emisiones financiadas) según estándares ISSB y GHG Protocol. Los datos que necesitas para el financiamiento sostenible, generados automáticamente.</p>
+                            <h3>
+                              <span class="t-es">Calculadora de Emisiones Financiadas</span>
+                              <span class="t-en">Financed Emissions Calculator</span>
+                            </h3>
+                            <p>
+                              <span class="t-es">Automatiza el cálculo de Alcance 1, 2 y 3 (incluyendo emisiones financiadas) según estándares ISSB y GHG Protocol. Los datos que necesitas para el financiamiento sostenible, generados automáticamente.</span>
+                              <span class="t-en">Automates Scope 1, 2, and 3 (including financed emissions) aligned with ISSB and GHG Protocol. The data you need for sustainable finance, generated automatically.</span>
+                            </p>
                             <div class="product-quote">
-                                "La automatización de RastroCero nos ahorró meses de trabajo manual en nuestros reportes."
+                                <span class="t-es">"La automatización de RastroCero nos ahorró meses de trabajo manual en nuestros reportes."</span>
+                                <span class="t-en">“RastroCero’s automation saved us months of manual work on our reports.”</span>
                             </div>
                         </div>
                         <div class="product-visual-side">
@@ -165,10 +260,15 @@
                     <div class="product-block" data-product="3">
                         <div class="product-content-side">
                             <div class="product-number">03</div>
-                            <h3>Dashboard de Reportes ESG</h3>
-                            <p>Reportes automáticos listos para inversionistas, directorios y reguladores. Métricas ESG consolidadas que abren las puertas a bonos verdes y mejores condiciones de financiamiento.</p>
-                            <div class="product-benefits">
-                                </div>
+                            <h3>
+                              <span class="t-es">Dashboard de Reportes ESG</span>
+                              <span class="t-en">ESG Reporting Dashboard</span>
+                            </h3>
+                            <p>
+                              <span class="t-es">Reportes automáticos listos para inversionistas, directorios y reguladores. Métricas ESG consolidadas que abren las puertas a bonos verdes y mejores condiciones de financiamiento.</span>
+                              <span class="t-en">Automated reports ready for investors, boards, and regulators. Consolidated ESG metrics that unlock green bonds and better financing terms.</span>
+                            </p>
+                            <div class="product-benefits"></div>
                         </div>
                         <div class="product-visual-side">
                             <div class="image-container desktop-view">
@@ -185,16 +285,21 @@
             <div class="container">
                 <figure class="testimonial">
                     <blockquote>
-                        "Los reportes ESG que generamos con RastroCero cumplen con todos los estándares internacionales. Esto nos ha posicionado mejor para acceder a financiamiento sostenible y ha mejorado nuestra credibilidad."
+                        <span class="t-es">"Los reportes ESG que generamos con RastroCero cumplen con todos los estándares internacionales. Esto nos ha posicionado mejor para acceder a financiamiento sostenible y ha mejorado nuestra credibilidad."</span>
+                        <span class="t-en">“The ESG reports we generate with RastroCero meet international standards. It improved our access to sustainable finance and strengthened our credibility.”</span>
                     </blockquote>
-                    <figcaption>— Director de Sostenibilidad, Institución Financiera en LATAM</figcaption>
+                    <figcaption>
+                        <span class="t-es">— Director de Sostenibilidad, Institución Financiera en LATAM</span>
+                        <span class="t-en">— Sustainability Director, Financial Institution in LATAM</span>
+                    </figcaption>
                 </figure>
             </div>
         </section>
     </main>
 
     <section class="cta-final">
-        </section>
+        <!-- sin contenido en la fuente original -->
+    </section>
 
     <footer class="footer">
         <div class="container">
@@ -205,14 +310,28 @@
                     </video>
                 </div>
                 <div class="footer-links">
-                    <a href="#como-funciona">¿Cómo funciona?</a>
-                    <a href="#demo">Producto</a>
-                    <a href="terminos.html">Términos</a>
-                    <a href="privacidad.html">Privacidad</a>
+                    <!-- ES -->
+                    <a href="#como-funciona" class="t-es">¿Cómo funciona?</a>
+                    <a href="#demo" class="t-es">Producto</a>
+
+                    <!-- EN -->
+                    <a href="#en-como-funciona" class="t-en">How it works</a>
+                    <a href="#en-demo" class="t-en">Product</a>
+
+                    <!-- Externos (duales en texto) -->
+                    <a href="terminos.html">
+                      <span class="t-es">Términos</span><span class="t-en">Terms</span>
+                    </a>
+                    <a href="privacidad.html">
+                      <span class="t-es">Privacidad</span><span class="t-en">Privacy</span>
+                    </a>
                 </div>
             </div>
             <div class="footer-copyright">
-                <p>&copy; 2025 RastroCero E.A.S. Todos los derechos reservados.</p>
+                <p>
+                  <span class="t-es">&copy; 2025 RastroCero E.A.S. Todos los derechos reservados.</span>
+                  <span class="t-en">&copy; 2025 RastroCero E.A.S. All rights reserved.</span>
+                </p>
             </div>
         </div>
     </footer>
