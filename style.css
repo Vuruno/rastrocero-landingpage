@@ -1,4 +1,4 @@
-        /* Variables CSS */
+/* Variables CSS */
         :root {
             --verde-principal: #4ade80;
             --verde-hover: #22c55e;
@@ -1091,3 +1091,93 @@
             }
             .demo-section .product-block[data-product="1"] .image-container img{ width: 170%; }
         }
+
+
+.lang-root {
+  position: absolute;
+  top: 0; left: 0;
+  width: 0; height: 0;
+  overflow: hidden;
+}
+
+/* Anchors de sección (EN): en flujo normal para que el scroll vaya al lugar correcto */
+.lang-anchor {
+  position: static;      /* clave: NO absolutas */
+  display: block;
+  width: 0; height: 0;   /* no alteran el layout */
+  overflow: hidden;
+  /* opcional: compensar header fijo si lo tuvieras */
+  scroll-margin-top: 80px; /* ajusta 80px si querés otro offset */
+}
+
+/* Español por defecto visible; Inglés oculto */
+.t-en { display: none; }
+.t-es { display: initial; }
+
+/* Mostrar INGLÉS si cualquier :target empieza con "en" (ej: #en, #en-demo, #en-como-funciona) */
+html:has([id^="en"]:target) .t-en { display: initial; }
+html:has([id^="en"]:target) .t-es { display: none; }
+
+/* Mostrar ESPAÑOL si cualquier :target empieza con "es" (ej: #es) */
+html:has([id^="es"]:target) .t-en { display: none; }
+html:has([id^="es"]:target) .t-es { display: initial; }
+
+/* Botonera del selector */
+.lang-switch {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  z-index: 1000;
+  display: flex;
+  gap: 8px;
+  background: rgba(10, 15, 21, 0.6);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 999px;
+  padding: 6px;
+}
+
+.lang-btn {
+  font: 600 12px/1 'Montserrat', system-ui, sans-serif;
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+.lang-btn:hover { color: var(--verde-principal); border-color: rgba(74,222,128,0.35); }
+.lang-btn:focus-visible { outline: 2px solid var(--verde-principal); outline-offset: 2px; }
+
+/* Estado ACTIVO por defecto: ES (sin hash) */
+.lang-switch a[href="#es"] {
+  background: var(--verde-principal);
+  color: var(--negro);
+  box-shadow: 0 6px 18px var(--verde-glow);
+}
+
+/* EN activo si cualquier :target empieza por "en" */
+html:has([id^="en"]:target) .lang-switch a[href="#en"] {
+  background: var(--verde-principal);
+  color: var(--negro);
+  box-shadow: 0 6px 18px var(--verde-glow);
+}
+html:has([id^="en"]:target) .lang-switch a[href="#es"] {
+  background: transparent;
+  color: var(--blanco);
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* ES activo si :target empieza por "es" */
+html:has([id^="es"]:target) .lang-switch a[href="#es"] {
+  background: var(--verde-principal);
+  color: var(--negro);
+  box-shadow: 0 6px 18px var(--verde-glow);
+}
+html:has([id^="es"]:target) .lang-switch a[href="#en"] {
+  background: transparent;
+  color: var(--blanco);
+  box-shadow: none;
+  border-color: transparent;
+}
