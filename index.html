@@ -1,339 +1,1311 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en" class="scroll-smooth">
 <head>
+    <link rel="icon" type="image/x-icon" href="img/icon-11.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RastroCero | Climate Intelligence for Fintechs</title>
     
-    <title>RastroCero | Software de Huella de Carbono para Bancos en LATAM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
-    <meta name="description" content="RastroCero automatiza el cálculo de la huella de carbono y la generación de reportes ESG (ISSB, GHG Protocol) para bancos en Latinoamérica, facilitando el acceso a financiamiento sostenible.">
-    <meta name="keywords" content="huella de carbono, bancos, latam, reportes esg, issb, ghg protocol, finanzas sostenibles, rastrocero, rastro cero">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <meta property="og:title" content="RastroCero - Software de Sostenibilidad para Bancos">
-    <meta property="og:description" content="Automatizamos el cálculo de la huella de carbono y la generación de reportes ESG para bancos en Latinoamérica.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rastrocero.com">
-    <meta property="og:image" content="https://rastrocero.com/img/og-image.png">
-    <link rel="icon" type="image/x-icon" href="img/icon-11.png">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "RastroCero",
-      "url": "https://rastrocero.com",
-      "logo": "https://rastrocero.com/img/icon-11.png",
-      "description": "Software especializado en la automatización de cálculos de huella de carbono y reportes de sostenibilidad (ESG) para el sector bancario en Latinoamérica.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "contacto@rastrocero.com.py",
-        "contactType": "customer service"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/rastrocero"
-      ]
-    }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rcGreen: '#79ce55',
+                        rcGreenDark: '#589336',
+                        rcGrey: '#525252',
+                        rcWhite: '#fcfcfc',
+                        rcLightGrey: '#dededd',
+                        rcBlue: '#376daa',
+                        rcDarkGreen: '#004834',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                }
+            }
+        }
     </script>
-    
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --c-grey: #525252;
+            --c-white: #fcfcfc;
+            --c-green: #79ce55;
+            --c-light-grey: #dededd;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--c-white);
+            color: var(--c-grey);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ====== FULL PAGE SVG BACKGROUND ====== */
+        .svg-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: visible;
+        }
+
+        .svg-background svg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .flow-path {
+            stroke-dasharray: 20 10;
+            animation: flowDown 2s linear infinite;
+        }
+
+        @keyframes flowDown {
+            0% { stroke-dashoffset: 30; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        .flow-path-slow {
+            stroke-dasharray: 15 15;
+            animation: flowDown 3s linear infinite;
+        }
+
+        .flow-path-fast {
+            stroke-dasharray: 25 5;
+            animation: flowDown 1.5s linear infinite;
+        }
+
+        .sparkle {
+            animation: sparkle 3s ease-in-out infinite;
+            transform-origin: center;
+        }
+        
+        .sparkle,
+        .pulse-node {
+            animation: none !important;
+            display: none !important; 
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        }
+
+        .sparkle-delayed { animation-delay: 1s; }
+        .sparkle-delayed-2 { animation-delay: 2s; }
+        .sparkle-delayed-3 { animation-delay: 0.5s; }
+        .sparkle-delayed-4 { animation-delay: 1.5s; }
+
+        .float { animation: float 4s ease-in-out infinite; }
+        .float-delayed { animation-delay: 1s; }
+        .float-delayed-2 { animation-delay: 2s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .pulse-node { animation: pulseNode 2s ease-in-out infinite; }
+
+        @keyframes pulseNode {
+            0%, 100% { r: 4; opacity: 0.6; }
+            50% { r: 6; opacity: 1; }
+        }
+
+        /* ====== TYPOGRAPHY ====== */
+        h1, h2, h3, .big-text {
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -2px;
+        }
+
+        .outline-text {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--c-grey);
+            transition: all 0.5s ease;
+        }
+        
+        .outline-text:hover {
+            color: var(--c-green);
+            -webkit-text-stroke: 0px transparent;
+        }
+
+        /* ====== BUTTONS ====== */
+        .btn-brand {
+            display: inline-block;
+            background: var(--c-grey);
+            color: var(--c-white);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            border: 2px solid var(--c-grey);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-brand::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-brand:hover::before { left: 100%; }
+
+        .btn-brand:hover {
+            background: var(--c-green);
+            border-color: var(--c-green);
+            transform: scale(1.05);
+            color: var(--c-white);
+            box-shadow: 0 10px 40px rgba(121, 206, 85, 0.3);
+        }
+
+        /* ====== NAV ====== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(252, 252, 252, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+        }
+
+        .brand-logo {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--c-grey);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--c-green);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* ====== TICKER ====== */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--c-grey);
+            color: var(--c-white);
+            padding: 1.5rem 0;
+            transform: rotate(-1deg) scale(1.05);
+            margin: 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        .ticker:hover { animation-play-state: paused; }
+
+        .ticker-item {
+            display: inline-block;
+            padding: 0 2rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .ticker-item span { 
+            color: var(--c-green); 
+            font-weight: 800;
+        }
+
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        /* ====== SECTIONS ====== */
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass-panel {
+            background:
+                radial-gradient(circle at 15% 0%, rgba(255,255,255,0.95), rgba(255,255,255,1)),
+                #e3e8f0; 
+            backdrop-filter: blur(18px);
+            border-radius: 1.75rem;
+            border: 1px solid rgba(148, 163, 184, 0.55);
+            box-shadow:
+                0 26px 80px rgba(15, 23, 42, 0.20),
+                0 0 0 1px rgba(255, 255, 255, 0.7);
+        }
+
+        .section-problem {
+            background:
+                radial-gradient(circle at top left, rgba(121, 206, 85, 0.18), transparent 60%),
+                #f3f4f6; 
+        }
+
+        /* ====== SPOTLIGHT CARDS ====== */
+        .spotlight-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9);
+            overflow: hidden;
+            border: 1px solid var(--c-light-grey);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .spotlight-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(121, 206, 85, 0.15), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .spotlight-card:hover::before { opacity: 1; }
+
+        .spotlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(121, 206, 85, 0.15);
+            border-color: var(--c-green);
+        }
+
+        .spotlight-border {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(121, 206, 85, 0.6), transparent 40%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spotlight-card:hover .spotlight-border { opacity: 1; }
+
+        /* ====== PRODUCT CARDS ====== */
+        .product-card-wrapper {
+            position: relative;
+            border-radius: 1rem;
+            padding: 1px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0));
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+        }
+
+        .product-card-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(121, 206, 85, 0.4), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .product-card-wrapper:hover::before { opacity: 1; }
+
+        .product-card-inner {
+            position: relative;
+            background: #f5f5f5;
+            border-radius: 1rem;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .product-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+            filter: brightness(0.95);
+            transform: scale(1.01);
+        }
+
+        .product-card-wrapper:hover .product-img {
+            transform: scale(1.05);
+            filter: brightness(1);
+        }
+
+        .shine-effect {
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3) 50%, transparent);
+            transform: skewX(-25deg);
+            z-index: 10;
+            pointer-events: none;
+            transition: left 0s;
+        }
+
+        .product-card-wrapper:hover .shine-effect {
+            left: 200%;
+            transition: left 0.8s ease-in-out;
+        }
+
+        /* ====== DEVELOPER SECTION ====== */
+        .code-terminal {
+            background: #1a1a1a;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #333;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .terminal-header {
+            background: #0f0f0f;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* ====== REVEAL ANIMATIONS ====== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ====== FOOTER ====== */
+        footer {
+            background: var(--c-green);
+            color: var(--c-grey);
+            position: relative;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background-image: radial-gradient(#004834 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* ====== HERO REFINEMENT v2 ====== */
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 5.5rem) !important;
+            letter-spacing: -0.05em;
+            line-height: 0.9;
+        }
+
+        .hero-line {
+            display: block;
+            opacity: 0;
+            transform: translateY(48px);
+            animation: none !important;
+        }
+
+        .hero-description,
+        .hero-cta {
+            opacity: 0;
+            transform: translateY(32px);
+            animation: none !important;
+        }
+
+        .hero-accent-line {
+            transform: scaleX(0);
+            transform-origin: right center;
+            animation: none !important;
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 1024px) {
+            .hero-content {
+                text-align: center !important;
+                max-width: 100% !important;
+                margin-left: 0 !important;
+            }
+            .hero h1 {
+                font-size: 3.5rem !important;
+            }
+            .hero-accent-line {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem !important; }
+            nav { padding: 1rem; }
+        }
+        #trees-layer {
+            display: none;
+        }
+    </style>
 </head>
+<body class="antialiased">
 
-<body>
-    <!-- Anclas para CSS-only language switch -->
-    <span id="en" class="lang-root" aria-hidden="true"></span>
-    <span id="es" class="lang-root" aria-hidden="true"></span>
+    <div class="svg-background">
+        <svg id="background-svg" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <symbol id="tree" viewBox="0 0 30 50">
+                    <path d="M15 0 L25 20 L20 20 L28 35 L2 35 L10 20 L5 20 Z" fill="#79ce55"/>
+                    <rect x="12" y="35" width="6" height="10" fill="#79ce55"/>
+                </symbol>
+                <symbol id="tree-small" viewBox="0 0 20 35">
+                    <path d="M10 0 L18 15 L14 15 L20 28 L0 28 L6 15 L2 15 Z" fill="#79ce55"/>
+                    <rect x="8" y="28" width="4" height="7" fill="#79ce55"/>
+                </symbol>
+                <symbol id="cloud" viewBox="0 0 60 30">
+                    <ellipse cx="30" cy="20" rx="25" ry="10" stroke="#79ce55" stroke-width="1" fill="none"/>
+                    <ellipse cx="20" cy="15" rx="15" ry="8" stroke="#79ce55" stroke-width="1" fill="none"/>
+                    <ellipse cx="42" cy="15" rx="12" ry="7" stroke="#79ce55" stroke-width="1" fill="none"/>
+                </symbol>
+                <symbol id="sparkle" viewBox="0 0 24 24">
+                    <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10L12 0Z" fill="#79ce55"/>
+                </symbol>
+                <symbol id="building" viewBox="0 0 40 35">
+                    <rect x="5" y="12" width="30" height="23" stroke="#79ce55" stroke-width="1.5" fill="none"/>
+                    <path d="M0 12 L20 0 L40 12" stroke="#79ce55" stroke-width="1.5" fill="none"/>
+                    <rect x="16" y="20" width="8" height="15" stroke="#79ce55" stroke-width="1" fill="none"/>
+                    <line x1="10" y1="15" x2="10" y2="35" stroke="#79ce55" stroke-width="1"/>
+                    <line x1="30" y1="15" x2="30" y2="35" stroke="#79ce55" stroke-width="1"/>
+                </symbol>
+            </defs>
+            
+            <g id="main-flow-lines">
+                <path class="flow-path" d="M80 0 Q 60 200 100 400 Q 140 600 80 800 Q 40 1000 100 1200 Q 150 1400 80 1600 Q 30 1800 100 2000 Q 160 2200 80 2400 Q 20 2600 100 2800 Q 170 3000 80 3200 Q 30 3400 100 3600 Q 160 3800 80 4000 L 80 6000" stroke="#79ce55" stroke-width="1.5" fill="none" opacity="0.6"/>
+                <path class="flow-path-slow" d="M150 0 Q 200 150 160 350 Q 120 550 180 750 Q 230 950 150 1150 Q 100 1350 170 1550 Q 220 1750 150 1950 Q 90 2150 160 2350 Q 210 2550 150 2750 Q 100 2950 160 3150 Q 200 3350 150 3550 Q 100 3750 160 3950 L 150 6000" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.5"/>
+                <path class="flow-path-fast" d="M250 0 Q 300 180 260 380 Q 220 580 280 780 Q 330 980 250 1180 Q 200 1380 270 1580 Q 320 1780 250 1980 Q 190 2180 260 2380 Q 310 2580 250 2780 Q 200 2980 260 3180 Q 300 3380 250 3580 Q 200 3780 260 3980 L 250 6000" stroke="#79ce55" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <path class="flow-path" d="M400 0 Q 450 200 380 400 Q 320 600 400 800 Q 470 1000 380 1200 Q 310 1400 400 1600 Q 480 1800 380 2000 Q 300 2200 400 2400 Q 490 2600 380 2800 Q 290 3000 400 3200 Q 480 3400 380 3600 Q 300 3800 400 4000 L 400 6000" stroke="#79ce55" stroke-width="2" fill="none" opacity="0.6"/>
+                <path class="flow-path-slow" d="M550 0 Q 500 180 560 380 Q 610 580 540 780 Q 480 980 560 1180 Q 620 1380 540 1580 Q 470 1780 560 1980 Q 630 2180 540 2380 Q 460 2580 560 2780 Q 640 2980 540 3180 Q 470 3380 560 3580 Q 630 3780 540 3980 L 550 6000" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.5"/>
+            </g>
+            
+            <g id="horizontal-connectors">
+                <path class="flow-path" d="M50 450 Q 200 480 350 450 Q 500 420 650 450" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.3"/>
+                <path class="flow-path-slow" d="M80 900 Q 230 930 380 900 Q 530 870 680 900" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.25"/>
+                <path class="flow-path" d="M60 1350 Q 210 1380 360 1350 Q 510 1320 660 1350" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.3"/>
+                <path class="flow-path-slow" d="M100 1800 Q 250 1830 400 1800 Q 550 1770 700 1800" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.25"/>
+                <path class="flow-path" d="M40 2250 Q 190 2280 340 2250 Q 490 2220 640 2250" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.3"/>
+                <path class="flow-path-slow" d="M80 2700 Q 230 2730 380 2700 Q 530 2670 680 2700" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.25"/>
+                <path class="flow-path" d="M60 3150 Q 210 3180 360 3150 Q 510 3120 660 3150" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.3"/>
+                <path class="flow-path-slow" d="M100 3600 Q 250 3630 400 3600 Q 550 3570 700 3600" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.25"/>
+            </g>
+            
+            <g id="trees-layer">
+                <use href="#tree" x="50" y="180" width="35" height="55" class="float"/>
+                <use href="#tree" x="100" y="220" width="45" height="70" class="float-delayed"/>
+                <use href="#tree-small" x="180" y="250" width="25" height="40" class="float-delayed-2"/>
+                <use href="#tree" x="120" y="280" width="30" height="50" class="float"/>
+                <use href="#tree-small" x="60" y="650" width="20" height="32" class="float"/>
+                <use href="#tree" x="150" y="1100" width="30" height="50" class="float-delayed"/>
+                <use href="#tree-small" x="70" y="1550" width="20" height="32" class="float-delayed-2"/>
+                <use href="#tree" x="120" y="2000" width="35" height="55" class="float"/>
+                <use href="#tree-small" x="80" y="2450" width="22" height="35" class="float-delayed"/>
+                <use href="#tree" x="100" y="2900" width="30" height="50" class="float-delayed-2"/>
+                <use href="#tree-small" x="60" y="3350" width="20" height="32" class="float"/>
+                <use href="#tree" x="130" y="3800" width="35" height="55" class="float-delayed"/>
+            </g>
+            
+            <g id="clouds-layer">
+                <use href="#cloud" x="30" y="100" width="70" height="35" class="float" opacity="0.6"/>
+                <use href="#cloud" x="150" y="160" width="55" height="28" class="float-delayed" opacity="0.5"/>
+                <use href="#cloud" x="50" y="500" width="60" height="30" class="float" opacity="0.5"/>
+                <use href="#cloud" x="100" y="950" width="50" height="25" class="float-delayed-2" opacity="0.5"/>
+                <use href="#cloud" x="60" y="1450" width="55" height="28" class="float-delayed" opacity="0.5"/>
+                <use href="#cloud" x="120" y="1950" width="50" height="25" class="float" opacity="0.4"/>
+                <use href="#cloud" x="50" y="2450" width="60" height="30" class="float-delayed-2" opacity="0.5"/>
+                <use href="#cloud" x="100" y="2950" width="55" height="28" class="float" opacity="0.4"/>
+            </g>
+            
+            <g id="buildings-layer">
+                <use href="#building" x="130" y="300" width="50" height="45" class="float-delayed"/>
+                <use href="#building" x="50" y="850" width="45" height="40" class="float"/>
+                <use href="#building" x="100" y="1750" width="48" height="43" class="float-delayed-2"/>
+                <use href="#building" x="60" y="2650" width="45" height="40" class="float-delayed"/>
+                <use href="#building" x="120" y="3550" width="50" height="45" class="float"/>
+            </g>
+            
+            <g id="mountains-layer">
+                <path d="M80 250 L120 180 L160 250" stroke="#79ce55" stroke-width="1.5" fill="none" class="float-delayed"/>
+                <path d="M95 250 L120 210 L145 250" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.5"/>
+                <circle cx="120" cy="180" r="4" fill="#79ce55"/>
+                
+                <path d="M50 1100 L80 1050 L110 1100" stroke="#79ce55" stroke-width="1.5" fill="none" class="float"/>
+                <circle cx="80" cy="1050" r="3" fill="#79ce55"/>
+                
+                <path d="M100 2100 L130 2050 L160 2100" stroke="#79ce55" stroke-width="1.5" fill="none" class="float-delayed-2"/>
+                <circle cx="130" cy="2050" r="3" fill="#79ce55"/>
+            </g>
+            
+            <g id="sparkles-layer">
+                <use href="#sparkle" x="200" y="50" width="14" height="14" class="sparkle"/>
+                <use href="#sparkle" x="280" y="120" width="12" height="12" class="sparkle sparkle-delayed"/>
+                <use href="#sparkle" x="350" y="200" width="10" height="10" class="sparkle sparkle-delayed-2"/>
+                <use href="#sparkle" x="150" y="400" width="12" height="12" class="sparkle sparkle-delayed-3"/>
+                <use href="#sparkle" x="300" y="500" width="14" height="14" class="sparkle sparkle-delayed-4"/>
+                <use href="#sparkle" x="100" y="700" width="10" height="10" class="sparkle"/>
+                <use href="#sparkle" x="250" y="850" width="12" height="12" class="sparkle sparkle-delayed"/>
+                <use href="#sparkle" x="180" y="1000" width="14" height="14" class="sparkle sparkle-delayed-2"/>
+                <use href="#sparkle" x="320" y="1150" width="10" height="10" class="sparkle sparkle-delayed-3"/>
+                <use href="#sparkle" x="120" y="1300" width="12" height="12" class="sparkle sparkle-delayed-4"/>
+                <use href="#sparkle" x="280" y="1450" width="14" height="14" class="sparkle"/>
+                <use href="#sparkle" x="150" y="1600" width="10" height="10" class="sparkle sparkle-delayed"/>
+                <use href="#sparkle" x="350" y="1750" width="12" height="12" class="sparkle sparkle-delayed-2"/>
+                <use href="#sparkle" x="100" y="1900" width="14" height="14" class="sparkle sparkle-delayed-3"/>
+                <use href="#sparkle" x="250" y="2050" width="10" height="10" class="sparkle sparkle-delayed-4"/>
+                <use href="#sparkle" x="180" y="2200" width="12" height="12" class="sparkle"/>
+                <use href="#sparkle" x="320" y="2350" width="14" height="14" class="sparkle sparkle-delayed"/>
+                <use href="#sparkle" x="120" y="2500" width="10" height="10" class="sparkle sparkle-delayed-2"/>
+                <use href="#sparkle" x="280" y="2650" width="12" height="12" class="sparkle sparkle-delayed-3"/>
+                <use href="#sparkle" x="150" y="2800" width="14" height="14" class="sparkle sparkle-delayed-4"/>
+                <use href="#sparkle" x="350" y="2950" width="10" height="10" class="sparkle"/>
+                <use href="#sparkle" x="100" y="3100" width="12" height="12" class="sparkle sparkle-delayed"/>
+                <use href="#sparkle" x="250" y="3250" width="14" height="14" class="sparkle sparkle-delayed-2"/>
+                <use href="#sparkle" x="180" y="3400" width="10" height="10" class="sparkle sparkle-delayed-3"/>
+                <use href="#sparkle" x="320" y="3550" width="12" height="12" class="sparkle sparkle-delayed-4"/>
+                <use href="#sparkle" x="120" y="3700" width="14" height="14" class="sparkle"/>
+                <use href="#sparkle" x="280" y="3850" width="10" height="10" class="sparkle sparkle-delayed"/>
+            </g>
+            
+            <g id="nodes-layer">
+                <circle cx="150" cy="350" r="6" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="300" cy="400" r="8" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="100" cy="800" r="5" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="400" cy="780" r="7" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="200" cy="1200" r="6" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="350" cy="1180" r="8" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="150" cy="1600" r="5" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="300" cy="1580" r="7" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="200" cy="2000" r="6" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="400" cy="1980" r="8" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="150" cy="2400" r="5" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="350" cy="2380" r="7" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="200" cy="2800" r="6" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+                <circle cx="300" cy="2780" r="8" stroke="#79ce55" stroke-width="1.5" fill="white"/>
+            </g>
+            
+            <g id="data-points">
+                <circle r="4" fill="#79ce55" class="pulse-node">
+                    <animateMotion dur="8s" repeatCount="indefinite" path="M400 0 Q 450 200 380 400 Q 320 600 400 800 Q 470 1000 380 1200 Q 310 1400 400 1600 Q 480 1800 380 2000 Q 300 2200 400 2400 Q 490 2600 380 2800"/>
+                </circle>
+                <circle r="3" fill="#79ce55" opacity="0.7">
+                    <animateMotion dur="10s" repeatCount="indefinite" path="M250 0 Q 300 180 260 380 Q 220 580 280 780 Q 330 980 250 1180 Q 200 1380 270 1580 Q 320 1780 250 1980 Q 190 2180 260 2380"/>
+                </circle>
+                <circle r="2" fill="#79ce55" opacity="0.5">
+                    <animateMotion dur="12s" repeatCount="indefinite" path="M80 0 Q 60 200 100 400 Q 140 600 80 800 Q 40 1000 100 1200 Q 150 1400 80 1600 Q 30 1800 100 2000"/>
+                </circle>
+            </g>
+            
+            <g id="concentric-circles">
+                <ellipse cx="200" cy="350" rx="100" ry="30" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.2">
+                    <animate attributeName="rx" values="100;120;100" dur="4s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="4s" repeatCount="indefinite"/>
+                </ellipse>
+                <ellipse cx="200" cy="350" rx="70" ry="22" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.3"/>
+            </g>
+        </svg>
+    </div>
 
-    <!-- Selector de idioma -->
-    <nav class="lang-switch" aria-label="Selector de idioma / Language switcher">
-      <a class="lang-btn" href="#es" aria-label="Español">ES</a>
-      <a class="lang-btn" href="#en" aria-label="English">EN</a>
+    <nav id="navbar">
+        <a href="#" class="brand-logo">
+            <img src="img/logo2.png" alt="RastroCero" class="h-14 w-auto">
+        </a>
+        <div class="hidden md:flex gap-8 text-xs font-bold tracking-widest text-gray-500">
+            <a href="#products" class="hover:text-rcGreen transition-colors">PRODUCTS</a>
+            <a href="#features" class="hover:text-rcGreen transition-colors">CAPABILITIES</a>
+            <a href="#developers" class="hover:text-rcGreen transition-colors">DEVELOPERS</a>
+        </div>
+        <a href="#developers" class="btn-brand text-sm">API ACCESS</a>
     </nav>
 
-    <header class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>
-                    <span class="t-es">Rastrea. Reporta. <span class="highlight">Transforma.</span></span>
-                    <span class="t-en">Track. Report. <span class="highlight">Transform.</span></span>
-                </h1>
+    <section class="hero min-h-screen flex items-center relative z-10">
+        <div class="hero-accent-line"></div>
+        
+        <div class="hero-content ml-auto mr-8 md:mr-16 lg:mr-24 text-right max-w-2xl pt-20">
+            <h1 class="text-[clamp(3rem,10vw,8rem)] font-black mb-8">
+                <span class="hero-line" style="color: var(--c-grey);">INTELLIGENT</span>
+                <span class="hero-line outline-text">CLIMATE</span>
+                <span class="hero-line" style="color: var(--c-green);">FINANCE</span>
+            </h1>
+            
+            <p class="hero-description max-w-md ml-auto text-lg font-medium leading-relaxed mb-8 text-gray-600">
+                The definitive technology for LATAM banks and fintechs.
+                We convert transactions into ESG data complying with global standards (ISSB, GHG Protocol).
+            </p>
+
+            <div class="hero-cta">
+                <a href="#features" class="btn-brand">VIEW TECHNOLOGY</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="ticker-wrap reveal">
+        <div class="ticker">
+            <div class="ticker-item">RASTROCERO API <span>●</span></div>
+            <div class="ticker-item">LATENCY &lt; 200ms <span>●</span></div>
+            <div class="ticker-item">AUTOMATED COMPLIANCE <span>●</span></div>
+            <div class="ticker-item">LATAM MODELS <span>●</span></div>
+            <div class="ticker-item">SCOPE 3 REPORTING <span>●</span></div>
+            <div class="ticker-item">RASTROCERO API <span>●</span></div>
+            <div class="ticker-item">LATENCY &lt; 200ms <span>●</span></div>
+            <div class="ticker-item">AUTOMATED COMPLIANCE <span>●</span></div>
+            <div class="ticker-item">LATAM MODELS <span>●</span></div>
+            <div class="ticker-item">SCOPE 3 REPORTING <span>●</span></div>
+        </div>
+    </div>
+
+    <section class="py-24 md:py-32 relative z-10 section-problem">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight normal-case" style="letter-spacing: -1px; line-height: 1.1;">
+                        Banking's <br>
+                        <span class="text-gray-400">Blind Spot.</span>
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Financial institutions process millions of transactions daily, but ignore their environmental impact. 
+                        <strong class="text-gray-800">RastroCero turns empty financial data into actionable ESG intelligence.</strong>
+                    </p>
+                    <ul class="space-y-4 mt-8">
+                        <li class="flex items-center gap-4">
+                            <span class="w-1 h-12 bg-red-500 block rounded"></span>
+                            <div>
+                                <strong class="block text-gray-800">Imminent Regulation</strong>
+                                <span class="text-sm text-gray-500">ISSB Standards and local Taxonomies require Scope 3 reporting.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-1 h-12 bg-rcGreen block rounded"></span>
+                            <div>
+                                <strong class="block text-gray-800">User Demand</strong>
+                                <span class="text-sm text-gray-500">73% of users prefer banks with a climate commitment.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 
-                <p class="hero-subtitle">
-                    <span class="t-es">Plataforma líder en Latinoamérica para que los bancos midan su <strong>huella de carbono</strong> y generen <strong>reportes ESG</strong> para acceder a financiamiento sostenible. Automatizamos el proceso completo.</span>
-                    <span class="t-en">Latin America’s leading platform for banks to measure their <strong>carbon footprint</strong> and generate <strong>ESG reports</strong> to access sustainable finance. We automate the end-to-end process.</span>
-                </p>
-                
-                <div class="hero-buttons">
-                    <!-- ES -->
-                    <a href="#demo" class="btn btn-primary t-es">Ver producto</a>
-                    <a href="#como-funciona" class="btn btn-outline t-es">¿Cómo funciona?</a>
-                    <!-- EN -->
-                    <a href="#en-demo" class="btn btn-primary t-en">See product</a>
-                    <a href="#en-como-funciona" class="btn btn-outline t-en">How it works</a>
+                <div class="reveal-right">
+                    <div class="relative h-[400px] w-full glass-panel rounded-2xl flex items-center justify-center overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-rcGreen/10 via-white to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                        
+                       <div class="relative z-10 w-64 h-40 bg-white rounded-xl border border-gray-200 shadow-2xl transform rotate-[-6deg] group-hover:rotate-0 group-hover:scale-105 transition-all duration-500 flex flex-col justify-between p-4">
+
+                            <div class="flex justify-between items-start">
+                                <div class="w-8 h-5 bg-gray-300 rounded"></div>
+                                <div class="text-xs font-mono text-gray-400">Debit</div>
+                            </div>
+                            <div class="font-mono text-gray-500 tracking-widest text-sm">**** 4291</div>
+                        </div>
+
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none">
+                            <span class="absolute top-[30%] right-[20%] text-rcGreen font-mono text-xs opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 delay-100 font-bold">+2.4kg CO2e</span>
+                            <span class="absolute bottom-[30%] left-[20%] text-rcGreen font-mono text-xs opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 delay-200 font-bold">Transport</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
-
-    <main>
-        <!-- Ancla equivalente en EN para mantener el idioma al navegar -->
-        <span id="en-como-funciona" class="lang-anchor" aria-hidden="true"></span>
-
-        <section class="section" id="como-funciona">
-            <div class="container">
-                <div class="section-header">
-                    <h2>
-                      <span class="t-es">Cómo Automatizamos la Huella de Carbono para Bancos</span>
-                      <span class="t-en">How We Automate Carbon Accounting for Banks</span>
-                    </h2>
-                    <p class="section-subtitle">
-                      <span class="t-es">Tres pasos simples: conectamos tu core, calculamos las emisiones y generas reportes bajo estándares globales.</span>
-                      <span class="t-en">Three simple steps: connect your core, calculate emissions, and generate reports aligned to global standards.</span>
-                    </p>
-                </div>
-                
-                <ol class="steps">
-                    <li class="step">
-                        <div class="step-number">1</div>
-                        <h3>
-                          <span class="t-es">Conexión Segura con tu Sistema</span>
-                          <span class="t-en">Secure Connection to Your Core</span>
-                        </h3>
-                        <p>
-                          <span class="t-es">Una sola integración vía API con tu core bancario. Seguro, rápido y sin alterar tu operación actual.</span>
-                          <span class="t-en">A single API integration with your banking core. Secure, fast, and without disrupting your current operations.</span>
-                        </p>
-                    </li>
-                    <li class="step">
-                        <div class="step-number">2</div>
-                        <h3>
-                          <span class="t-es">Cálculo Automático de Emisiones</span>
-                          <span class="t-en">Automatic Emissions Calculation</span>
-                        </h3>
-                        <p>
-                          <span class="t-es">Cada transacción se analiza para asignarle una huella de CO₂ precisa, basada en metodologías como PCAF.</span>
-                          <span class="t-en">Every transaction is analyzed to assign a precise CO₂ footprint, based on methodologies like PCAF.</span>
-                        </p>
-                    </li>
-                    <li class="step">
-                        <div class="step-number">3</div>
-                        <h3>
-                          <span class="t-es">Generación de Reportes Estándar</span>
-                          <span class="t-en">Standardized Report Generation</span>
-                        </h3>
-                        <p>
-                          <span class="t-es">Reportes listos para <strong>ISSB, GHG Protocol</strong> y otros estándares que exigen los inversionistas y reguladores.</span>
-                          <span class="t-en">Reports ready for <strong>ISSB, GHG Protocol</strong>, and other standards required by investors and regulators.</span>
-                        </p>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>
-                      <span class="t-es">La Diferencia: Solución Técnica, no Consultoría</span>
-                      <span class="t-en">The Difference: A Product, Not Months of Consulting</span>
-                    </h2>
-                    <p class="section-subtitle">
-                      <span class="t-es">Otros venden consultoría por meses. Nosotros te damos una solución tecnológica que funciona desde el primer día.</span>
-                      <span class="t-en">Others sell months of consulting. We deliver a technology solution that works from day one.</span>
-                    </p>
-                </div>
-                
-                <ul class="benefits-modern">
-                    <li class="benefit-modern">
-                        <div class="benefit-number">01</div>
-                        <h3>
-                          <span class="t-es">Implementación Rápida y Enfocada</span>
-                          <span class="t-en">Fast, Focused Implementation</span>
-                        </h3>
-                        <p>
-                          <span class="t-es">Una integración API seria toma tiempo, pero no 6 meses. Conectamos, calibramos los cálculos y empiezas a generar reportes de sostenibilidad.</span>
-                          <span class="t-en">A serious API integration takes time—but not six months. We connect, calibrate, and you start producing sustainability reports.</span>
-                        </p>
-                    </li>
-                    <li class="benefit-modern">
-                        <div class="benefit-number">02</div>
-                        <h3>
-                          <span class="t-es">Cumplimiento con Estándares Globales</span>
-                          <span class="t-en">Aligned to Global Standards</span>
-                        </h3>
-                        <p>
-                          <span class="t-es">Nos enfocamos en los estándares que realmente importan: <strong>ISSB</strong> para fondos internacionales, <strong>GHG Protocol</strong> como estándar de oro y <strong>PCAF</strong> para emisiones financiadas.</span>
-                          <span class="t-en">We focus on the standards that truly matter: <strong>ISSB</strong> for international funds, <strong>GHG Protocol</strong> as the gold standard, and <strong>PCAF</strong> for financed emissions.</span>
-                        </p>
-                    </li>
-                    <li class="benefit-modern">
-                        <div class="benefit-number">03</div>
-                        <h3>
-                          <span class="t-es">ROI Medible en Financiamiento Sostenible</span>
-                          <span class="t-en">Measurable ROI via Sustainable Finance</span>
-                        </h3>
-                        <p>
-                          <span class="t-es">Bancos con reportes ESG sólidos acceden a mejores condiciones. El mercado de bonos verdes en LATAM está en pleno auge. Nuestras métricas te posicionan para capturar estas oportunidades.</span>
-                          <span class="t-en">Banks with robust ESG reports access better terms. LATAM’s green-bond market is booming. Our metrics position you to capture these opportunities.</span>
-                        </p>
-                    </li>
-                    <li class="benefit-modern">
-                        <div class="benefit-number">04</div>
-                        <h3>
-                          <span class="t-es">Soporte Experto en la Banca de LATAM</span>
-                          <span class="t-en">LATAM Banking Expertise</span>
-                        </h3>
-                        <p>
-                          <span class="t-es">Entendemos las regulaciones locales, los sistemas legacy y las realidades operativas de la región. No es una solución europea adaptada, es una creada para Latinoamérica.</span>
-                          <span class="t-en">We understand local regulations, legacy systems, and the region’s realities. Not a European solution adapted—built for Latin America.</span>
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Ancla equivalente en EN para mantener el idioma al navegar -->
-        <span id="en-demo" class="lang-anchor" aria-hidden="true"></span>
-
-        <section class="section demo-section" id="demo">
-            <div class="container">
-                <div class="section-header">
-                    <h2>
-                      <span class="t-es">Nuestro Producto: La Plataforma RastroCero</span>
-                      <span class="t-en">Our Product: The RastroCero Platform</span>
-                    </h2>
-                    <p class="section-subtitle">
-                      <span class="t-es">Herramientas integradas para automatizar completamente tus reportes de sostenibilidad y cálculo de emisiones.</span>
-                      <span class="t-en">Integrated tools to fully automate your sustainability reporting and emissions calculations.</span>
-                    </p>
-                </div>
-                
-                <div class="product-showcase-redesign">
-                    <div class="product-block" data-product="1">
-                        <div class="product-content-side">
-                            <div class="product-number">01</div>
-                            <h3>
-                              <span class="t-es">App Bancaria con Impacto ESG</span>
-                              <span class="t-en">Banking App with ESG Impact</span>
-                            </h3>
-                            <p>
-                              <span class="t-es">Tus clientes ven el CO₂ de cada transacción en tiempo real. Transparencia que construye lealtad y posiciona tu banco como líder en sostenibilidad en el sector financiero.</span>
-                              <span class="t-en">Your customers see CO₂ per transaction in real-time. Transparency that builds loyalty and positions your bank as a sustainability leader.</span>
-                            </p>
-                            <div class="product-stats"></div>
-                        </div>
-                        <div class="product-visual-side">
-                            <div class="image-container">
-                                <img src="img/bankapp.png" alt="App de banco mostrando huella de carbono por transacción" width="800" height="600" loading="lazy" />
-                                <div class="image-glow"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-block reverse" data-product="2">
-                        <div class="product-content-side">
-                            <div class="product-number">02</div>
-                            <h3>
-                              <span class="t-es">Calculadora de Emisiones Financiadas</span>
-                              <span class="t-en">Financed Emissions Calculator</span>
-                            </h3>
-                            <p>
-                              <span class="t-es">Automatiza el cálculo de Alcance 1, 2 y 3 (incluyendo emisiones financiadas) según estándares ISSB y GHG Protocol. Los datos que necesitas para el financiamiento sostenible, generados automáticamente.</span>
-                              <span class="t-en">Automates Scope 1, 2, and 3 (including financed emissions) aligned with ISSB and GHG Protocol. The data you need for sustainable finance, generated automatically.</span>
-                            </p>
-                            <div class="product-quote">
-                                <span class="t-es">"La automatización de RastroCero nos ahorró meses de trabajo manual en nuestros reportes."</span>
-                                <span class="t-en">“RastroCero’s automation saved us months of manual work on our reports.”</span>
-                            </div>
-                        </div>
-                        <div class="product-visual-side">
-                            <div class="image-container">
-                                <img src="img/calculator.png" alt="Calculadora de emisiones de carbono para portafolios bancarios" width="800" height="600" loading="lazy" />
-                                <div class="image-glow"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-block" data-product="3">
-                        <div class="product-content-side">
-                            <div class="product-number">03</div>
-                            <h3>
-                              <span class="t-es">Dashboard de Reportes ESG</span>
-                              <span class="t-en">ESG Reporting Dashboard</span>
-                            </h3>
-                            <p>
-                              <span class="t-es">Reportes automáticos listos para inversionistas, directorios y reguladores. Métricas ESG consolidadas que abren las puertas a bonos verdes y mejores condiciones de financiamiento.</span>
-                              <span class="t-en">Automated reports ready for investors, boards, and regulators. Consolidated ESG metrics that unlock green bonds and better financing terms.</span>
-                            </p>
-                            <div class="product-benefits"></div>
-                        </div>
-                        <div class="product-visual-side">
-                            <div class="image-container desktop-view">
-                                <img src="img/dashboard.png" alt="Dashboard ejecutivo con métricas de sostenibilidad y ESG" width="1200" height="750" loading="lazy" />
-                                <div class="image-glow"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <figure class="testimonial">
-                    <blockquote>
-                        <span class="t-es">"RastroCero es una propuesta innovadora para automatizar reportes ESG. Su enfoque y visión están generando gran interés entre las instituciones financieras."</span>
-                        <span class="t-en">“RastroCero is an innovative proposal to automate ESG reporting. Its approach and vision are generating strong interest among financial institutions.”</span>
-                    </blockquote>
-                    <figcaption>
-                        <span class="t-es">— Director de Sostenibilidad, Institución Financiera en LATAM</span>
-                        <span class="t-en">— Sustainability Director, Financial Institution in LATAM</span>
-                    </figcaption>
-                </figure>
-            </div>
-        </section>
-    </main>
-
-    <section class="cta-final">
-        <!-- sin contenido en la fuente original -->
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <video autoplay muted loop playsinline>
-                        <source src="img/output_transparent.webm" type="video/webm">
-                    </video>
+    <section id="products" class="py-24 md:py-32 relative z-10">
+        <div class="container mx-auto px-6 mb-16">
+            <p class="text-rcGreen font-semibold mb-3 reveal">Complete Ecosystem</p>
+            <h2 class="text-4xl md:text-6xl font-black leading-tight max-w-3xl reveal normal-case" style="letter-spacing: -1px; line-height: 1.1;">
+                Three interfaces.<br>
+                <span class="text-gray-400">One goal.</span>
+            </h2>
+        </div>
+
+        <div class="product-row container mx-auto px-6 mb-24">
+            <div class="grid lg:grid-cols-5 gap-8 items-center">
+                <div class="lg:col-span-3 order-2 lg:order-1 reveal-left">
+                    <div class="product-card-wrapper group cursor-pointer" onmousemove="updateProductGlow(event, this)">
+                        <div class="product-card-inner">
+                            <div class="shine-effect"></div>
+                            <div class="aspect-video bg-gray-100 overflow-hidden">
+                                <img src="img/dashboard.png" alt="RastroCero Dashboard" class="product-img">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <!-- ES -->
-                    <a href="#como-funciona" class="t-es">¿Cómo funciona?</a>
-                    <a href="#demo" class="t-es">Producto</a>
 
-                    <!-- EN -->
-                    <a href="#en-como-funciona" class="t-en">How it works</a>
-                    <a href="#en-demo" class="t-en">Product</a>
-
-                    <!-- Externos (duales en texto) -->
-                    <a href="terminos.html">
-                      <span class="t-es">Términos</span><span class="t-en">Terms</span>
-                    </a>
-                    <a href="privacidad.html">
-                      <span class="t-es">Privacidad</span><span class="t-en">Privacy</span>
-                    </a>
+                <div class="lg:col-span-2 order-1 lg:order-2 reveal-right">
+                    <div class="lg:pl-8">
+                        <span class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Dashboard</span>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">Total control for sustainability teams</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                            Visualize real-time emissions, generate ISSB-compliant reports, and monitor your portfolio's reduction progress.
+                        </p>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
+                                Exportable automated reports
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
+                                Segmentation by category and period
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
+                                Multi-user with roles
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="footer-copyright">
-                <p>
-                  <span class="t-es">&copy; 2025 RastroCero E.A.S. Todos los derechos reservados.</span>
-                  <span class="t-en">&copy; 2025 RastroCero E.A.S. All rights reserved.</span>
+        </div>
+
+        <div class="product-row relative mb-24">
+            <div class="absolute inset-0 bg-gradient-to-r from-rcGreen/5 via-transparent to-transparent pointer-events-none"></div>
+            
+            <div class="container mx-auto px-6 py-16">
+                <div class="grid lg:grid-cols-5 gap-8 items-center">
+                    <div class="lg:col-span-2 reveal-left">
+                        <div class="lg:pr-8">
+                            <span class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Enterprise Calculator</span>
+                            <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">Scope 1, 2, and 3 in minutes</h3>
+                            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                                Guided wizard for companies to calculate their full corporate footprint. From energy consumption to vehicle fleet.
+                            </p>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-center gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
+                                    Updated LATAM emission factors
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
+                                    Direct and indirect emissions
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
+                                    Certified PDF export
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-3 reveal-right">
+                        <div class="product-card-wrapper group cursor-pointer" onmousemove="updateProductGlow(event, this)">
+                            <div class="product-card-inner">
+                                <div class="shine-effect"></div>
+                                <div class="aspect-video bg-gray-100 overflow-hidden">
+                                    <img src="img/calculator.png" alt="RastroCero Enterprise Calculator" class="product-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-row container mx-auto px-6">
+  <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <div class="relative flex justify-center reveal-left">
+      <div class="product-card-wrapper group cursor-pointer w-full max-w-xl"
+           onmousemove="updateProductGlow(event, this)">
+        <div class="product-card-inner flex items-center justify-center bg-[#f5f6f7]">
+          <div class="shine-effect"></div>
+          <img
+            src="img/bankapp.png"
+            alt="RastroCero Mobile SDK"
+            class="product-img w-auto max-w-full max-h-[460px] mx-auto"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal-right">
+      <span class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Mobile SDK</span>
+      <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">Carbon footprint in every transaction</h3>
+      <p class="text-gray-600 text-lg leading-relaxed mb-6">
+        Native components that integrate into your existing banking app. Your users see the impact of every purchase without leaving their usual flow.
+      </p>
+      <div class="grid grid-cols-2 gap-4 mt-8">
+        <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl font-black text-rcGreen mb-1">3 days</div>
+          <p class="text-sm text-gray-500">Average integration</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div class="text-2xl font-black text-rcGreen mb-1">iOS + Android</div>
+          <p class="text-sm text-gray-500">Native SDKs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </section>
+
+    <section id="features" class="py-24 md:py-32 relative z-10 bg-gray-50/80">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-2xl reveal">
+                    <span class="text-rcGreen font-mono text-xs font-bold tracking-widest uppercase mb-2 block">System Architecture</span>
+                    <h2 class="text-3xl md:text-5xl font-black mb-4 normal-case" style="letter-spacing: -1px;">Climate Intelligence Engine</h2>
+                    <p class="text-gray-600 text-lg">
+                        Infrastructure designed for regulatory precision and banking scale. 
+                        It's not just a calculator, it's a sustainability operating system.
+                    </p>
+                </div>
+                <div class="hidden md:flex gap-4 font-mono text-xs text-gray-400 border-l border-gray-300 pl-6 reveal-right">
+                    <div>
+                        <span class="block text-gray-400">VERSION</span>
+                        <span class="text-rcGreen font-bold">v2.4.0-stable</span>
+                    </div>
+                    <div>
+                        <span class="block text-gray-400">UPTIME</span>
+                        <span class="text-gray-800 font-bold">99.99%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6" id="cards-container">
+                
+                <div class="lg:col-span-7 reveal">
+                    <div class="spotlight-card h-full rounded-3xl p-8 relative group flex flex-col">
+                        <div class="spotlight-border rounded-3xl"></div>
+                        
+                        <div class="flex justify-between items-start mb-8 relative z-10">
+                            <div>
+                                <div class="w-10 h-10 bg-rcGreen/20 rounded-lg flex items-center justify-center mb-4 text-rcGreen text-xl">🌍</div>
+                                <h3 class="text-2xl font-bold">LATAM Regional Models</h3>
+                                <p class="text-gray-500 text-sm mt-2 max-w-md">
+                                    Emission factors specifically calibrated for the energy mix and Latin American economy.
+                                </p>
+                            </div>
+                            <span class="px-3 py-1 bg-rcGreen/10 text-rcGreen text-xs font-mono rounded border border-rcGreen/20 animate-pulse font-bold">LIVE DATA</span>
+                        </div>
+
+                        <div class="flex-grow bg-gray-100 rounded-xl border border-gray-200 p-6 relative z-10 overflow-hidden flex flex-col justify-center">
+                            <div class="space-y-4 relative z-10 font-mono text-sm">
+                                <div class="flex items-center justify-between group/row cursor-default">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-2 h-2 rounded-full bg-rcGreen shadow-[0_0_10px_#79ce55]"></div>
+                                        <span class="text-gray-800 font-bold">BR-SaoPaulo</span>
+                                    </div>
+                                    <div class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors"></div>
+                                    <span class="text-gray-500 text-xs">EF: 0.082 kg/kWh</span>
+                                </div>
+                                <div class="flex items-center justify-between group/row cursor-default">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-2 h-2 rounded-full bg-rcGreen shadow-[0_0_10px_#79ce55]"></div>
+                                        <span class="text-gray-800 font-bold">MX-Queretaro</span>
+                                    </div>
+                                    <div class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors"></div>
+                                    <span class="text-gray-500 text-xs">EF: 0.435 kg/kWh</span>
+                                </div>
+                                <div class="flex items-center justify-between group/row cursor-default">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-2 h-2 rounded-full bg-rcGreen shadow-[0_0_10px_#79ce55]"></div>
+                                        <span class="text-gray-800 font-bold">CO-Bogota</span>
+                                    </div>
+                                    <div class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors"></div>
+                                    <span class="text-gray-500 text-xs">EF: 0.164 kg/kWh</span>
+                                </div>
+                                <div class="flex items-center justify-between group/row cursor-default">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-2 h-2 rounded-full bg-rcGreen shadow-[0_0_10px_#79ce55]"></div>
+                                        <span class="text-gray-800 font-bold">PY-Asuncion</span>
+                                    </div>
+                                    <div class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors"></div>
+                                    <span class="text-gray-500 text-xs">EF: 0.000 kg/kWh</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex flex-col gap-6">
+                    
+                    <div class="spotlight-card flex-1 rounded-3xl p-8 relative group flex flex-col justify-center overflow-hidden reveal-right">
+                        <div class="spotlight-border rounded-3xl"></div>
+                        <div class="absolute right-0 top-0 w-32 h-32 bg-rcGreen/10 blur-[50px] rounded-full pointer-events-none"></div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex items-baseline gap-2 mb-2">
+                                <h3 class="text-6xl font-black tracking-tighter">200</h3>
+                                <span class="text-rcGreen font-mono font-bold text-xl">ms</span>
+                            </div>
+                            <p class="font-bold text-lg mb-1">Ultra-low Latency</p>
+                            <p class="text-gray-500 text-sm leading-relaxed">
+                                API optimized in Edge Locations. The footprint is calculated before the transaction renders on screen.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 grid grid-cols-2 gap-6">
+                        
+                        <div class="spotlight-card rounded-3xl p-6 relative group flex flex-col justify-between reveal">
+                            <div class="spotlight-border rounded-3xl"></div>
+                            <div class="relative z-10">
+                                <div class="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center mb-3 text-lg">✓</div>
+                                <h4 class="font-bold mb-3">Compliance</h4>
+                                <ul class="text-xs text-gray-500 space-y-2 font-mono">
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1 h-1 bg-rcGreen rounded-full"></span> ISSB/IFRS
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1 h-1 bg-rcGreen rounded-full"></span> GHG Protocol
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-1 h-1 bg-rcGreen rounded-full"></span> PCAF Std
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="spotlight-card rounded-3xl p-6 relative group flex flex-col justify-between reveal">
+                            <div class="spotlight-border rounded-3xl"></div>
+                            <div class="relative z-10">
+                                <div class="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center mb-3 text-lg">⚖️</div>
+                                <h4 class="font-bold mb-2">Offset API</h4>
+                                <p class="text-xs text-gray-500 mb-4">
+                                    Integrated marketplace for verified carbon credits.
+                                </p>
+                                <div class="mt-auto">
+                                    <span class="text-[10px] font-mono text-rcGreen border border-rcGreen/30 px-2 py-1 rounded bg-rcGreen/5 font-bold">COMING SOON</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="developers" class="py-24 md:py-32 relative z-10 bg-gray-50/80">
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
+            
+            <div class="lg:w-1/2 reveal-left">
+                <p class="text-rcGreen font-semibold mb-4">For Technical Teams</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 normal-case" style="letter-spacing: -1px;">Integration in an afternoon,<br>not months.</h2>
+                <p class="text-gray-600 mb-8 text-lg">
+                    Documented RESTful API, SDKs for common languages, and a Sandbox environment ready to use.
                 </p>
+                <div class="flex flex-col gap-4">
+                    <div class="group flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:bg-white hover:border-rcGreen/30 transition-all cursor-pointer bg-white/50">
+                        <div class="bg-blue-100 text-blue-600 px-2 py-1 rounded font-mono text-xs font-bold">GET</div>
+                        <span class="font-mono text-sm text-gray-600 group-hover:text-gray-800">/v1/carbon/estimate</span>
+                    </div>
+                    <div class="group flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:bg-white hover:border-rcGreen/30 transition-all cursor-pointer bg-white/50">
+                        <div class="bg-green-100 text-green-600 px-2 py-1 rounded font-mono text-xs font-bold">POST</div>
+                        <span class="font-mono text-sm text-gray-600 group-hover:text-gray-800">/v1/transactions/enrich</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 w-full reveal-right">
+                <div class="code-terminal shadow-2xl transform transition-transform hover:rotate-1 hover:scale-[1.02] duration-500">
+                    <div class="terminal-header">
+                        <div class="terminal-dot bg-red-500"></div>
+                        <div class="terminal-dot bg-yellow-500"></div>
+                        <div class="terminal-dot bg-green-500"></div>
+                        <span class="ml-4 text-gray-500 text-xs">api.rastrocero.com — bash</span>
+                    </div>
+                    <div class="p-6 text-gray-300 min-h-[300px] bg-[#1a1a1a]">
+                        <div class="flex mb-4">
+                            <span class="text-rcGreen mr-2 font-bold">➜</span>
+                            <span class="text-blue-400 mr-2">~</span>
+                            <span>curl -X POST https://api.rastrocero.com/v1/enrich</span>
+                        </div>
+                        
+                        <div id="typewriter-output" class="text-gray-400 whitespace-pre-wrap"></div>
+                        <span class="inline-block w-2 h-4 bg-rcGreen cursor-blink align-middle"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="py-24 md:py-32 relative z-10">
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter normal-case reveal" style="letter-spacing: -2px;">
+                The climate infrastructure<br>LATAM needs.
+            </h2>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 reveal">
+                <a href="#" class="px-10 py-5 bg-gray-800 text-white text-lg font-bold rounded-full hover:scale-105 transition-transform shadow-2xl">
+                    Start Integration
+                </a>
+                <a href="#" class="px-10 py-5 border-2 border-gray-800 text-gray-800 text-lg font-bold rounded-full hover:bg-gray-800 hover:text-white transition-colors">
+                    Contact Sales
+                </a>
+            </div>
+
+            <div class="mt-24 border-t border-black/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-semibold opacity-60 reveal">
+                <p>&copy; 2025 RastroCero Inc.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:underline">LinkedIn</a>
+                    <a href="#" class="hover:underline">Github</a>
+                    <a href="#" class="hover:underline">Privacy Policy</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <script>
+        // ====== DYNAMIC SVG SIZING ======
+        function updateSVGSize() {
+            const svg = document.getElementById('background-svg');
+            const pageHeight = document.documentElement.scrollHeight;
+            const pageWidth = window.innerWidth;
+            svg.setAttribute('viewBox', `0 0 ${Math.min(700, pageWidth * 0.5)} ${pageHeight}`);
+            svg.style.height = pageHeight + 'px';
+            svg.style.width = '50%';
+        }
+
+        updateSVGSize();
+        window.addEventListener('resize', updateSVGSize);
+        window.addEventListener('load', updateSVGSize);
+        setTimeout(updateSVGSize, 100);
+        setTimeout(updateSVGSize, 500);
+        setTimeout(updateSVGSize, 1000);
+
+        // ====== GSAP ANIMATIONS ======
+        gsap.registerPlugin(ScrollTrigger);
+
+        // HERO TIMELINE
+        const heroTimeline = gsap.timeline({
+            defaults: { duration: 0.8, ease: "power3.out" }
+        });
+
+        heroTimeline
+            .to(".hero-line", {
+                y: 0,
+                opacity: 1,
+                stagger: 0.12
+            }, 0)
+            .to(".hero-description", {
+                y: 0,
+                opacity: 1
+            }, "-=0.35")
+            .to(".hero-cta", {
+                y: 0,
+                opacity: 1
+            }, "-=0.25")
+            .to(".hero-accent-line", {
+                scaleX: 1,
+                duration: 0.6,
+                ease: "power2.out"
+            }, "-=0.4");
+
+        // SVG PARALLAX
+        gsap.to("#background-svg", {
+            yPercent: -8,
+            ease: "none",
+            scrollTrigger: {
+                trigger: document.body,
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true
+            }
+        });
+
+        // ====== REVEAL ANIMATIONS (IntersectionObserver) ======
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, delay);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ====== NAV SCROLL ======
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // ====== SPOTLIGHT EFFECT ======
+        const cardsContainer = document.getElementById("cards-container");
+        const cards = document.querySelectorAll(".spotlight-card");
+
+        if (cardsContainer) {
+            cardsContainer.addEventListener('mousemove', (e) => {
+                cards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty("--mouse-x", `${x}px`);
+                    card.style.setProperty("--mouse-y", `${y}px`);
+                });
+            });
+        }
+
+        // ====== PRODUCT GLOW ======
+        window.updateProductGlow = function(e, card) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+        };
+
+        // ====== TYPEWRITER EFFECT ======
+        const codeText = `{
+ "transaction_id": "tx_89234js",
+ "co2_grams": 1250.4,
+ "category": "Groceries",
+ "impact_level": "High",
+ "offset_cost": 0.04
+}`;
+        let charIndex = 0;
+        const speed = 25;
+        const outputElement = document.getElementById("typewriter-output");
+        let hasTyped = false;
+
+        function typeWriter() {
+            if (charIndex < codeText.length) {
+                outputElement.innerHTML += codeText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        ScrollTrigger.create({
+            trigger: "#developers",
+            start: "top 70%",
+            onEnter: () => {
+                if (!hasTyped) {
+                    typeWriter();
+                    hasTyped = true;
+                }
+            }
+        });
+
+        // ====== PRODUCT GSAP ANIMATIONS ======
+        const productRows = document.querySelectorAll('.product-row');
+
+        productRows.forEach((row) => {
+            const imageWrapper = row.querySelector('.product-card-wrapper');
+            
+            if (imageWrapper) {
+                gsap.set(imageWrapper, { 
+                    scale: 0.95,
+                    opacity: 0,
+                    y: 50,
+                    transformOrigin: "center center"
+                });
+                
+                gsap.to(imageWrapper, {
+                    scrollTrigger: {
+                        trigger: row,
+                        start: "top 80%",
+                        end: "top 30%",
+                        scrub: 1
+                    },
+                    scale: 1,
+                    opacity: 1,
+                    y: 0,
+                    ease: "power2.out"
+                });
+            }
+        });
+    </script>
 </body>
 </html>
