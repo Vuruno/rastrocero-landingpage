@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <link rel="icon" type="image/x-icon" href="img/icon-11.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RastroCero | Climate Intelligence for Fintechs</title>
@@ -96,8 +95,8 @@
             transform-origin: center;
         }
         
-        .sparkle,
-        .pulse-node {
+        /* Desactivar animaciones pesadas en móvil para mejor rendimiento */
+        .sparkle, .pulse-node {
             animation: none !important;
             display: none !important; 
         }
@@ -151,7 +150,6 @@
             display: inline-block;
             background: var(--c-grey);
             color: var(--c-white);
-            padding: 1rem 2.5rem;
             text-decoration: none;
             font-weight: 800;
             border-radius: 50px;
@@ -159,6 +157,7 @@
             border: 2px solid var(--c-grey);
             position: relative;
             overflow: hidden;
+            white-space: nowrap;
         }
 
         .btn-brand::before {
@@ -187,41 +186,27 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: center; 
             z-index: 100;
-            background: rgba(252, 252, 252, 0.8);
+            background: rgba(252, 252, 252, 0.9);
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            box-sizing: border-box;
+            max-width: 100vw;
+            overflow-x: hidden;
         }
 
         nav.scrolled {
-            padding: 1rem 2rem;
             box-shadow: 0 4px 30px rgba(0,0,0,0.05);
         }
 
         .brand-logo {
-            height: 50px;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: var(--c-grey);
             text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--c-green);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
         }
 
         /* ====== TICKER ====== */
@@ -477,9 +462,9 @@
 
         /* ====== HERO REFINEMENT v2 ====== */
         .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 5.5rem) !important;
+            font-size: clamp(3rem, 10vw, 5.5rem) !important; 
             letter-spacing: -0.05em;
-            line-height: 0.9;
+            line-height: 0.95;
         }
 
         .hero-line {
@@ -501,28 +486,32 @@
             transform-origin: right center;
             animation: none !important;
         }
-
-        /* ====== RESPONSIVE ====== */
+        #trees-layer {
+            display: none !important;
+        }
+        /* ====== RESPONSIVE TWEAKS ====== */
         @media (max-width: 1024px) {
-            .hero-content {
-                text-align: center !important;
-                max-width: 100% !important;
-                margin-left: 0 !important;
-            }
-            .hero h1 {
-                font-size: 3.5rem !important;
-            }
             .hero-accent-line {
                 display: none;
             }
         }
-
+        
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem !important; }
-            nav { padding: 1rem; }
-        }
-        #trees-layer {
-            display: none;
+            nav {
+                padding: 0.8rem 1.5rem !important;
+            }
+            .hero h1 { 
+                font-size: 2.8rem !important; 
+            }
+            
+            /* Ocultar elementos flotantes en Mobile */
+            #trees-layer,
+            #clouds-layer,
+            #buildings-layer,
+            #mountains-layer,
+            #sparkles-layer {
+                display: none !important;
+            }
         }
     </style>
 </head>
@@ -690,35 +679,39 @@
         </svg>
     </div>
 
-    <nav id="navbar">
-        <a href="#" class="brand-logo">
-            <img src="img/logo2.png" alt="RastroCero" class="h-14 w-auto">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 md:px-12 md:py-6 transition-all duration-300 box-border bg-white/90 backdrop-blur-md">
+        <a href="#" class="brand-logo flex-shrink-0">
+            <img src="logo2.png" alt="RastroCero" class="h-12 md:h-14 w-auto object-contain">
         </a>
+        
         <div class="hidden md:flex gap-8 text-xs font-bold tracking-widest text-gray-500">
             <a href="#products" class="hover:text-rcGreen transition-colors">PRODUCTS</a>
             <a href="#features" class="hover:text-rcGreen transition-colors">CAPABILITIES</a>
             <a href="#developers" class="hover:text-rcGreen transition-colors">DEVELOPERS</a>
         </div>
-        <a href="#developers" class="btn-brand text-sm">API ACCESS</a>
+
+        <a href="#developers" class="btn-brand text-xs font-black tracking-wide px-5 py-3 md:text-sm md:px-10 md:py-4 flex-shrink-0">
+            API ACCESS
+        </a>
     </nav>
 
     <section class="hero min-h-screen flex items-center relative z-10">
         <div class="hero-accent-line"></div>
         
-        <div class="hero-content ml-auto mr-8 md:mr-16 lg:mr-24 text-right max-w-2xl pt-20">
-            <h1 class="text-[clamp(3rem,10vw,8rem)] font-black mb-8">
+        <div class="hero-content w-full max-w-2xl px-6 pt-32 pb-12 mx-auto md:mr-16 lg:mr-24 md:ml-auto text-center md:text-right md:pt-20">
+            <h1 class="font-black mb-8">
                 <span class="hero-line" style="color: var(--c-grey);">INTELLIGENT</span>
                 <span class="hero-line outline-text">CLIMATE</span>
                 <span class="hero-line" style="color: var(--c-green);">FINANCE</span>
             </h1>
             
-            <p class="hero-description max-w-md ml-auto text-lg font-medium leading-relaxed mb-8 text-gray-600">
+            <p class="hero-description max-w-md mx-auto md:ml-auto md:mr-0 text-lg font-medium leading-relaxed mb-8 text-gray-600">
                 The definitive technology for LATAM banks and fintechs.
                 We convert transactions into ESG data complying with global standards (ISSB, GHG Protocol).
             </p>
 
             <div class="hero-cta">
-                <a href="#features" class="btn-brand">VIEW TECHNOLOGY</a>
+                <a href="#features" class="btn-brand inline-block px-8 py-4 text-sm font-bold">VIEW TECHNOLOGY</a>
             </div>
         </div>
     </section>
@@ -808,7 +801,7 @@
                         <div class="product-card-inner">
                             <div class="shine-effect"></div>
                             <div class="aspect-video bg-gray-100 overflow-hidden">
-                                <img src="img/dashboard.png" alt="RastroCero Dashboard" class="product-img">
+                                <img src="product-desktop.png" alt="RastroCero Dashboard" class="product-img">
                             </div>
                         </div>
                     </div>
@@ -874,7 +867,7 @@
                             <div class="product-card-inner">
                                 <div class="shine-effect"></div>
                                 <div class="aspect-video bg-gray-100 overflow-hidden">
-                                    <img src="img/calculator.png" alt="RastroCero Enterprise Calculator" class="product-img">
+                                    <img src="product-tablet.png" alt="RastroCero Enterprise Calculator" class="product-img">
                                 </div>
                             </div>
                         </div>
@@ -891,7 +884,7 @@
         <div class="product-card-inner flex items-center justify-center bg-[#f5f6f7]">
           <div class="shine-effect"></div>
           <img
-            src="img/bankapp.png"
+            src="product-mobile.png"
             alt="RastroCero Mobile SDK"
             class="product-img w-auto max-w-full max-h-[460px] mx-auto"
           />
