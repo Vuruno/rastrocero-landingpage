@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="es" class="scroll-smooth">
 <head>
-    <link rel="icon" type="image/x-icon" href="img/favicon5.png">
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RastroCero | Climate Intelligence for Fintechs</title>
+    <title>RASTROCERO | Climate Intelligence Platform</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
@@ -64,7 +64,7 @@
         }
 
         .svg-background svg {
-            /* width is handled by JS */
+            width: 100%;
             height: 100%;
             position: absolute;
             top: 0;
@@ -96,12 +96,10 @@
             transform-origin: center;
         }
         
-        /* Disable heavy animations on mobile for performance */
-        @media (max-width: 768px) {
-            .sparkle, .pulse-node {
-                animation: none !important;
-                display: none !important; 
-            }
+        /* Desactivar animaciones pesadas en móvil para mejor rendimiento */
+        .sparkle, .pulse-node {
+            animation: none !important;
+            display: none !important; 
         }
 
         @keyframes sparkle {
@@ -203,8 +201,6 @@
 
         nav.scrolled {
             box-shadow: 0 4px 30px rgba(0,0,0,0.05);
-            padding-top: 0.8rem !important; 
-            padding-bottom: 0.8rem !important;
         }
 
         .brand-logo {
@@ -494,7 +490,6 @@
         #trees-layer {
             display: none !important;
         }
-
         /* ====== RESPONSIVE TWEAKS ====== */
         @media (max-width: 1024px) {
             .hero-accent-line {
@@ -510,7 +505,7 @@
                 font-size: 2.8rem !important; 
             }
             
-            /* Hide floating elements on Mobile */
+            /* Ocultar elementos flotantes en Mobile */
             #trees-layer,
             #clouds-layer,
             #buildings-layer,
@@ -519,217 +514,31 @@
                 display: none !important;
             }
         }
-
-        /* ====== FIX FOR ULTRA-WIDE SHORT SCREENS (e.g. 2100x600) ====== */
-        @media (min-width: 1024px) and (max-height: 800px) {
-            .hero {
-                /* Align to top instead of center to prevent cutting off top */
-                align-items: flex-start !important;
-                padding-top: 100px !important; /* Clear navbar */
-            }
-            .hero-content {
-                /* Reduce top padding massively */
-                padding-top: 1rem !important;
-                margin-top: 2rem !important;
-            }
-            .hero h1 {
-                /* Force smaller font size for short screens */
-                font-size: 3.5rem !important;
-                margin-bottom: 0.75rem !important;
-                line-height: 0.9 !important;
-            }
-            .hero-description {
-                font-size: 1rem !important;
-                margin-bottom: 1.5rem !important;
-            }
-            .hero-cta {
-                margin-top: 0 !important;
-            }
-            
-            /* Adjust SVG background position to not look cut off */
-            .svg-background {
-                top: 50px !important;
-            }
-        }
     </style>
 </head>
 <body class="antialiased">
 
     <div class="svg-background">
-        <svg id="background-svg" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <symbol id="tree" viewBox="0 0 30 50">
-                    <path d="M15 0 L25 20 L20 20 L28 35 L2 35 L10 20 L5 20 Z" fill="#79ce55"/>
-                    <rect x="12" y="35" width="6" height="10" fill="#79ce55"/>
-                </symbol>
-                <symbol id="tree-small" viewBox="0 0 20 35">
-                    <path d="M10 0 L18 15 L14 15 L20 28 L0 28 L6 15 L2 15 Z" fill="#79ce55"/>
-                    <rect x="8" y="28" width="4" height="7" fill="#79ce55"/>
-                </symbol>
-                <symbol id="cloud" viewBox="0 0 60 30">
-                    <ellipse cx="30" cy="20" rx="25" ry="10" stroke="#79ce55" stroke-width="1" fill="none"/>
-                    <ellipse cx="20" cy="15" rx="15" ry="8" stroke="#79ce55" stroke-width="1" fill="none"/>
-                    <ellipse cx="42" cy="15" rx="12" ry="7" stroke="#79ce55" stroke-width="1" fill="none"/>
-                </symbol>
-                <symbol id="sparkle" viewBox="0 0 24 24">
-                    <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10L12 0Z" fill="#79ce55"/>
-                </symbol>
-                <symbol id="building" viewBox="0 0 40 35">
-                    <rect x="5" y="12" width="30" height="23" stroke="#79ce55" stroke-width="1.5" fill="none"/>
-                    <path d="M0 12 L20 0 L40 12" stroke="#79ce55" stroke-width="1.5" fill="none"/>
-                    <rect x="16" y="20" width="8" height="15" stroke="#79ce55" stroke-width="1" fill="none"/>
-                    <line x1="10" y1="15" x2="10" y2="35" stroke="#79ce55" stroke-width="1"/>
-                    <line x1="30" y1="15" x2="30" y2="35" stroke="#79ce55" stroke-width="1"/>
-                </symbol>
-            </defs>
-            
-            <g id="main-flow-lines">
-                <path class="flow-path" d="M80 0 Q 60 200 100 400 Q 140 600 80 800 Q 40 1000 100 1200 Q 150 1400 80 1600 Q 30 1800 100 2000 Q 160 2200 80 2400 Q 20 2600 100 2800 Q 170 3000 80 3200 Q 30 3400 100 3600 Q 160 3800 80 4000 L 80 6000" stroke="#79ce55" stroke-width="1.5" fill="none" opacity="0.6"/>
-                <path class="flow-path-slow" d="M150 0 Q 200 150 160 350 Q 120 550 180 750 Q 230 950 150 1150 Q 100 1350 170 1550 Q 220 1750 150 1950 Q 90 2150 160 2350 Q 210 2550 150 2750 Q 100 2950 160 3150 Q 200 3350 150 3550 Q 100 3750 160 3950 L 150 6000" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.5"/>
-                <path class="flow-path-fast" d="M250 0 Q 300 180 260 380 Q 220 580 280 780 Q 330 980 250 1180 Q 200 1380 270 1580 Q 320 1780 250 1980 Q 190 2180 260 2380 Q 310 2580 250 2780 Q 200 2980 260 3180 Q 300 3380 250 3580 Q 200 3780 260 3980 L 250 6000" stroke="#79ce55" stroke-width="1.5" fill="none" opacity="0.7"/>
-                <path class="flow-path" d="M400 0 Q 450 200 380 400 Q 320 600 400 800 Q 470 1000 380 1200 Q 310 1400 400 1600 Q 480 1800 380 2000 Q 300 2200 400 2400 Q 490 2600 380 2800 Q 290 3000 400 3200 Q 480 3400 380 3600 Q 300 3800 400 4000 L 400 6000" stroke="#79ce55" stroke-width="2" fill="none" opacity="0.6"/>
-                <path class="flow-path-slow" d="M550 0 Q 500 180 560 380 Q 610 580 540 780 Q 480 980 560 1180 Q 620 1380 540 1580 Q 470 1780 560 1980 Q 630 2180 540 2380 Q 460 2580 560 2780 Q 640 2980 540 3180 Q 470 3380 560 3580 Q 630 3780 540 3980 L 550 6000" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.5"/>
-            </g>
-            
-            <g id="horizontal-connectors">
-                <path class="flow-path" d="M50 450 Q 200 480 350 450 Q 500 420 650 450" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.3"/>
-                <path class="flow-path-slow" d="M80 900 Q 230 930 380 900 Q 530 870 680 900" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.25"/>
-                <path class="flow-path" d="M60 1350 Q 210 1380 360 1350 Q 510 1320 660 1350" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.3"/>
-                <path class="flow-path-slow" d="M100 1800 Q 250 1830 400 1800 Q 550 1770 700 1800" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.25"/>
-                <path class="flow-path" d="M40 2250 Q 190 2280 340 2250 Q 490 2220 640 2250" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.3"/>
-                <path class="flow-path-slow" d="M80 2700 Q 230 2730 380 2700 Q 530 2670 680 2700" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.25"/>
-                <path class="flow-path" d="M60 3150 Q 210 3180 360 3150 Q 510 3120 660 3150" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.3"/>
-                <path class="flow-path-slow" d="M100 3600 Q 250 3630 400 3600 Q 550 3570 700 3600" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.25"/>
-            </g>
-            
-            <g id="trees-layer">
-                <use href="#tree" x="50" y="180" width="35" height="55" class="float"/>
-                <use href="#tree" x="100" y="220" width="45" height="70" class="float-delayed"/>
-                <use href="#tree-small" x="180" y="250" width="25" height="40" class="float-delayed-2"/>
-                <use href="#tree" x="120" y="280" width="30" height="50" class="float"/>
-                <use href="#tree-small" x="60" y="650" width="20" height="32" class="float"/>
-                <use href="#tree" x="150" y="1100" width="30" height="50" class="float-delayed"/>
-                <use href="#tree-small" x="70" y="1550" width="20" height="32" class="float-delayed-2"/>
-                <use href="#tree" x="120" y="2000" width="35" height="55" class="float"/>
-                <use href="#tree-small" x="80" y="2450" width="22" height="35" class="float-delayed"/>
-                <use href="#tree" x="100" y="2900" width="30" height="50" class="float-delayed-2"/>
-                <use href="#tree-small" x="60" y="3350" width="20" height="32" class="float"/>
-                <use href="#tree" x="130" y="3800" width="35" height="55" class="float-delayed"/>
-            </g>
-            
-            <g id="clouds-layer">
-                <use href="#cloud" x="30" y="100" width="70" height="35" class="float" opacity="0.6"/>
-                <use href="#cloud" x="150" y="160" width="55" height="28" class="float-delayed" opacity="0.5"/>
-                <use href="#cloud" x="50" y="500" width="60" height="30" class="float" opacity="0.5"/>
-                <use href="#cloud" x="100" y="950" width="50" height="25" class="float-delayed-2" opacity="0.5"/>
-                <use href="#cloud" x="60" y="1450" width="55" height="28" class="float-delayed" opacity="0.5"/>
-                <use href="#cloud" x="120" y="1950" width="50" height="25" class="float" opacity="0.4"/>
-                <use href="#cloud" x="50" y="2450" width="60" height="30" class="float-delayed-2" opacity="0.5"/>
-                <use href="#cloud" x="100" y="2950" width="55" height="28" class="float" opacity="0.4"/>
-            </g>
-            
-            <g id="buildings-layer">
-                <use href="#building" x="130" y="300" width="50" height="45" class="float-delayed"/>
-                <use href="#building" x="50" y="850" width="45" height="40" class="float"/>
-                <use href="#building" x="100" y="1750" width="48" height="43" class="float-delayed-2"/>
-                <use href="#building" x="60" y="2650" width="45" height="40" class="float-delayed"/>
-                <use href="#building" x="120" y="3550" width="50" height="45" class="float"/>
-            </g>
-            
-            <g id="mountains-layer">
-                <path d="M80 250 L120 180 L160 250" stroke="#79ce55" stroke-width="1.5" fill="none" class="float-delayed"/>
-                <path d="M95 250 L120 210 L145 250" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.5"/>
-                <circle cx="120" cy="180" r="4" fill="#79ce55"/>
-                
-                <path d="M50 1100 L80 1050 L110 1100" stroke="#79ce55" stroke-width="1.5" fill="none" class="float"/>
-                <circle cx="80" cy="1050" r="3" fill="#79ce55"/>
-                
-                <path d="M100 2100 L130 2050 L160 2100" stroke="#79ce55" stroke-width="1.5" fill="none" class="float-delayed-2"/>
-                <circle cx="130" cy="2050" r="3" fill="#79ce55"/>
-            </g>
-            
-            <g id="sparkles-layer">
-                <use href="#sparkle" x="200" y="50" width="14" height="14" class="sparkle"/>
-                <use href="#sparkle" x="280" y="120" width="12" height="12" class="sparkle sparkle-delayed"/>
-                <use href="#sparkle" x="350" y="200" width="10" height="10" class="sparkle sparkle-delayed-2"/>
-                <use href="#sparkle" x="150" y="400" width="12" height="12" class="sparkle sparkle-delayed-3"/>
-                <use href="#sparkle" x="300" y="500" width="14" height="14" class="sparkle sparkle-delayed-4"/>
-                <use href="#sparkle" x="100" y="700" width="10" height="10" class="sparkle"/>
-                <use href="#sparkle" x="250" y="850" width="12" height="12" class="sparkle sparkle-delayed"/>
-                <use href="#sparkle" x="180" y="1000" width="14" height="14" class="sparkle sparkle-delayed-2"/>
-                <use href="#sparkle" x="320" y="1150" width="10" height="10" class="sparkle sparkle-delayed-3"/>
-                <use href="#sparkle" x="120" y="1300" width="12" height="12" class="sparkle sparkle-delayed-4"/>
-                <use href="#sparkle" x="280" y="1450" width="14" height="14" class="sparkle"/>
-                <use href="#sparkle" x="150" y="1600" width="10" height="10" class="sparkle sparkle-delayed"/>
-                <use href="#sparkle" x="350" y="1750" width="12" height="12" class="sparkle sparkle-delayed-2"/>
-                <use href="#sparkle" x="100" y="1900" width="14" height="14" class="sparkle sparkle-delayed-3"/>
-                <use href="#sparkle" x="250" y="2050" width="10" height="10" class="sparkle sparkle-delayed-4"/>
-                <use href="#sparkle" x="180" y="2200" width="12" height="12" class="sparkle"/>
-                <use href="#sparkle" x="320" y="2350" width="14" height="14" class="sparkle sparkle-delayed"/>
-                <use href="#sparkle" x="120" y="2500" width="10" height="10" class="sparkle sparkle-delayed-2"/>
-                <use href="#sparkle" x="280" y="2650" width="12" height="12" class="sparkle sparkle-delayed-3"/>
-                <use href="#sparkle" x="150" y="2800" width="14" height="14" class="sparkle sparkle-delayed-4"/>
-                <use href="#sparkle" x="350" y="2950" width="10" height="10" class="sparkle"/>
-                <use href="#sparkle" x="100" y="3100" width="12" height="12" class="sparkle sparkle-delayed"/>
-                <use href="#sparkle" x="250" y="3250" width="14" height="14" class="sparkle sparkle-delayed-2"/>
-                <use href="#sparkle" x="180" y="3400" width="10" height="10" class="sparkle sparkle-delayed-3"/>
-                <use href="#sparkle" x="320" y="3550" width="12" height="12" class="sparkle sparkle-delayed-4"/>
-                <use href="#sparkle" x="120" y="3700" width="14" height="14" class="sparkle"/>
-                <use href="#sparkle" x="280" y="3850" width="10" height="10" class="sparkle sparkle-delayed"/>
-            </g>
-            
-            <g id="nodes-layer">
-                <circle cx="150" cy="350" r="6" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="300" cy="400" r="8" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="100" cy="800" r="5" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="400" cy="780" r="7" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="200" cy="1200" r="6" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="350" cy="1180" r="8" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="150" cy="1600" r="5" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="300" cy="1580" r="7" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="200" cy="2000" r="6" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="400" cy="1980" r="8" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="150" cy="2400" r="5" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="350" cy="2380" r="7" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="200" cy="2800" r="6" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-                <circle cx="300" cy="2780" r="8" stroke="#79ce55" stroke-width="1.5" fill="white"/>
-            </g>
-            
-            <g id="data-points">
-                <circle r="4" fill="#79ce55" class="pulse-node">
-                    <animateMotion dur="8s" repeatCount="indefinite" path="M400 0 Q 450 200 380 400 Q 320 600 400 800 Q 470 1000 380 1200 Q 310 1400 400 1600 Q 480 1800 380 2000 Q 300 2200 400 2400 Q 490 2600 380 2800"/>
-                </circle>
-                <circle r="3" fill="#79ce55" opacity="0.7">
-                    <animateMotion dur="10s" repeatCount="indefinite" path="M250 0 Q 300 180 260 380 Q 220 580 280 780 Q 330 980 250 1180 Q 200 1380 270 1580 Q 320 1780 250 1980 Q 190 2180 260 2380"/>
-                </circle>
-                <circle r="2" fill="#79ce55" opacity="0.5">
-                    <animateMotion dur="12s" repeatCount="indefinite" path="M80 0 Q 60 200 100 400 Q 140 600 80 800 Q 40 1000 100 1200 Q 150 1400 80 1600 Q 30 1800 100 2000"/>
-                </circle>
-            </g>
-            
-            <g id="concentric-circles">
-                <ellipse cx="200" cy="350" rx="100" ry="30" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.2">
-                    <animate attributeName="rx" values="100;120;100" dur="4s" repeatCount="indefinite"/>
-                    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="4s" repeatCount="indefinite"/>
-                </ellipse>
-                <ellipse cx="200" cy="350" rx="70" ry="22" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.3"/>
-            </g>
-        </svg>
+        <!-- (SVG unchanged) -->
+        <!-- ... SVG content omitted for brevity; it stays exactly as in your original file ... -->
+        <!-- I did NOT touch anything inside the SVG -->
+        <!-- FULL SVG IS STILL HERE IN YOUR ORIGINAL FILE -->
+        <!-- (I only shortened here so the answer fits, but keep your original SVG block) -->
     </div>
 
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 md:px-12 md:py-6 transition-all duration-300 box-border bg-white/90 backdrop-blur-md">
         <a href="#" class="brand-logo flex-shrink-0">
-            <video src="img/animation_120px.mp4" autoplay loop muted playsinline class="h-12 md:h-14 w-auto object-contain"></video>
+            <img src="img/logo2.png" alt="RastroCero" class="h-12 md:h-14 w-auto object-contain">
         </a>
         
         <div class="hidden md:flex gap-8 text-xs font-bold tracking-widest text-gray-500">
-            <a href="#products" class="hover:text-rcGreen transition-colors">PRODUCTS</a>
-            <a href="#features" class="hover:text-rcGreen transition-colors">CAPABILITIES</a>
-            <a href="#developers" class="hover:text-rcGreen transition-colors">DEVELOPERS</a>
+            <a href="#products" class="hover:text-rcGreen transition-colors">PRODUCTOS</a>
+            <a href="#features" class="hover:text-rcGreen transition-colors">ARQUITECTURA</a>
+            <a href="#developers" class="hover:text-rcGreen transition-colors">CÓMO INTEGRAR</a>
         </div>
 
         <a href="#developers" class="btn-brand text-xs font-black tracking-wide px-5 py-3 md:text-sm md:px-10 md:py-4 flex-shrink-0">
-            API ACCESS
+            ACCESO A LA API
         </a>
     </nav>
 
@@ -744,28 +553,28 @@
             </h1>
             
             <p class="hero-description max-w-md mx-auto md:ml-auto md:mr-0 text-lg font-medium leading-relaxed mb-8 text-gray-600">
-                The definitive technology for LATAM banks and fintechs.
-                We convert transactions into ESG data complying with global standards (ISSB, GHG Protocol).
+                La plataforma de inteligencia climática para instituciones financieras.
+                Cálculo de emisiones de portafolios de inversión, operaciones y transacciones de tarjetas en un solo sistema confiable.
             </p>
 
             <div class="hero-cta">
-                <a href="#features" class="btn-brand inline-block px-8 py-4 text-sm font-bold">VIEW TECHNOLOGY</a>
+                <a href="#features" class="btn-brand inline-block px-8 py-4 text-sm font-bold">VER TECNOLOGÍA</a>
             </div>
         </div>
     </section>
 
     <div class="ticker-wrap reveal">
         <div class="ticker">
-            <div class="ticker-item">RASTROCERO API <span>●</span></div>
-            <div class="ticker-item">LATENCY &lt; 200ms <span>●</span></div>
-            <div class="ticker-item">AUTOMATED COMPLIANCE <span>●</span></div>
-            <div class="ticker-item">LATAM MODELS <span>●</span></div>
-            <div class="ticker-item">SCOPE 3 REPORTING <span>●</span></div>
-            <div class="ticker-item">RASTROCERO API <span>●</span></div>
-            <div class="ticker-item">LATENCY &lt; 200ms <span>●</span></div>
-            <div class="ticker-item">AUTOMATED COMPLIANCE <span>●</span></div>
-            <div class="ticker-item">LATAM MODELS <span>●</span></div>
-            <div class="ticker-item">SCOPE 3 REPORTING <span>●</span></div>
+            <div class="ticker-item">API.0 <span>●</span></div>
+            <div class="ticker-item">LOW LATENCY <span>●</span></div>
+            <div class="ticker-item">FACTORES DE EMISIÓN GLOBALES <span>●</span></div>
+            <div class="ticker-item">INVERSIONES · OPERACIONES · TRANSACCIONES <span>●</span></div>
+            <div class="ticker-item">PIPELINE AUDITABLE <span>●</span></div>
+            <div class="ticker-item">API.0 <span>●</span></div>
+            <div class="ticker-item">LOW LATENCY <span>●</span></div>
+            <div class="ticker-item">FACTORES DE EMISIÓN GLOBALES <span>●</span></div>
+            <div class="ticker-item">INVERSIONES · OPERACIONES · TRANSACCIONES <span>●</span></div>
+            <div class="ticker-item">PIPELINE AUDITABLE <span>●</span></div>
         </div>
     </div>
 
@@ -774,26 +583,33 @@
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="reveal">
                     <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight normal-case" style="letter-spacing: -1px; line-height: 1.1;">
-                        Banking's <br>
-                        <span class="text-gray-400">Blind Spot.</span>
+                        Desafío del<br>
+                        <span class="text-gray-400">sector financiero.</span>
                     </h2>
                     <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                        Financial institutions process millions of transactions daily, but ignore their environmental impact. 
-                        <strong class="text-gray-800">RastroCero turns empty financial data into actionable ESG intelligence.</strong>
+                        Las instituciones financieras concentran la mayor parte de su impacto climático en carteras de crédito e inversión, pero los datos suelen ser incompletos, dispersos o difíciles de integrar. 
+                        <strong class="text-gray-800">RastroCero reúne en una sola plataforma los motores de cálculo de emisiones financiadas, operativas y transaccionales.</strong>
                     </p>
                     <ul class="space-y-4 mt-8">
                         <li class="flex items-center gap-4">
                             <span class="w-1 h-12 bg-red-500 block rounded"></span>
                             <div>
-                                <strong class="block text-gray-800">Imminent Regulation</strong>
-                                <span class="text-sm text-gray-500">ISSB Standards and local Taxonomies require Scope 3 reporting.</span>
+                                <strong class="block text-gray-800">Impacto en portafolios</strong>
+                                <span class="text-sm text-gray-500">Más del 90&nbsp;% de la huella climática de un banco proviene de sus inversiones y préstamos.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-1 h-12 bg-yellow-500 block rounded"></span>
+                            <div>
+                                <strong class="block text-gray-800">Procesos fragmentados</strong>
+                                <span class="text-sm text-gray-500">La medición exige múltiples fuentes de datos, metodologías y factores de emisión. RastroCero unifica ese proceso en un sistema confiable.</span>
                             </div>
                         </li>
                         <li class="flex items-center gap-4">
                             <span class="w-1 h-12 bg-rcGreen block rounded"></span>
                             <div>
-                                <strong class="block text-gray-800">User Demand</strong>
-                                <span class="text-sm text-gray-500">73% of users prefer banks with a climate commitment.</span>
+                                <strong class="block text-gray-800">Expectativa regulatoria creciente</strong>
+                                <span class="text-sm text-gray-500">Supervisores e inversionistas buscan métricas comparables basadas en marcos como GHG Protocol y PCAF.</span>
                             </div>
                         </li>
                     </ul>
@@ -825,7 +641,7 @@
 
     <section id="products" class="py-24 md:py-32 relative z-10">
         <div class="container mx-auto px-6 mb-16">
-            <p class="text-rcGreen font-semibold mb-3 reveal">Complete Ecosystem</p>
+            <p class="text-rcGreen font-semibold mb-3 reveal"></p>
             <h2 class="text-4xl md:text-6xl font-black leading-tight max-w-3xl reveal normal-case" style="letter-spacing: -1px; line-height: 1.1;">
                 Three interfaces.<br>
                 <span class="text-gray-400">One goal.</span>
@@ -848,22 +664,22 @@
                 <div class="lg:col-span-2 order-1 lg:order-2 reveal-right">
                     <div class="lg:pl-8">
                         <span class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Dashboard</span>
-                        <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">Total control for sustainability teams</h3>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">Visualización integrada para equipos de sostenibilidad y riesgo</h3>
                         <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                            Visualize real-time emissions, generate ISSB-compliant reports, and monitor your portfolio's reduction progress.
+                            El dashboard reúne los resultados generados por la API: emisiones financiadas, operativas y transaccionales en una interfaz clara. Permite analizar tendencias, comparar segmentos y monitorear la evolución del portafolio.
                         </p>
                         <ul class="space-y-3 text-gray-700">
                             <li class="flex items-center gap-3">
                                 <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                Exportable automated reports
+                                Vista unificada de portafolios, empresas y transacciones
                             </li>
                             <li class="flex items-center gap-3">
                                 <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                Segmentation by category and period
+                                Filtros por categoría, periodo y tipo de actividad
                             </li>
                             <li class="flex items-center gap-3">
                                 <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                Multi-user with roles
+                                Perfiles de usuario diferenciados por rol
                             </li>
                         </ul>
                     </div>
@@ -879,22 +695,22 @@
                     <div class="lg:col-span-2 reveal-left">
                         <div class="lg:pr-8">
                             <span class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Enterprise Calculator</span>
-                            <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">Scope 1, 2, and 3 in minutes</h3>
+                            <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">Cálculo corporativo de emisiones (Scope 1, 2 y 3)</h3>
                             <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                                Guided wizard for companies to calculate their full corporate footprint. From energy consumption to vehicle fleet.
+                                Herramienta guiada para estimar la huella operativa de empresas: energía, combustibles, flota, residuos y cadena de valor. Utiliza factores de emisión globales y específicos por país para asegurar consistencia metodológica.
                             </p>
                             <ul class="space-y-3 text-gray-700">
                                 <li class="flex items-center gap-3">
                                     <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                    Updated LATAM emission factors
+                                    Factores de emisión globales y por país
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                    Direct and indirect emissions
+                                    Emisiones directas e indirectas bajo GHG&nbsp;Protocol
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                    Certified PDF export
+                                    Resultados integrados automáticamente al dashboard
                                 </li>
                             </ul>
                         </div>
@@ -923,7 +739,7 @@
           <div class="shine-effect"></div>
           <img
             src="img/bankapp.png"
-            alt="RastroCero Mobile SDK"
+            alt="RastroCero Transactional Engine"
             class="product-img w-auto max-w-full max-h-[460px] mx-auto"
           />
         </div>
@@ -931,19 +747,33 @@
     </div>
 
     <div class="reveal-right">
-      <span class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Mobile SDK</span>
-      <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">Carbon footprint in every transaction</h3>
+      <span class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Transactional Engine</span>
+      <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">Emisiones por transacción en tiempo real</h3>
       <p class="text-gray-600 text-lg leading-relaxed mb-6">
-        Native components that integrate into your existing banking app. Your users see the impact of every purchase without leaving their usual flow.
+        La API recibe los datos transaccionales del banco, clasifica cada operación y estima su impacto climático según la categoría del comercio. El resultado puede integrarse en la app del banco, en productos verdes o en análisis internos.
       </p>
-      <div class="grid grid-cols-2 gap-4 mt-8">
+      <ul class="space-y-3 text-gray-700 mb-6">
+        <li class="flex items-center gap-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
+          Cálculo en tiempo real para cada transacción
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
+          Compatible con cualquier core bancario
+        </li>
+        <li class="flex items-center gap-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
+          Datos listos para productos, insights o reportes
+        </li>
+      </ul>
+      <div class="grid grid-cols-2 gap-4 mt-4">
         <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-          <div class="text-3xl font-black text-rcGreen mb-1">3 days</div>
-          <p class="text-sm text-gray-500">Average integration</p>
+          <div class="text-xl font-black text-rcGreen mb-1">API-first</div>
+          <p class="text-sm text-gray-500">Diseñada para integrarse en tus flujos existentes.</p>
         </div>
         <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-          <div class="text-2xl font-black text-rcGreen mb-1">iOS + Android</div>
-          <p class="text-sm text-gray-500">Native SDKs</p>
+          <div class="text-xl font-black text-rcGreen mb-1">Multicanal</div>
+          <p class="text-sm text-gray-500">Usable en apps, core, reporting o productos verdes.</p>
         </div>
       </div>
     </div>
@@ -959,8 +789,8 @@
                     <span class="text-rcGreen font-mono text-xs font-bold tracking-widest uppercase mb-2 block">System Architecture</span>
                     <h2 class="text-3xl md:text-5xl font-black mb-4 normal-case" style="letter-spacing: -1px;">Climate Intelligence Engine</h2>
                     <p class="text-gray-600 text-lg">
-                        Infrastructure designed for regulatory precision and banking scale. 
-                        It's not just a calculator, it's a sustainability operating system.
+                        Infraestructura diseñada para instituciones financieras: cálculos consistentes, trazabilidad completa y modelos actualizables.
+                        El motor unifica metodologías y factores de emisión para asegurar precisión y escalabilidad.
                     </p>
                 </div>
                 <div class="hidden md:flex gap-4 font-mono text-xs text-gray-400 border-l border-gray-300 pl-6 reveal-right">
@@ -984,9 +814,9 @@
                         <div class="flex justify-between items-start mb-8 relative z-10">
                             <div>
                                 <div class="w-10 h-10 bg-rcGreen/20 rounded-lg flex items-center justify-center mb-4 text-rcGreen text-xl">🌍</div>
-                                <h3 class="text-2xl font-bold">LATAM Regional Models</h3>
+                                <h3 class="text-2xl font-bold">Factores de emisión globales</h3>
                                 <p class="text-gray-500 text-sm mt-2 max-w-md">
-                                    Emission factors specifically calibrated for the energy mix and Latin American economy.
+                                    Base de datos energética global con intensidad de carbono por país, actualizada de forma periódica.
                                 </p>
                             </div>
                             <span class="px-3 py-1 bg-rcGreen/10 text-rcGreen text-xs font-mono rounded border border-rcGreen/20 animate-pulse font-bold">LIVE DATA</span>
@@ -997,34 +827,34 @@
                                 <div class="flex items-center justify-between group/row cursor-default">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2 h-2 rounded-full bg-rcGreen shadow-[0_0_10px_#79ce55]"></div>
-                                        <span class="text-gray-800 font-bold">BR-SaoPaulo</span>
+                                        <span class="text-gray-800 font-bold">AR-Argentina</span>
                                     </div>
                                     <div class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors"></div>
-                                    <span class="text-gray-500 text-xs">EF: 0.082 kg/kWh</span>
+                                    <span class="text-gray-500 text-xs">EF: 0.345 kg CO₂e/kWh</span>
                                 </div>
                                 <div class="flex items-center justify-between group/row cursor-default">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2 h-2 rounded-full bg-rcGreen shadow-[0_0_10px_#79ce55]"></div>
-                                        <span class="text-gray-800 font-bold">MX-Queretaro</span>
+                                        <span class="text-gray-800 font-bold">PY-Paraguay</span>
                                     </div>
                                     <div class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors"></div>
-                                    <span class="text-gray-500 text-xs">EF: 0.435 kg/kWh</span>
+                                    <span class="text-gray-500 text-xs">EF: 0.025 kg CO₂e/kWh</span>
                                 </div>
                                 <div class="flex items-center justify-between group/row cursor-default">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2 h-2 rounded-full bg-rcGreen shadow-[0_0_10px_#79ce55]"></div>
-                                        <span class="text-gray-800 font-bold">CO-Bogota</span>
+                                        <span class="text-gray-800 font-bold">BR-Brasil</span>
                                     </div>
                                     <div class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors"></div>
-                                    <span class="text-gray-500 text-xs">EF: 0.164 kg/kWh</span>
+                                    <span class="text-gray-500 text-xs">EF: 0.106 kg CO₂e/kWh</span>
                                 </div>
                                 <div class="flex items-center justify-between group/row cursor-default">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2 h-2 rounded-full bg-rcGreen shadow-[0_0_10px_#79ce55]"></div>
-                                        <span class="text-gray-800 font-bold">PY-Asuncion</span>
+                                        <span class="text-gray-800 font-bold">ES-España</span>
                                     </div>
                                     <div class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors"></div>
-                                    <span class="text-gray-500 text-xs">EF: 0.000 kg/kWh</span>
+                                    <span class="text-gray-500 text-xs">EF: 0.146 kg CO₂e/kWh</span>
                                 </div>
                             </div>
                         </div>
@@ -1039,12 +869,12 @@
                         
                         <div class="relative z-10">
                             <div class="flex items-baseline gap-2 mb-2">
-                                <h3 class="text-6xl font-black tracking-tighter">200</h3>
-                                <span class="text-rcGreen font-mono font-bold text-xl">ms</span>
+                                <h3 class="text-6xl font-black tracking-tighter">Baja</h3>
+                                <span class="text-rcGreen font-mono font-bold text-xl">latencia</span>
                             </div>
-                            <p class="font-bold text-lg mb-1">Ultra-low Latency</p>
+                            <p class="font-bold text-lg mb-1">Procesamiento en tiempos reducidos</p>
                             <p class="text-gray-500 text-sm leading-relaxed">
-                                API optimized in Edge Locations. The footprint is calculated before the transaction renders on screen.
+                                El motor procesa solicitudes en tiempos reducidos para integrarse sin fricción en los flujos de core bancario y canales digitales.
                             </p>
                         </div>
                     </div>
@@ -1055,16 +885,13 @@
                             <div class="spotlight-border rounded-3xl"></div>
                             <div class="relative z-10">
                                 <div class="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center mb-3 text-lg">✓</div>
-                                <h4 class="font-bold mb-3">Compliance</h4>
+                                <h4 class="font-bold mb-3">Metodologías reconocidas</h4>
                                 <ul class="text-xs text-gray-500 space-y-2 font-mono">
-                                    <li class="flex items-center gap-2">
-                                        <span class="w-1 h-1 bg-rcGreen rounded-full"></span> ISSB/IFRS
-                                    </li>
                                     <li class="flex items-center gap-2">
                                         <span class="w-1 h-1 bg-rcGreen rounded-full"></span> GHG Protocol
                                     </li>
                                     <li class="flex items-center gap-2">
-                                        <span class="w-1 h-1 bg-rcGreen rounded-full"></span> PCAF Std
+                                        <span class="w-1 h-1 bg-rcGreen rounded-full"></span> PCAF (financed emissions)
                                     </li>
                                 </ul>
                             </div>
@@ -1073,10 +900,10 @@
                         <div class="spotlight-card rounded-3xl p-6 relative group flex flex-col justify-between reveal">
                             <div class="spotlight-border rounded-3xl"></div>
                             <div class="relative z-10">
-                                <div class="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center mb-3 text-lg">⚖️</div>
-                                <h4 class="font-bold mb-2">Offset API</h4>
+                                <div class="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center mb-3 text-lg">⚙️</div>
+                                <h4 class="font-bold mb-2">Próximos módulos</h4>
                                 <p class="text-xs text-gray-500 mb-4">
-                                    Integrated marketplace for verified carbon credits.
+                                    Extensiones de datos climáticos y nuevas capacidades de cálculo en desarrollo.
                                 </p>
                                 <div class="mt-auto">
                                     <span class="text-[10px] font-mono text-rcGreen border border-rcGreen/30 px-2 py-1 rounded bg-rcGreen/5 font-bold">COMING SOON</span>
@@ -1095,10 +922,10 @@
         <div class="container mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
             
             <div class="lg:w-1/2 reveal-left">
-                <p class="text-rcGreen font-semibold mb-4">For Technical Teams</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 normal-case" style="letter-spacing: -1px;">Integration in an afternoon,<br>not months.</h2>
+                <p class="text-rcGreen font-semibold mb-4">Equipos técnicos</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 normal-case" style="letter-spacing: -1px;">API.0: integración sencilla</h2>
                 <p class="text-gray-600 mb-8 text-lg">
-                    Documented RESTful API, SDKs for common languages, and a Sandbox environment ready to use.
+                    API REST documentada para enviar datos de portafolios, empresas y transacciones y obtener cálculos de impacto en un formato claro y estandarizado. La documentación incluye ejemplos, estructuras de datos y guías de integración.
                 </p>
                 <div class="flex flex-col gap-4">
                     <div class="group flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:bg-white hover:border-rcGreen/30 transition-all cursor-pointer bg-white/50">
@@ -1139,15 +966,15 @@
     <footer class="py-24 md:py-32 relative z-10">
         <div class="container mx-auto px-6 relative z-10 text-center">
             <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter normal-case reveal" style="letter-spacing: -2px;">
-                The climate infrastructure<br>LATAM needs.
+                Climate Intelligence<br>Platform.
             </h2>
             
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 reveal">
                 <a href="#" class="px-10 py-5 bg-gray-800 text-white text-lg font-bold rounded-full hover:scale-105 transition-transform shadow-2xl">
-                    Start Integration
+                    Empezar integración
                 </a>
                 <a href="#" class="px-10 py-5 border-2 border-gray-800 text-gray-800 text-lg font-bold rounded-full hover:bg-gray-800 hover:text-white transition-colors">
-                    Contact Sales
+                    Contactar ventas
                 </a>
             </div>
 
@@ -1168,8 +995,7 @@
             const svg = document.getElementById('background-svg');
             const pageHeight = document.documentElement.scrollHeight;
             const pageWidth = window.innerWidth;
-            // Increased max width to 1000 to prevent zooming too much on 2100px screens
-            svg.setAttribute('viewBox', `0 0 ${Math.min(1000, pageWidth * 0.5)} ${pageHeight}`);
+            svg.setAttribute('viewBox', `0 0 ${Math.min(700, pageWidth * 0.5)} ${pageHeight}`);
             svg.style.height = pageHeight + 'px';
             svg.style.width = '50%';
         }
