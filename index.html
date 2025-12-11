@@ -64,7 +64,7 @@
         }
 
         .svg-background svg {
-            width: 100%;
+            /* width is handled by JS */
             height: 100%;
             position: absolute;
             top: 0;
@@ -96,10 +96,12 @@
             transform-origin: center;
         }
         
-        /* Desactivar animaciones pesadas en móvil para mejor rendimiento */
-        .sparkle, .pulse-node {
-            animation: none !important;
-            display: none !important; 
+        /* Disable heavy animations on mobile for performance */
+        @media (max-width: 768px) {
+            .sparkle, .pulse-node {
+                animation: none !important;
+                display: none !important; 
+            }
         }
 
         @keyframes sparkle {
@@ -201,6 +203,8 @@
 
         nav.scrolled {
             box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+            padding-top: 0.8rem !important; 
+            padding-bottom: 0.8rem !important;
         }
 
         .brand-logo {
@@ -490,6 +494,7 @@
         #trees-layer {
             display: none !important;
         }
+
         /* ====== RESPONSIVE TWEAKS ====== */
         @media (max-width: 1024px) {
             .hero-accent-line {
@@ -505,13 +510,45 @@
                 font-size: 2.8rem !important; 
             }
             
-            /* Ocultar elementos flotantes en Mobile */
+            /* Hide floating elements on Mobile */
             #trees-layer,
             #clouds-layer,
             #buildings-layer,
             #mountains-layer,
             #sparkles-layer {
                 display: none !important;
+            }
+        }
+
+        /* ====== FIX FOR ULTRA-WIDE SHORT SCREENS (e.g. 2100x600) ====== */
+        @media (min-width: 1024px) and (max-height: 800px) {
+            .hero {
+                /* Align to top instead of center to prevent cutting off top */
+                align-items: flex-start !important;
+                padding-top: 100px !important; /* Clear navbar */
+            }
+            .hero-content {
+                /* Reduce top padding massively */
+                padding-top: 1rem !important;
+                margin-top: 2rem !important;
+            }
+            .hero h1 {
+                /* Force smaller font size for short screens */
+                font-size: 3.5rem !important;
+                margin-bottom: 0.75rem !important;
+                line-height: 0.9 !important;
+            }
+            .hero-description {
+                font-size: 1rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            .hero-cta {
+                margin-top: 0 !important;
+            }
+            
+            /* Adjust SVG background position to not look cut off */
+            .svg-background {
+                top: 50px !important;
             }
         }
     </style>
@@ -682,7 +719,7 @@
 
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 md:px-12 md:py-6 transition-all duration-300 box-border bg-white/90 backdrop-blur-md">
         <a href="#" class="brand-logo flex-shrink-0">
-            <img src="img/logo2.png" alt="RastroCero" class="h-12 md:h-14 w-auto object-contain">
+            <video src="img/animation_120px.mp4" autoplay loop muted playsinline class="h-12 md:h-14 w-auto object-contain"></video>
         </a>
         
         <div class="hidden md:flex gap-8 text-xs font-bold tracking-widest text-gray-500">
@@ -1131,7 +1168,8 @@
             const svg = document.getElementById('background-svg');
             const pageHeight = document.documentElement.scrollHeight;
             const pageWidth = window.innerWidth;
-            svg.setAttribute('viewBox', `0 0 ${Math.min(700, pageWidth * 0.5)} ${pageHeight}`);
+            // Increased max width to 1000 to prevent zooming too much on 2100px screens
+            svg.setAttribute('viewBox', `0 0 ${Math.min(1000, pageWidth * 0.5)} ${pageHeight}`);
             svg.style.height = pageHeight + 'px';
             svg.style.width = '50%';
         }
