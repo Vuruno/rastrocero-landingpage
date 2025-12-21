@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <link rel="icon" type="image/x-icon" href="img/favicon5.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RastroCero | Climate Intelligence for Financial Institutions</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -42,7 +45,11 @@
             --c-light-grey: #dededd;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             background-color: var(--c-white);
@@ -77,8 +84,13 @@
         }
 
         @keyframes flowDown {
-            0% { stroke-dashoffset: 30; }
-            100% { stroke-dashoffset: 0; }
+            0% {
+                stroke-dashoffset: 30;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+            }
         }
 
         .flow-path-slow {
@@ -95,43 +107,94 @@
             animation: sparkle 3s ease-in-out infinite;
             transform-origin: center;
         }
-        
+
         /* Disable heavy animations on mobile for performance */
         @media (max-width: 768px) {
-            .sparkle, .pulse-node {
+
+            .sparkle,
+            .pulse-node {
                 animation: none !important;
-                display: none !important; 
+                display: none !important;
             }
         }
 
         @keyframes sparkle {
-            0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
-            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+
+            0%,
+            100% {
+                opacity: 0.2;
+                transform: scale(0.8) rotate(0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2) rotate(180deg);
+            }
         }
 
-        .sparkle-delayed { animation-delay: 1s; }
-        .sparkle-delayed-2 { animation-delay: 2s; }
-        .sparkle-delayed-3 { animation-delay: 0.5s; }
-        .sparkle-delayed-4 { animation-delay: 1.5s; }
+        .sparkle-delayed {
+            animation-delay: 1s;
+        }
 
-        .float { animation: float 4s ease-in-out infinite; }
-        .float-delayed { animation-delay: 1s; }
-        .float-delayed-2 { animation-delay: 2s; }
+        .sparkle-delayed-2 {
+            animation-delay: 2s;
+        }
+
+        .sparkle-delayed-3 {
+            animation-delay: 0.5s;
+        }
+
+        .sparkle-delayed-4 {
+            animation-delay: 1.5s;
+        }
+
+        .float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .float-delayed {
+            animation-delay: 1s;
+        }
+
+        .float-delayed-2 {
+            animation-delay: 2s;
+        }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
-        .pulse-node { animation: pulseNode 2s ease-in-out infinite; }
+        .pulse-node {
+            animation: pulseNode 2s ease-in-out infinite;
+        }
 
         @keyframes pulseNode {
-            0%, 100% { r: 4; opacity: 0.6; }
-            50% { r: 6; opacity: 1; }
+
+            0%,
+            100% {
+                r: 4;
+                opacity: 0.6;
+            }
+
+            50% {
+                r: 6;
+                opacity: 1;
+            }
         }
 
         /* ====== TYPOGRAPHY ====== */
-        h1, h2, h3, .big-text {
+        h1,
+        h2,
+        h3,
+        .big-text {
             text-transform: uppercase;
             line-height: 0.9;
             letter-spacing: -2px;
@@ -142,7 +205,7 @@
             -webkit-text-stroke: 2px var(--c-grey);
             transition: all 0.5s ease;
         }
-        
+
         .outline-text:hover {
             color: var(--c-green);
             -webkit-text-stroke: 0px transparent;
@@ -170,11 +233,13 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
 
-        .btn-brand:hover::before { left: 100%; }
+        .btn-brand:hover::before {
+            left: 100%;
+        }
 
         .btn-brand:hover {
             background: var(--c-green);
@@ -191,7 +256,7 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            align-items: center; 
+            align-items: center;
             z-index: 100;
             background: rgba(252, 252, 252, 0.9);
             backdrop-filter: blur(10px);
@@ -202,8 +267,8 @@
         }
 
         nav.scrolled {
-            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
-            padding-top: 0.8rem !important; 
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            padding-top: 0.8rem !important;
             padding-bottom: 0.8rem !important;
         }
 
@@ -233,7 +298,9 @@
             animation: ticker 30s linear infinite;
         }
 
-        .ticker:hover { animation-play-state: paused; }
+        .ticker:hover {
+            animation-play-state: paused;
+        }
 
         .ticker-item {
             display: inline-block;
@@ -243,14 +310,19 @@
             letter-spacing: 1px;
         }
 
-        .ticker-item span { 
-            color: var(--c-green); 
+        .ticker-item span {
+            color: var(--c-green);
             font-weight: 800;
         }
 
         @keyframes ticker {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
         }
 
         /* ====== SECTIONS ====== */
@@ -261,8 +333,8 @@
 
         .glass-panel {
             background:
-                radial-gradient(circle at 15% 0%, rgba(255,255,255,0.95), rgba(255,255,255,1)),
-                #e3e8f0; 
+                radial-gradient(circle at 15% 0%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 1)),
+                #e3e8f0;
             backdrop-filter: blur(18px);
             border-radius: 1.75rem;
             border: 1px solid rgba(148, 163, 184, 0.55);
@@ -273,8 +345,10 @@
 
         .section-problem {
             background:
-                radial-gradient(circle at top left, rgba(121, 206, 85, 0.18), transparent 60%),
-                #f3f4f6; 
+                radial-gradient(circle at top left, rgba(121, 206, 85, 0.08), transparent 60%),
+                rgba(243, 244, 246, 0.7);
+            /* Changed from solid #f3f4f6 to semi-transparent */
+            backdrop-filter: blur(2px);
         }
 
         /* ====== SPOTLIGHT CARDS ====== */
@@ -289,7 +363,10 @@
         .spotlight-card::before {
             content: "";
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(121, 206, 85, 0.15), transparent 40%);
             opacity: 0;
             transition: opacity 0.5s;
@@ -297,7 +374,9 @@
             z-index: 0;
         }
 
-        .spotlight-card:hover::before { opacity: 1; }
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
 
         .spotlight-card:hover {
             transform: translateY(-5px);
@@ -318,17 +397,19 @@
             pointer-events: none;
         }
 
-        .spotlight-card:hover .spotlight-border { opacity: 1; }
+        .spotlight-card:hover .spotlight-border {
+            opacity: 1;
+        }
 
         /* ====== PRODUCT CARDS ====== */
         .product-card-wrapper {
             position: relative;
             border-radius: 1rem;
             padding: 1px;
-            background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0));
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
             overflow: hidden;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
         }
 
         .product-card-wrapper::before {
@@ -342,7 +423,9 @@
             pointer-events: none;
         }
 
-        .product-card-wrapper:hover::before { opacity: 1; }
+        .product-card-wrapper:hover::before {
+            opacity: 1;
+        }
 
         .product-card-inner {
             position: relative;
@@ -410,8 +493,15 @@
             border-radius: 50%;
         }
 
-        .cursor-blink { animation: blink 1s step-end infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
 
         /* ====== REVEAL ANIMATIONS ====== */
         .reveal {
@@ -467,7 +557,7 @@
 
         /* ====== HERO REFINEMENT v2 ====== */
         .hero h1 {
-            font-size: clamp(3rem, 10vw, 5.5rem) !important; 
+            font-size: clamp(3rem, 10vw, 5.5rem) !important;
             letter-spacing: -0.05em;
             line-height: 0.95;
         }
@@ -491,6 +581,7 @@
             transform-origin: right center;
             animation: none !important;
         }
+
         #trees-layer {
             display: none !important;
         }
@@ -501,15 +592,16 @@
                 display: none;
             }
         }
-        
+
         @media (max-width: 768px) {
             nav {
                 padding: 0.8rem 1.5rem !important;
             }
-            .hero h1 { 
-                font-size: 2.8rem !important; 
+
+            .hero h1 {
+                font-size: 2.8rem !important;
             }
-            
+
             /* Hide floating elements on Mobile */
             #trees-layer,
             #clouds-layer,
@@ -525,27 +617,32 @@
             .hero {
                 /* Align to top instead of center to prevent cutting off top */
                 align-items: flex-start !important;
-                padding-top: 100px !important; /* Clear navbar */
+                padding-top: 100px !important;
+                /* Clear navbar */
             }
+
             .hero-content {
                 /* Reduce top padding massively */
                 padding-top: 1rem !important;
                 margin-top: 2rem !important;
             }
+
             .hero h1 {
                 /* Force smaller font size for short screens */
                 font-size: 3.5rem !important;
                 margin-bottom: 0.75rem !important;
                 line-height: 0.9 !important;
             }
+
             .hero-description {
                 font-size: 1rem !important;
                 margin-bottom: 1.5rem !important;
             }
+
             .hero-cta {
                 margin-top: 0 !important;
             }
-            
+
             /* Adjust SVG background position to not look cut off */
             .svg-background {
                 top: 50px !important;
@@ -553,6 +650,7 @@
         }
     </style>
 </head>
+
 <body class="antialiased">
 
     <div class="svg-background">
@@ -561,73 +659,89 @@
         <svg id="background-svg" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <symbol id="tree" viewBox="0 0 30 50">
-                    <path d="M15 0 L25 20 L20 20 L28 35 L2 35 L10 20 L5 20 Z" fill="#79ce55"/>
-                    <rect x="12" y="35" width="6" height="10" fill="#79ce55"/>
+                    <path d="M15 0 L25 20 L20 20 L28 35 L2 35 L10 20 L5 20 Z" fill="#79ce55" />
+                    <rect x="12" y="35" width="6" height="10" fill="#79ce55" />
                 </symbol>
                 <symbol id="tree-small" viewBox="0 0 20 35">
-                    <path d="M10 0 L18 15 L14 15 L20 28 L0 28 L6 15 L2 15 Z" fill="#79ce55"/>
-                    <rect x="8" y="28" width="4" height="7" fill="#79ce55"/>
+                    <path d="M10 0 L18 15 L14 15 L20 28 L0 28 L6 15 L2 15 Z" fill="#79ce55" />
+                    <rect x="8" y="28" width="4" height="7" fill="#79ce55" />
                 </symbol>
                 <symbol id="cloud" viewBox="0 0 60 30">
-                    <ellipse cx="30" cy="20" rx="25" ry="10" stroke="#79ce55" stroke-width="1" fill="none"/>
-                    <ellipse cx="20" cy="15" rx="15" ry="8" stroke="#79ce55" stroke-width="1" fill="none"/>
-                    <ellipse cx="42" cy="15" rx="12" ry="7" stroke="#79ce55" stroke-width="1" fill="none"/>
+                    <ellipse cx="30" cy="20" rx="25" ry="10" stroke="#79ce55" stroke-width="1" fill="none" />
+                    <ellipse cx="20" cy="15" rx="15" ry="8" stroke="#79ce55" stroke-width="1" fill="none" />
+                    <ellipse cx="42" cy="15" rx="12" ry="7" stroke="#79ce55" stroke-width="1" fill="none" />
                 </symbol>
                 <symbol id="sparkle" viewBox="0 0 24 24">
-                    <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10L12 0Z" fill="#79ce55"/>
+                    <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10L12 0Z" fill="#79ce55" />
                 </symbol>
                 <symbol id="building" viewBox="0 0 40 35">
-                    <rect x="5" y="12" width="30" height="23" stroke="#79ce55" stroke-width="1.5" fill="none"/>
-                    <path d="M0 12 L20 0 L40 12" stroke="#79ce55" stroke-width="1.5" fill="none"/>
-                    <rect x="16" y="20" width="8" height="15" stroke="#79ce55" stroke-width="1" fill="none"/>
-                    <line x1="10" y1="15" x2="10" y2="35" stroke="#79ce55" stroke-width="1"/>
-                    <line x1="30" y1="15" x2="30" y2="35" stroke="#79ce55" stroke-width="1"/>
+                    <rect x="5" y="12" width="30" height="23" stroke="#79ce55" stroke-width="1.5" fill="none" />
+                    <path d="M0 12 L20 0 L40 12" stroke="#79ce55" stroke-width="1.5" fill="none" />
+                    <rect x="16" y="20" width="8" height="15" stroke="#79ce55" stroke-width="1" fill="none" />
+                    <line x1="10" y1="15" x2="10" y2="35" stroke="#79ce55" stroke-width="1" />
+                    <line x1="30" y1="15" x2="30" y2="35" stroke="#79ce55" stroke-width="1" />
                 </symbol>
             </defs>
-            
+
             <!-- Todo el resto del SVG permanece igual -->
             <!-- ... -->
             <g id="main-flow-lines">
-                <path class="flow-path" d="M80 0 Q 60 200 100 400 Q 140 600 80 800 Q 40 1000 100 1200 Q 150 1400 80 1600 Q 30 1800 100 2000 Q 160 2200 80 2400 Q 20 2600 100 2800 Q 170 3000 80 3200 Q 30 3400 100 3600 Q 160 3800 80 4000 L 80 6000" stroke="#79ce55" stroke-width="1.5" fill="none" opacity="0.6"/>
-                <path class="flow-path-slow" d="M150 0 Q 200 150 160 350 Q 120 550 180 750 Q 230 950 150 1150 Q 100 1350 170 1550 Q 220 1750 150 1950 Q 90 2150 160 2350 Q 210 2550 150 2750 Q 100 2950 160 3150 Q 200 3350 150 3550 Q 100 3750 160 3950 L 150 6000" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.5"/>
-                <path class="flow-path-fast" d="M250 0 Q 300 180 260 380 Q 220 580 280 780 Q 330 980 250 1180 Q 200 1380 270 1580 Q 320 1780 250 1980 Q 190 2180 260 2380 Q 310 2580 250 2780 Q 200 2980 260 3180 Q 300 3380 250 3580 Q 200 3780 260 3980 L 250 6000" stroke="#79ce55" stroke-width="1.5" fill="none" opacity="0.7"/>
-                <path class="flow-path" d="M400 0 Q 450 200 380 400 Q 320 600 400 800 Q 470 1000 380 1200 Q 310 1400 400 1600 Q 480 1800 380 2000 Q 300 2200 400 2400 Q 490 2600 380 2800 Q 290 3000 400 3200 Q 480 3400 380 3600 Q 300 3800 400 4000 L 400 6000" stroke="#79ce55" stroke-width="2" fill="none" opacity="0.6"/>
-                <path class="flow-path-slow" d="M550 0 Q 500 180 560 380 Q 610 580 540 780 Q 480 980 560 1180 Q 620 1380 540 1580 Q 470 1780 560 1980 Q 630 2180 540 2380 Q 460 2580 560 2780 Q 640 2980 540 3180 Q 470 3380 560 3580 Q 630 3780 540 3980 L 550 6000" stroke="#79ce55" stroke-width="1" fill="none" opacity="0.5"/>
+                <path class="flow-path"
+                    d="M80 0 Q 60 200 100 400 Q 140 600 80 800 Q 40 1000 100 1200 Q 150 1400 80 1600 Q 30 1800 100 2000 Q 160 2200 80 2400 Q 20 2600 100 2800 Q 170 3000 80 3200 Q 30 3400 100 3600 Q 160 3800 80 4000 L 80 6000"
+                    stroke="#79ce55" stroke-width="1.5" fill="none" opacity="0.6" />
+                <path class="flow-path-slow"
+                    d="M150 0 Q 200 150 160 350 Q 120 550 180 750 Q 230 950 150 1150 Q 100 1350 170 1550 Q 220 1750 150 1950 Q 90 2150 160 2350 Q 210 2550 150 2750 Q 100 2950 160 3150 Q 200 3350 150 3550 Q 100 3750 160 3950 L 150 6000"
+                    stroke="#79ce55" stroke-width="1" fill="none" opacity="0.5" />
+                <path class="flow-path-fast"
+                    d="M250 0 Q 300 180 260 380 Q 220 580 280 780 Q 330 980 250 1180 Q 200 1380 270 1580 Q 320 1780 250 1980 Q 190 2180 260 2380 Q 310 2580 250 2780 Q 200 2980 260 3180 Q 300 3380 250 3580 Q 200 3780 260 3980 L 250 6000"
+                    stroke="#79ce55" stroke-width="1.5" fill="none" opacity="0.7" />
+                <path class="flow-path"
+                    d="M400 0 Q 450 200 380 400 Q 320 600 400 800 Q 470 1000 380 1200 Q 310 1400 400 1600 Q 480 1800 380 2000 Q 300 2200 400 2400 Q 490 2600 380 2800 Q 290 3000 400 3200 Q 480 3400 380 3600 Q 300 3800 400 4000 L 400 6000"
+                    stroke="#79ce55" stroke-width="2" fill="none" opacity="0.6" />
+                <path class="flow-path-slow"
+                    d="M550 0 Q 500 180 560 380 Q 610 580 540 780 Q 480 980 560 1180 Q 620 1380 540 1580 Q 470 1780 560 1980 Q 630 2180 540 2380 Q 460 2580 560 2780 Q 640 2980 540 3180 Q 470 3380 560 3580 Q 630 3780 540 3980 L 550 6000"
+                    stroke="#79ce55" stroke-width="1" fill="none" opacity="0.5" />
             </g>
             <!-- resto del SVG igual que en tu versión -->
             <!-- (omito por longitud, pero en tu archivo queda tal cual) -->
         </svg>
     </div>
 
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 md:px-12 md:py-6 transition-all duration-300 box-border bg-white/90 backdrop-blur-md">
+    <nav id="navbar"
+        class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 md:px-12 md:py-6 transition-all duration-300 box-border bg-white/90 backdrop-blur-md">
         <a href="#" class="brand-logo flex-shrink-0">
-            <video src="img/animation_120px.mp4" autoplay loop muted playsinline class="h-12 md:h-14 w-auto object-contain"></video>
+            <video src="img/animation_120px.mp4" autoplay loop muted playsinline
+                class="h-12 md:h-14 w-auto object-contain"></video>
         </a>
-        
+
         <div class="hidden md:flex gap-8 text-xs font-bold tracking-widest text-gray-500">
             <a href="#products" class="hover:text-rcGreen transition-colors">SOLUCIONES</a>
             <a href="#features" class="hover:text-rcGreen transition-colors">FUNCIONES</a>
             <a href="#developers" class="hover:text-rcGreen transition-colors">¿CÓMO INTEGRAR?</a>
         </div>
 
-        <a href="#developers" class="btn-brand text-xs font-black tracking-wide px-5 py-3 md:text-sm md:px-10 md:py-4 flex-shrink-0">
+        <a href="contact.html"
+            class="btn-brand text-xs font-black tracking-wide px-5 py-3 md:text-sm md:px-10 md:py-4 flex-shrink-0">
             ACCEDER A LA API
         </a>
     </nav>
 
     <section class="hero min-h-screen flex items-center relative z-10">
         <div class="hero-accent-line"></div>
-        
-        <div class="hero-content w-full max-w-2xl px-6 pt-32 pb-12 mx-auto md:mr-16 lg:mr-24 md:ml-auto text-center md:text-right md:pt-20">
+
+        <div
+            class="hero-content w-full max-w-2xl px-6 pt-32 pb-12 mx-auto md:mr-16 lg:mr-24 md:ml-auto text-center md:text-right md:pt-20">
             <h1 class="font-black mb-8">
                 <span class="hero-line" style="color: var(--c-grey);">INTELLIGENT</span>
                 <span class="hero-line outline-text">CLIMATE</span>
                 <span class="hero-line" style="color: var(--c-green);">FINANCE</span>
             </h1>
-            
-            <p class="hero-description max-w-md mx-auto md:ml-auto md:mr-0 text-lg font-medium leading-relaxed mb-8 text-gray-600">
+
+            <p
+                class="hero-description max-w-md mx-auto md:ml-auto md:mr-0 text-lg font-medium leading-relaxed mb-8 text-gray-600">
                 La plataforma de inteligencia climática para instituciones financieras.
-                Cálculo de emisiones de portafolios de inversiones, operaciones y transacciones de tarjetas en un solo sistema confiable.
+                Cálculo de emisiones de portafolios de inversiones, operaciones y transacciones de tarjetas en un solo
+                sistema confiable.
             </p>
 
             <div class="hero-cta">
@@ -636,66 +750,63 @@
         </div>
     </section>
 
-    <div class="ticker-wrap reveal">
-        <div class="ticker">
-            <div class="ticker-item">API.0 <span>●</span></div>
-            <div class="ticker-item">Low Latency <span>●</span></div>
-            <div class="ticker-item">Factores de Emisión Globales <span>●</span></div>
-            <div class="ticker-item">Inversiones · Operaciones · Transacciones <span>●</span></div>
-            <div class="ticker-item">Pipeline Auditable <span>●</span></div>
 
-            <div class="ticker-item">API.0 <span>●</span></div>
-            <div class="ticker-item">Low Latency <span>●</span></div>
-            <div class="ticker-item">Factores de Emisión Globales <span>●</span></div>
-            <div class="ticker-item">Inversiones · Operaciones · Transacciones <span>●</span></div>
-            <div class="ticker-item">Pipeline Auditable <span>●</span></div>
-        </div>
-    </div>
 
     <section class="py-24 md:py-32 relative z-10 section-problem">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="reveal">
-                    <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight normal-case" style="letter-spacing: -1px; line-height: 1.1;">
+                    <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight normal-case"
+                        style="letter-spacing: -1px; line-height: 1.1;">
                         Desafío del <br>
                         <span class="text-gray-400">sector financiero.</span>
                     </h2>
                     <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                        Las instituciones financieras concentran la mayor parte de su impacto en carteras de crédito e inversión, 
+                        Las instituciones financieras concentran la mayor parte de su impacto en carteras de crédito e
+                        inversión,
                         pero los datos climáticos suelen ser incompletos, dispersos o difíciles de integrar.
-                        <strong class="text-gray-800"> RASTROCERO unifica en una plataforma los motores de cálculo de emisiones financiadas, operativas y transaccionales, generando información estructurada e infraestructura de datos para análisis, riesgo y estrategia.</strong>
+                        <strong class="text-gray-800"> RASTROCERO unifica en una plataforma los motores de cálculo de
+                            emisiones financiadas, operativas y transaccionales, generando información estructurada e
+                            infraestructura de datos para análisis, riesgo y estrategia.</strong>
                     </p>
                     <ul class="space-y-4 mt-8">
                         <li class="flex items-center gap-4">
                             <span class="w-1 h-12 bg-red-500 block rounded"></span>
                             <div>
                                 <strong class="block text-gray-800">Impacto en portafolios</strong>
-                                <span class="text-sm text-gray-500">Más del 90% de la huella climática de un banco proviene de sus inversiones y préstamos.</span>
+                                <span class="text-sm text-gray-500">Más del 90% de la huella climática de un banco
+                                    proviene de sus inversiones y préstamos.</span>
                             </div>
                         </li>
                         <li class="flex items-center gap-4">
                             <span class="w-1 h-12 bg-rcGreen block rounded"></span>
                             <div>
                                 <strong class="block text-gray-800">Procesos fragmentados</strong>
-                                <span class="text-sm text-gray-500">La medición exige múltiples fuentes, metodologías y factores de emisión. Unificamos ese proceso en un sistema confiable.</span>
+                                <span class="text-sm text-gray-500">La medición exige múltiples fuentes, metodologías y
+                                    factores de emisión. Unificamos ese proceso en un sistema confiable.</span>
                             </div>
                         </li>
                         <li class="flex items-center gap-4">
                             <span class="w-1 h-12 bg-gray-400 block rounded"></span>
                             <div>
                                 <strong class="block text-gray-800">Expectativa regulatoria creciente</strong>
-                                <span class="text-sm text-gray-500">Supervisores e inversionistas buscan indicadores comparables y metodologías reconocidas como GHG Protocol y PCAF.</span>
+                                <span class="text-sm text-gray-500">Supervisores e inversionistas buscan indicadores
+                                    comparables y metodologías reconocidas como GHG Protocol y PCAF.</span>
                             </div>
                         </li>
                     </ul>
                 </div>
-                
-                <div class="reveal-right">
-                    <div class="relative h-[400px] w-full glass-panel rounded-2xl flex items-center justify-center overflow-hidden group">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-rcGreen/10 via-white to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-                        
-                       <div class="relative z-10 w-64 h-40 bg-white rounded-xl border border-gray-200 shadow-2xl transform rotate-[-6deg] group-hover:rotate-0 group-hover:scale-105 transition-all duration-500 flex flex-col justify-between p-4">
+                <div class="reveal-right">
+                    <div class="relative h-[400px] w-full rounded-2xl flex items-center justify-center overflow-hidden group"
+                        style="background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(148, 163, 184, 0.3);">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-rcGreen/5 via-transparent to-transparent opacity-30 group-hover:opacity-50 transition-opacity duration-700">
+                        </div>
+
+
+                        <div class="relative z-10 w-64 h-40 rounded-xl border border-gray-200 shadow-2xl transform rotate-[-6deg] group-hover:rotate-0 group-hover:scale-105 transition-all duration-500 flex flex-col justify-between p-4"
+                            style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px);">
 
                             <div class="flex justify-between items-start">
                                 <div class="w-8 h-5 bg-gray-300 rounded"></div>
@@ -705,8 +816,11 @@
                         </div>
 
                         <div class="absolute inset-0 pointer-events-none">
-                            <span class="absolute top-[30%] right-[20%] text-rcGreen font-mono text-xs opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 delay-100 font-bold">+2.4kg CO2e</span>
-                            <span class="absolute bottom-[30%] left-[20%] text-rcGreen font-mono text-xs opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 delay-200 font-bold">Groceries</span>
+                            <span
+                                class="absolute top-[30%] right-[20%] text-rcGreen font-mono text-xs opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 delay-100 font-bold">+2.4kg
+                                CO2e</span>
+                            <span
+                                class="absolute bottom-[30%] left-[20%] text-rcGreen font-mono text-xs opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 delay-200 font-bold">Groceries</span>
                         </div>
                     </div>
                 </div>
@@ -717,7 +831,8 @@
     <section id="products" class="py-24 md:py-32 relative z-10">
         <div class="container mx-auto px-6 mb-16">
             <p class="text-rcGreen font-semibold mb-3 reveal">Ecosistema completo</p>
-            <h2 class="text-4xl md:text-6xl font-black leading-tight max-w-3xl reveal normal-case" style="letter-spacing: -1px; line-height: 1.1;">
+            <h2 class="text-4xl md:text-6xl font-black leading-tight max-w-3xl reveal normal-case"
+                style="letter-spacing: -1px; line-height: 1.1;">
                 Three interfaces.<br>
                 <span class="text-gray-400">One goal.</span>
             </h2>
@@ -739,10 +854,13 @@
 
                 <div class="lg:col-span-2 order-1 lg:order-2 reveal-right">
                     <div class="lg:pl-8">
-                        <span class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Dashboard</span>
-                        <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">Visualización integrada para equipos de sostenibilidad y riesgo</h3>
+                        <span
+                            class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Dashboard</span>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">
+                            Visualización integrada para equipos de sostenibilidad y riesgo</h3>
                         <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                            El dashboard reúne los resultados generados por la API —emisiones financiadas, operativas y transaccionales— en una interfaz clara. 
+                            El dashboard reúne los resultados generados por la API —emisiones financiadas, operativas y
+                            transaccionales— en una interfaz clara.
                             Permite analizar tendencias, comparar segmentos y monitorear la evolución del portafolio.
                         </p>
                         <ul class="space-y-3 text-gray-700">
@@ -766,17 +884,24 @@
 
         <!-- PRODUCTO 2: ENTERPRISE CALCULATOR -->
         <div class="product-row relative mb-24">
-            <div class="absolute inset-0 bg-gradient-to-r from-rcGreen/5 via-transparent to-transparent pointer-events-none"></div>
-            
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-rcGreen/5 via-transparent to-transparent pointer-events-none">
+            </div>
+
             <div class="container mx-auto px-6 py-16">
                 <div class="grid lg:grid-cols-5 gap-8 items-center">
                     <div class="lg:col-span-2 reveal-left">
                         <div class="lg:pr-8">
-                            <span class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Enterprise Calculator</span>
-                            <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">Cálculo corporativo de emisiones (Scope 1, 2 y 3)</h3>
+                            <span
+                                class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Enterprise
+                                Calculator</span>
+                            <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">
+                                Cálculo corporativo de emisiones (Scope 1, 2 y 3)</h3>
                             <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                                Herramienta guiada para estimar la huella operativa de empresas: energía, combustibles, flota, residuos y cadena de valor.
-                                Utiliza factores de emisión globales y específicos por país para asegurar consistencia metodológica.
+                                Herramienta guiada para estimar la huella operativa de empresas: energía, combustibles,
+                                flota, residuos y cadena de valor.
+                                Utiliza factores de emisión globales y específicos por país para asegurar consistencia
+                                metodológica.
                             </p>
                             <ul class="space-y-3 text-gray-700">
                                 <li class="flex items-center gap-3">
@@ -794,13 +919,15 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <div class="lg:col-span-3 reveal-right">
-                        <div class="product-card-wrapper group cursor-pointer" onmousemove="updateProductGlow(event, this)">
+                        <div class="product-card-wrapper group cursor-pointer"
+                            onmousemove="updateProductGlow(event, this)">
                             <div class="product-card-inner">
                                 <div class="shine-effect"></div>
                                 <div class="aspect-video bg-gray-100 overflow-hidden">
-                                    <img src="img/calculator.png" alt="RastroCero Enterprise Calculator" class="product-img">
+                                    <img src="img/calculator.png" alt="RastroCero Enterprise Calculator"
+                                        class="product-img">
                                 </div>
                             </div>
                         </div>
@@ -816,22 +943,24 @@
                     <div class="product-card-wrapper group cursor-pointer w-full max-w-xl"
                         onmousemove="updateProductGlow(event, this)">
                         <div class="product-card-inner flex items-center justify-center bg-[#f5f6f7]">
-                        <div class="shine-effect"></div>
-                        <img
-                            src="img/bankapp.png"
-                            alt="RastroCero Transactional Engine"
-                            class="product-img w-auto max-w-full max-h-[460px] mx-auto"
-                        />
+                            <div class="shine-effect"></div>
+                            <img src="img/bankapp.png" alt="RastroCero Transactional Engine"
+                                class="product-img w-auto max-w-full max-h-[460px] mx-auto" />
                         </div>
                     </div>
                 </div>
 
                 <div class="reveal-right">
-                    <span class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Transactional Engine</span>
-                    <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">Emisiones por transacción en tiempo real</h3>
+                    <span
+                        class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Transactional
+                        Engine</span>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">
+                        Emisiones por transacción en tiempo real</h3>
                     <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                        La API recibe los datos transaccionales del banco, clasifica cada operación y estima su impacto climático según la categoría del comercio.
-                        Los resultados pueden integrarse en la app del banco, en productos verdes o en análisis internos.
+                        La API recibe los datos transaccionales del banco, clasifica cada operación y estima su impacto
+                        climático según la categoría del comercio.
+                        Los resultados pueden integrarse en la app del banco, en productos verdes o en análisis
+                        internos.
                     </p>
                     <div class="grid grid-cols-2 gap-4 mt-8">
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
@@ -859,14 +988,18 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div class="max-w-2xl reveal">
-                    <span class="text-rcGreen font-mono text-xs font-bold tracking-widest uppercase mb-2 block">System Architecture</span>
-                    <h2 class="text-3xl md:text-5xl font-black mb-4 normal-case" style="letter-spacing: -1px;">Climate Intelligence Engine</h2>
+                    <span class="text-rcGreen font-mono text-xs font-bold tracking-widest uppercase mb-2 block">System
+                        Architecture</span>
+                    <h2 class="text-3xl md:text-5xl font-black mb-4 normal-case" style="letter-spacing: -1px;">Climate
+                        Intelligence Engine</h2>
                     <p class="text-gray-600 text-lg">
-                        Infraestructura diseñada para instituciones financieras: cálculos consistentes, trazabilidad completa y modelos actualizables.
+                        Infraestructura diseñada para instituciones financieras: cálculos consistentes, trazabilidad
+                        completa y modelos actualizables.
                         El motor unifica metodologías y factores de emisión para asegurar precisión y escalabilidad.
                     </p>
                 </div>
-                <div class="hidden md:flex gap-4 font-mono text-xs text-gray-400 border-l border-gray-300 pl-6 reveal-right">
+                <div
+                    class="hidden md:flex gap-4 font-mono text-xs text-gray-400 border-l border-gray-300 pl-6 reveal-right">
                     <div>
                         <span class="block text-gray-400">VERSION</span>
                         <span class="text-rcGreen font-bold">v2.4.0-stable</span>
@@ -879,31 +1012,39 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6" id="cards-container">
-                
+
                 <!-- FACTORES DE EMISIÓN GLOBALES -->
                 <div class="lg:col-span-7 reveal">
                     <div class="spotlight-card h-full rounded-3xl p-8 relative group flex flex-col">
                         <div class="spotlight-border rounded-3xl"></div>
-                        
+
                         <div class="flex justify-between items-start mb-8 relative z-10">
                             <div>
-                                <div class="w-10 h-10 bg-rcGreen/20 rounded-lg flex items-center justify-center mb-4 text-rcGreen text-xl">🌍</div>
+                                <div
+                                    class="w-10 h-10 bg-rcGreen/20 rounded-lg flex items-center justify-center mb-4 text-rcGreen text-xl">
+                                    🌍</div>
                                 <h3 class="text-2xl font-bold">Factores de emisión globales</h3>
                                 <p class="text-gray-500 text-sm mt-2 max-w-md">
-                                    Base de datos energética global con intensidad de carbono por país, actualizada anualmente.
+                                    Base de datos energética global con intensidad de carbono por país, actualizada
+                                    anualmente.
                                 </p>
                             </div>
-                            <span class="px-3 py-1 bg-rcGreen/10 text-rcGreen text-xs font-mono rounded border border-rcGreen/20 animate-pulse font-bold">LIVE DATA</span>
+                            <span
+                                class="px-3 py-1 bg-rcGreen/10 text-rcGreen text-xs font-mono rounded border border-rcGreen/20 animate-pulse font-bold">LIVE
+                                DATA</span>
                         </div>
 
-                        <div class="flex-grow bg-gray-100 rounded-xl border border-gray-200 p-6 relative z-10 overflow-hidden flex flex-col justify-center">
+                        <div
+                            class="flex-grow bg-gray-100 rounded-xl border border-gray-200 p-6 relative z-10 overflow-hidden flex flex-col justify-center">
                             <div class="space-y-4 relative z-10 font-mono text-sm">
                                 <div class="flex items-center justify-between group/row cursor-default">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2 h-2 rounded-full bg-rcGreen shadow-[0_0_10px_#79ce55]"></div>
                                         <span class="text-gray-800 font-bold">Argentina</span>
                                     </div>
-                                    <div class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors"></div>
+                                    <div
+                                        class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors">
+                                    </div>
                                     <span class="text-gray-500 text-xs">EF: 0.345 kg CO₂e/kWh</span>
                                 </div>
                                 <div class="flex items-center justify-between group/row cursor-default">
@@ -911,7 +1052,9 @@
                                         <div class="w-2 h-2 rounded-full bg-rcGreen shadow-[0_0_10px_#79ce55]"></div>
                                         <span class="text-gray-800 font-bold">Paraguay</span>
                                     </div>
-                                    <div class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors"></div>
+                                    <div
+                                        class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors">
+                                    </div>
                                     <span class="text-gray-500 text-xs">EF: 0.02486 kg CO₂e/kWh</span>
                                 </div>
                                 <div class="flex items-center justify-between group/row cursor-default">
@@ -919,7 +1062,9 @@
                                         <div class="w-2 h-2 rounded-full bg-rcGreen shadow-[0_0_10px_#79ce55]"></div>
                                         <span class="text-gray-800 font-bold">Brasil</span>
                                     </div>
-                                    <div class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors"></div>
+                                    <div
+                                        class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors">
+                                    </div>
                                     <span class="text-gray-500 text-xs">EF: 0.10606 kg CO₂e/kWh</span>
                                 </div>
                                 <div class="flex items-center justify-between group/row cursor-default">
@@ -927,7 +1072,9 @@
                                         <div class="w-2 h-2 rounded-full bg-rcGreen shadow-[0_0_10px_#79ce55]"></div>
                                         <span class="text-gray-800 font-bold">España</span>
                                     </div>
-                                    <div class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors"></div>
+                                    <div
+                                        class="h-[1px] flex-grow mx-4 bg-gray-300 group-hover/row:bg-rcGreen/50 transition-colors">
+                                    </div>
                                     <span class="text-gray-500 text-xs">EF: 0.14615 kg CO₂e/kWh</span>
                                 </div>
                             </div>
@@ -937,12 +1084,15 @@
 
                 <!-- CARDS DERECHA -->
                 <div class="lg:col-span-5 flex flex-col gap-6">
-                    
+
                     <!-- Low latency -->
-                    <div class="spotlight-card flex-1 rounded-3xl p-8 relative group flex flex-col justify-center overflow-hidden reveal-right">
+                    <div
+                        class="spotlight-card flex-1 rounded-3xl p-8 relative group flex flex-col justify-center overflow-hidden reveal-right">
                         <div class="spotlight-border rounded-3xl"></div>
-                        <div class="absolute right-0 top-0 w-32 h-32 bg-rcGreen/10 blur-[50px] rounded-full pointer-events-none"></div>
-                        
+                        <div
+                            class="absolute right-0 top-0 w-32 h-32 bg-rcGreen/10 blur-[50px] rounded-full pointer-events-none">
+                        </div>
+
                         <div class="relative z-10">
                             <div class="flex items-baseline gap-2 mb-2">
                                 <h3 class="text-6xl font-black tracking-tighter">Low</h3>
@@ -950,18 +1100,21 @@
                             </div>
                             <p class="font-bold text-lg mb-1">Procesamiento en milisegundos</p>
                             <p class="text-gray-500 text-sm leading-relaxed">
-                                El motor procesa solicitudes en tiempos reducidos, soportando cargas de nivel bancario sin comprometer precisión.
+                                El motor procesa solicitudes en tiempos reducidos, soportando cargas de nivel bancario
+                                sin comprometer precisión.
                             </p>
                         </div>
                     </div>
 
                     <div class="flex-1 grid grid-cols-2 gap-6">
-                        
+
                         <!-- Metodologías reconocidas -->
                         <div class="spotlight-card rounded-3xl p-6 relative group flex flex-col justify-between reveal">
                             <div class="spotlight-border rounded-3xl"></div>
                             <div class="relative z-10">
-                                <div class="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center mb-3 text-lg">✓</div>
+                                <div
+                                    class="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center mb-3 text-lg">
+                                    ✓</div>
                                 <h4 class="font-bold mb-3">Metodologías reconocidas</h4>
                                 <ul class="text-xs text-gray-500 space-y-2 font-mono">
                                     <li class="flex items-center gap-2">
@@ -981,13 +1134,18 @@
                         <div class="spotlight-card rounded-3xl p-6 relative group flex flex-col justify-between reveal">
                             <div class="spotlight-border rounded-3xl"></div>
                             <div class="relative z-10">
-                                <div class="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center mb-3 text-lg">⚖️</div>
+                                <div
+                                    class="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center mb-3 text-lg">
+                                    ⚖️</div>
                                 <h4 class="font-bold mb-2">Trazabilidad completa</h4>
                                 <p class="text-xs text-gray-500 mb-4">
-                                    Cada cálculo conserva factores, supuestos y versiones, listo para auditorías internas y externas.
+                                    Cada cálculo conserva factores, supuestos y versiones, listo para auditorías
+                                    internas y externas.
                                 </p>
                                 <div class="mt-auto">
-                                    <span class="text-[10px] font-mono text-rcGreen border border-rcGreen/30 px-2 py-1 rounded bg-rcGreen/5 font-bold">EN PRODUCCIÓN</span>
+                                    <span
+                                        class="text-[10px] font-mono text-rcGreen border border-rcGreen/30 px-2 py-1 rounded bg-rcGreen/5 font-bold">EN
+                                        PRODUCCIÓN</span>
                                 </div>
                             </div>
                         </div>
@@ -1001,28 +1159,35 @@
 
     <section id="developers" class="py-24 md:py-32 relative z-10 bg-gray-50/80">
         <div class="container mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
-            
+
             <div class="lg:w-1/2 reveal-left">
                 <p class="text-rcGreen font-semibold mb-4">For Technical Teams</p>
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 normal-case" style="letter-spacing: -1px;">API.0</h2>
                 <p class="text-gray-600 mb-8 text-lg">
-                    La API REST permite enviar datos de portafolios, empresas y transacciones para obtener cálculos de impacto en un formato claro y estandarizado.
+                    La API REST permite enviar datos de portafolios, empresas y transacciones para obtener cálculos de
+                    impacto en un formato claro y estandarizado.
                     La documentación incluye ejemplos, estructuras de datos y guías para entornos de prueba.
                 </p>
                 <div class="flex flex-col gap-4">
-                    <div class="group flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:bg-white hover:border-rcGreen/30 transition-all cursor-pointer bg-white/50">
+                    <div
+                        class="group flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:bg-white hover:border-rcGreen/30 transition-all cursor-pointer bg-white/50">
                         <div class="bg-blue-100 text-blue-600 px-2 py-1 rounded font-mono text-xs font-bold">GET</div>
-                        <span class="font-mono text-sm text-gray-600 group-hover:text-gray-800">/v1/carbon/estimate</span>
+                        <span
+                            class="font-mono text-sm text-gray-600 group-hover:text-gray-800">/v1/carbon/estimate</span>
                     </div>
-                    <div class="group flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:bg-white hover:border-rcGreen/30 transition-all cursor-pointer bg-white/50">
-                        <div class="bg-green-100 text-green-600 px-2 py-1 rounded font-mono text-xs font-bold">POST</div>
-                        <span class="font-mono text-sm text-gray-600 group-hover:text-gray-800">/v1/transactions/enrich</span>
+                    <div
+                        class="group flex items-center gap-4 p-4 border border-gray-200 rounded-lg hover:bg-white hover:border-rcGreen/30 transition-all cursor-pointer bg-white/50">
+                        <div class="bg-green-100 text-green-600 px-2 py-1 rounded font-mono text-xs font-bold">POST
+                        </div>
+                        <span
+                            class="font-mono text-sm text-gray-600 group-hover:text-gray-800">/v1/transactions/enrich</span>
                     </div>
                 </div>
             </div>
 
             <div class="lg:w-1/2 w-full reveal-right">
-                <div class="code-terminal shadow-2xl transform transition-transform hover:rotate-1 hover:scale-[1.02] duration-500">
+                <div
+                    class="code-terminal shadow-2xl transform transition-transform hover:rotate-1 hover:scale-[1.02] duration-500">
                     <div class="terminal-header">
                         <div class="terminal-dot bg-red-500"></div>
                         <div class="terminal-dot bg-yellow-500"></div>
@@ -1035,7 +1200,7 @@
                             <span class="text-blue-400 mr-2">~</span>
                             <span>curl -X POST https://api.rastrocero.com/v1/enrich</span>
                         </div>
-                        
+
                         <div id="typewriter-output" class="text-gray-400 whitespace-pre-wrap"></div>
                         <span class="inline-block w-2 h-4 bg-rcGreen cursor-blink align-middle"></span>
                     </div>
@@ -1045,26 +1210,44 @@
         </div>
     </section>
 
+    <div class="ticker-wrap reveal">
+        <div class="ticker">
+            <div class="ticker-item">API.0 <span>●</span></div>
+            <div class="ticker-item">Low Latency <span>●</span></div>
+            <div class="ticker-item">Factores de Emisión Globales <span>●</span></div>
+            <div class="ticker-item">Inversiones · Operaciones · Transacciones <span>●</span></div>
+            <div class="ticker-item">Pipeline Auditable <span>●</span></div>
+
+            <div class="ticker-item">API.0 <span>●</span></div>
+            <div class="ticker-item">Low Latency <span>●</span></div>
+            <div class="ticker-item">Factores de Emisión Globales <span>●</span></div>
+            <div class="ticker-item">Inversiones · Operaciones · Transacciones <span>●</span></div>
+            <div class="ticker-item">Pipeline Auditable <span>●</span></div>
+        </div>
+    </div>
+
     <footer class="py-24 md:py-32 relative z-10">
         <div class="container mx-auto px-6 relative z-10 text-center">
-            <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter normal-case reveal" style="letter-spacing: -2px;">
+            <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter normal-case reveal"
+                style="letter-spacing: -2px;">
                 Climate Intelligence Platform
             </h2>
-            
+
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 reveal">
-                <a href="#" class="px-10 py-5 bg-gray-800 text-white text-lg font-bold rounded-full hover:scale-105 transition-transform shadow-2xl">
-                    Start Integration
-                </a>
-                <a href="#" class="px-10 py-5 border-2 border-gray-800 text-gray-800 text-lg font-bold rounded-full hover:bg-gray-800 hover:text-white transition-colors">
-                    Contact Sales
+                <a href="contact.html"
+                    class="px-10 py-5 border-2 border-gray-800 text-gray-800 text-lg font-bold rounded-full hover:bg-gray-800 hover:text-white transition-colors">
+                    Contactanos
                 </a>
             </div>
 
-            <div class="mt-24 border-t border-black/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-semibold opacity-60 reveal">
+            <div
+                class="mt-24 border-t border-black/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-semibold opacity-60 reveal">
                 <p>&copy; 2025 Rastro Cero E.A.S.</p>
                 <div class="flex gap-6 mt-4 md:mt-0">
-                    <a target="_blank" href="https://www.linkedin.com/company/rastrocero/" class="hover:underline">LinkedIn</a>
-                    <a target="_blank" href="https://www.instagram.com/rastroceropy" class="hover:underline">Instagram</a>
+                    <a target="_blank" href="https://www.linkedin.com/company/rastrocero/"
+                        class="hover:underline">LinkedIn</a>
+                    <a target="_blank" href="https://www.instagram.com/rastroceropy"
+                        class="hover:underline">Instagram</a>
                 </div>
             </div>
         </div>
@@ -1177,7 +1360,7 @@
         }
 
         // ====== PRODUCT GLOW ======
-        window.updateProductGlow = function(e, card) {
+        window.updateProductGlow = function (e, card) {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -1222,15 +1405,15 @@
 
         productRows.forEach((row) => {
             const imageWrapper = row.querySelector('.product-card-wrapper');
-            
+
             if (imageWrapper) {
-                gsap.set(imageWrapper, { 
+                gsap.set(imageWrapper, {
                     scale: 0.95,
                     opacity: 0,
                     y: 50,
                     transformOrigin: "center center"
                 });
-                
+
                 gsap.to(imageWrapper, {
                     scrollTrigger: {
                         trigger: row,
@@ -1247,4 +1430,5 @@
         });
     </script>
 </body>
+
 </html>
