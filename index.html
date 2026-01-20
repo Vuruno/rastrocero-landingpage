@@ -715,15 +715,24 @@
         </a>
 
         <div class="hidden md:flex gap-8 text-xs font-bold tracking-widest text-gray-500">
-            <a href="#products" class="hover:text-rcGreen transition-colors">SOLUCIONES</a>
-            <a href="#features" class="hover:text-rcGreen transition-colors">FUNCIONES</a>
-            <a href="#developers" class="hover:text-rcGreen transition-colors">¿CÓMO INTEGRAR?</a>
+            <a href="#products" class="hover:text-rcGreen transition-colors" data-i18n="nav.solutions">SOLUCIONES</a>
+            <a href="#features" class="hover:text-rcGreen transition-colors" data-i18n="nav.features">FUNCIONES</a>
+            <a href="#developers" class="hover:text-rcGreen transition-colors" data-i18n="nav.integrate">¿CÓMO INTEGRAR?</a>
         </div>
 
-        <a href="contact.html"
-            class="btn-brand text-xs font-black tracking-wide px-5 py-3 md:text-sm md:px-10 md:py-4 flex-shrink-0">
-            ACCEDER A LA API
-        </a>
+        <div class="flex items-center gap-4 md:gap-6">
+            <!-- Language Selector -->
+            <div class="lang-selector flex items-center gap-1 text-xs font-bold tracking-wide">
+                <button id="lang-es" class="lang-btn px-2 py-1 rounded transition-all text-rcGreen">ES</button>
+                <span class="text-gray-300">|</span>
+                <button id="lang-en" class="lang-btn px-2 py-1 rounded transition-all text-gray-400 hover:text-gray-600">EN</button>
+            </div>
+
+            <a href="contact.html"
+                class="btn-brand text-xs font-black tracking-wide px-5 py-3 md:text-sm md:px-10 md:py-4 flex-shrink-0" data-i18n="nav.cta">
+                ACCEDER A LA API
+            </a>
+        </div>
     </nav>
 
     <section class="hero min-h-screen flex items-center relative z-10">
@@ -738,14 +747,14 @@
             </h1>
 
             <p
-                class="hero-description max-w-md mx-auto md:ml-auto md:mr-0 text-lg font-medium leading-relaxed mb-8 text-gray-600">
+                class="hero-description max-w-md mx-auto md:ml-auto md:mr-0 text-lg font-medium leading-relaxed mb-8 text-gray-600" data-i18n="hero.description">
                 La plataforma de inteligencia climática para instituciones financieras.
                 Cálculo de emisiones de portafolios de inversiones, operaciones y transacciones de tarjetas en un solo
                 sistema confiable.
             </p>
 
             <div class="hero-cta">
-                <a href="#features" class="btn-brand inline-block px-8 py-4 text-sm font-bold">VER TECNOLOGÍA</a>
+                <a href="#features" class="btn-brand inline-block px-8 py-4 text-sm font-bold" data-i18n="hero.cta">VER TECNOLOGÍA</a>
             </div>
         </div>
     </section>
@@ -758,40 +767,33 @@
                 <div class="reveal">
                     <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight normal-case"
                         style="letter-spacing: -1px; line-height: 1.1;">
-                        Desafío del <br>
-                        <span class="text-gray-400">sector financiero.</span>
+                        <span data-i18n="problem.title1">Desafío del</span> <br>
+                        <span class="text-gray-400" data-i18n="problem.title2">sector financiero.</span>
                     </h2>
                     <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                        Las instituciones financieras concentran la mayor parte de su impacto en carteras de crédito e
-                        inversión,
-                        pero los datos climáticos suelen ser incompletos, dispersos o difíciles de integrar.
-                        <strong class="text-gray-800"> RASTROCERO unifica en una plataforma los motores de cálculo de
-                            emisiones financiadas, operativas y transaccionales, generando información estructurada e
-                            infraestructura de datos para análisis, riesgo y estrategia.</strong>
+                        <span data-i18n="problem.description">Las instituciones financieras concentran la mayor parte de su impacto en carteras de crédito e inversión, pero los datos climáticos suelen ser incompletos, dispersos o difíciles de integrar.</span>
+                        <strong class="text-gray-800" data-i18n="problem.description.bold"> RASTROCERO unifica en una plataforma los motores de cálculo de emisiones financiadas, operativas y transaccionales, generando información estructurada e infraestructura de datos para análisis, riesgo y estrategia.</strong>
                     </p>
                     <ul class="space-y-4 mt-8">
                         <li class="flex items-center gap-4">
                             <span class="w-1 h-12 bg-red-500 block rounded"></span>
                             <div>
-                                <strong class="block text-gray-800">Impacto en portafolios</strong>
-                                <span class="text-sm text-gray-500">Más del 90% de la huella climática de un banco
-                                    proviene de sus inversiones y préstamos.</span>
+                                <strong class="block text-gray-800" data-i18n="problem.item1.title">Impacto en portafolios</strong>
+                                <span class="text-sm text-gray-500" data-i18n="problem.item1.desc">Más del 90% de la huella climática de un banco proviene de sus inversiones y préstamos.</span>
                             </div>
                         </li>
                         <li class="flex items-center gap-4">
                             <span class="w-1 h-12 bg-rcGreen block rounded"></span>
                             <div>
-                                <strong class="block text-gray-800">Procesos fragmentados</strong>
-                                <span class="text-sm text-gray-500">La medición exige múltiples fuentes, metodologías y
-                                    factores de emisión. Unificamos ese proceso en un sistema confiable.</span>
+                                <strong class="block text-gray-800" data-i18n="problem.item2.title">Procesos fragmentados</strong>
+                                <span class="text-sm text-gray-500" data-i18n="problem.item2.desc">La medición exige múltiples fuentes, metodologías y factores de emisión. Unificamos ese proceso en un sistema confiable.</span>
                             </div>
                         </li>
                         <li class="flex items-center gap-4">
                             <span class="w-1 h-12 bg-gray-400 block rounded"></span>
                             <div>
-                                <strong class="block text-gray-800">Expectativa regulatoria creciente</strong>
-                                <span class="text-sm text-gray-500">Supervisores e inversionistas buscan indicadores
-                                    comparables y metodologías reconocidas como GHG Protocol y PCAF.</span>
+                                <strong class="block text-gray-800" data-i18n="problem.item3.title">Expectativa regulatoria creciente</strong>
+                                <span class="text-sm text-gray-500" data-i18n="problem.item3.desc">Supervisores e inversionistas buscan indicadores comparables y metodologías reconocidas como GHG Protocol y PCAF.</span>
                             </div>
                         </li>
                     </ul>
@@ -830,11 +832,11 @@
 
     <section id="products" class="py-24 md:py-32 relative z-10">
         <div class="container mx-auto px-6 mb-16">
-            <p class="text-rcGreen font-semibold mb-3 reveal">Ecosistema completo</p>
+            <p class="text-rcGreen font-semibold mb-3 reveal" data-i18n="products.subtitle">Ecosistema completo</p>
             <h2 class="text-4xl md:text-6xl font-black leading-tight max-w-3xl reveal normal-case"
                 style="letter-spacing: -1px; line-height: 1.1;">
-                Three interfaces.<br>
-                <span class="text-gray-400">One goal.</span>
+                <span data-i18n="products.title1">Three interfaces.</span><br>
+                <span class="text-gray-400" data-i18n="products.title2">One goal.</span>
             </h2>
         </div>
 
@@ -855,26 +857,24 @@
                 <div class="lg:col-span-2 order-1 lg:order-2 reveal-right">
                     <div class="lg:pl-8">
                         <span
-                            class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Dashboard</span>
-                        <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">
+                            class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6" data-i18n="product1.badge">Dashboard</span>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;" data-i18n="product1.title">
                             Visualización integrada para equipos de sostenibilidad y riesgo</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                            El dashboard reúne los resultados generados por la API —emisiones financiadas, operativas y
-                            transaccionales— en una interfaz clara.
-                            Permite analizar tendencias, comparar segmentos y monitorear la evolución del portafolio.
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6" data-i18n="product1.description">
+                            El dashboard reúne los resultados generados por la API —emisiones financiadas, operativas y transaccionales— en una interfaz clara. Permite analizar tendencias, comparar segmentos y monitorear la evolución del portafolio.
                         </p>
                         <ul class="space-y-3 text-gray-700">
                             <li class="flex items-center gap-3">
                                 <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                Vista unificada de portafolios, empresas y transacciones
+                                <span data-i18n="product1.feature1">Vista unificada de portafolios, empresas y transacciones</span>
                             </li>
                             <li class="flex items-center gap-3">
                                 <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                Filtros por categoría, período y tipo de actividad
+                                <span data-i18n="product1.feature2">Filtros por categoría, período y tipo de actividad</span>
                             </li>
                             <li class="flex items-center gap-3">
                                 <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                Perfiles de usuario según rol
+                                <span data-i18n="product1.feature3">Perfiles de usuario según rol</span>
                             </li>
                         </ul>
                     </div>
@@ -893,28 +893,24 @@
                     <div class="lg:col-span-2 reveal-left">
                         <div class="lg:pr-8">
                             <span
-                                class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Enterprise
-                                Calculator</span>
-                            <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">
+                                class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6" data-i18n="product2.badge">Enterprise Calculator</span>
+                            <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;" data-i18n="product2.title">
                                 Cálculo corporativo de emisiones (Scope 1, 2 y 3)</h3>
-                            <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                                Herramienta guiada para estimar la huella operativa de empresas: energía, combustibles,
-                                flota, residuos y cadena de valor.
-                                Utiliza factores de emisión globales y específicos por país para asegurar consistencia
-                                metodológica.
+                            <p class="text-gray-600 text-lg leading-relaxed mb-6" data-i18n="product2.description">
+                                Herramienta guiada para estimar la huella operativa de empresas: energía, combustibles, flota, residuos y cadena de valor. Utiliza factores de emisión globales y específicos por país para asegurar consistencia metodológica.
                             </p>
                             <ul class="space-y-3 text-gray-700">
                                 <li class="flex items-center gap-3">
                                     <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                    Factores de emisión globales y por país
+                                    <span data-i18n="product2.feature1">Factores de emisión globales y por país</span>
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                    Emisiones directas e indirectas bajo GHG Protocol
+                                    <span data-i18n="product2.feature2">Emisiones directas e indirectas bajo GHG Protocol</span>
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                    Resultados integrados automáticamente al dashboard
+                                    <span data-i18n="product2.feature3">Resultados integrados automáticamente al dashboard</span>
                                 </li>
                             </ul>
                         </div>
@@ -953,27 +949,24 @@
                 <div class="lg:col-span-2 order-1 lg:order-2 reveal-right">
                     <div class="lg:pl-8">
                         <span
-                            class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Financed
-                            Emissions</span>
-                        <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">
+                            class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6" data-i18n="product3.badge">Financed Emissions</span>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;" data-i18n="product3.title">
                             Cálculo de emisiones financiadas bajo metodología PCAF</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                            Motor especializado para estimar las emisiones asociadas a carteras de crédito e inversión.
-                            Aplica factores de atribución según tipo de activo y calidad de datos disponibles,
-                            siguiendo los lineamientos de PCAF (Partnership for Carbon Accounting Financials).
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6" data-i18n="product3.description">
+                            Motor especializado para estimar las emisiones asociadas a carteras de crédito e inversión. Aplica factores de atribución según tipo de activo y calidad de datos disponibles, siguiendo los lineamientos de PCAF (Partnership for Carbon Accounting Financials).
                         </p>
                         <ul class="space-y-3 text-gray-700">
                             <li class="flex items-center gap-3">
                                 <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                Cobertura de préstamos corporativos, hipotecas y project finance
+                                <span data-i18n="product3.feature1">Cobertura de préstamos corporativos, hipotecas y project finance</span>
                             </li>
                             <li class="flex items-center gap-3">
                                 <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                Puntaje de calidad de datos (Data Quality Score)
+                                <span data-i18n="product3.feature2">Puntaje de calidad de datos (Data Quality Score)</span>
                             </li>
                             <li class="flex items-center gap-3">
                                 <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                                Cálculo de intensidad de emisiones por millón invertido
+                                <span data-i18n="product3.feature3">Cálculo de intensidad de emisiones por millón invertido</span>
                             </li>
                         </ul>
                     </div>
@@ -982,34 +975,30 @@
         </div>
 
         <!-- PRODUCTO 4: TRANSACTIONAL ENGINE / MOBILE SDK -->
-        <div class="product-row container mx-auto px-6 py-16 mb-24">
+        <div class="product-row container mx-auto px-6 py-16">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="reveal-left">
                     <span
-                        class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6">Transactional
-                        Engine</span>
-                    <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;">
+                        class="inline-block px-3 py-1 bg-rcGreen/10 border border-rcGreen/20 rounded-full text-xs text-rcGreen font-semibold mb-6" data-i18n="product4.badge">Transactional Engine</span>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4 normal-case" style="letter-spacing: -0.5px;" data-i18n="product4.title">
                         Emisiones por transacción en tiempo real</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                        La API recibe los datos transaccionales del banco, clasifica cada operación y estima su impacto
-                        climático según la categoría del comercio.
-                        Los resultados pueden integrarse en la app del banco, en productos verdes o en análisis
-                        internos.
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6" data-i18n="product4.description">
+                        La API recibe los datos transaccionales del banco, clasifica cada operación y estima su impacto climático según la categoría del comercio. Los resultados pueden integrarse en la app del banco, en productos verdes o en análisis internos.
                     </p>
                     <div class="grid grid-cols-2 gap-4 mt-8">
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-                            <div class="text-3xl font-black text-rcGreen mb-1">Tiempo real</div>
-                            <p class="text-sm text-gray-500">Cálculo por operación</p>
+                            <div class="text-3xl font-black text-rcGreen mb-1" data-i18n="product4.stat1">Tiempo real</div>
+                            <p class="text-sm text-gray-500" data-i18n="product4.stat1.desc">Cálculo por operación</p>
                         </div>
                         <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-                            <div class="text-2xl font-black text-rcGreen mb-1">100%</div>
-                            <p class="text-sm text-gray-500">Compatible con cualquier core bancario</p>
+                            <div class="text-2xl font-black text-rcGreen mb-1" data-i18n="product4.stat2">100%</div>
+                            <p class="text-sm text-gray-500" data-i18n="product4.stat2.desc">Compatible con cualquier core bancario</p>
                         </div>
                     </div>
                     <ul class="space-y-2 text-gray-700 mt-6 text-sm">
                         <li class="flex items-center gap-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-rcGreen"></span>
-                            Datos listos para productos, insights o reportes
+                            <span data-i18n="product4.feature1">Datos listos para productos, insights o reportes</span>
                         </li>
                     </ul>
                 </div>
@@ -1033,24 +1022,20 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div class="max-w-2xl reveal">
-                    <span class="text-rcGreen font-mono text-xs font-bold tracking-widest uppercase mb-2 block">System
-                        Architecture</span>
-                    <h2 class="text-3xl md:text-5xl font-black mb-4 normal-case" style="letter-spacing: -1px;">Climate
-                        Intelligence Engine</h2>
-                    <p class="text-gray-600 text-lg">
-                        Infraestructura diseñada para instituciones financieras: cálculos consistentes, trazabilidad
-                        completa y modelos actualizables.
-                        El motor unifica metodologías y factores de emisión para asegurar precisión y escalabilidad.
+                    <span class="text-rcGreen font-mono text-xs font-bold tracking-widest uppercase mb-2 block" data-i18n="features.subtitle">System Architecture</span>
+                    <h2 class="text-3xl md:text-5xl font-black mb-4 normal-case" style="letter-spacing: -1px;" data-i18n="features.title">Climate Intelligence Engine</h2>
+                    <p class="text-gray-600 text-lg" data-i18n="features.description">
+                        Infraestructura diseñada para instituciones financieras: cálculos consistentes, trazabilidad completa y modelos actualizables. El motor unifica metodologías y factores de emisión para asegurar precisión y escalabilidad.
                     </p>
                 </div>
                 <div
                     class="hidden md:flex gap-4 font-mono text-xs text-gray-400 border-l border-gray-300 pl-6 reveal-right">
                     <div>
-                        <span class="block text-gray-400">VERSION</span>
+                        <span class="block text-gray-400" data-i18n="features.version">VERSION</span>
                         <span class="text-rcGreen font-bold">v2.4.0-stable</span>
                     </div>
                     <div>
-                        <span class="block text-gray-400">UPTIME</span>
+                        <span class="block text-gray-400" data-i18n="features.uptime">UPTIME</span>
                         <span class="text-gray-800 font-bold">99.99%</span>
                     </div>
                 </div>
@@ -1068,15 +1053,13 @@
                                 <div
                                     class="w-10 h-10 bg-rcGreen/20 rounded-lg flex items-center justify-center mb-4 text-rcGreen text-xl">
                                     🌍</div>
-                                <h3 class="text-2xl font-bold">Factores de emisión globales</h3>
-                                <p class="text-gray-500 text-sm mt-2 max-w-md">
-                                    Base de datos energética global con intensidad de carbono por país, actualizada
-                                    anualmente.
+                                <h3 class="text-2xl font-bold" data-i18n="feature1.title">Factores de emisión globales</h3>
+                                <p class="text-gray-500 text-sm mt-2 max-w-md" data-i18n="feature1.description">
+                                    Base de datos energética global con intensidad de carbono por país, actualizada anualmente.
                                 </p>
                             </div>
                             <span
-                                class="px-3 py-1 bg-rcGreen/10 text-rcGreen text-xs font-mono rounded border border-rcGreen/20 animate-pulse font-bold">LIVE
-                                DATA</span>
+                                class="px-3 py-1 bg-rcGreen/10 text-rcGreen text-xs font-mono rounded border border-rcGreen/20 animate-pulse font-bold" data-i18n="feature1.badge">LIVE DATA</span>
                         </div>
 
                         <div
@@ -1206,12 +1189,10 @@
         <div class="container mx-auto px-6 flex flex-col lg:flex-row gap-12 items-center">
 
             <div class="lg:w-1/2 reveal-left">
-                <p class="text-rcGreen font-semibold mb-4">For Technical Teams</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 normal-case" style="letter-spacing: -1px;">API.0</h2>
-                <p class="text-gray-600 mb-8 text-lg">
-                    La API REST permite enviar datos de portafolios, empresas y transacciones para obtener cálculos de
-                    impacto en un formato claro y estandarizado.
-                    La documentación incluye ejemplos, estructuras de datos y guías para entornos de prueba.
+                <p class="text-rcGreen font-semibold mb-4" data-i18n="dev.subtitle">For Technical Teams</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 normal-case" style="letter-spacing: -1px;" data-i18n="dev.title">API.0</h2>
+                <p class="text-gray-600 mb-8 text-lg" data-i18n="dev.description">
+                    La API REST permite enviar datos de portafolios, empresas y transacciones para obtener cálculos de impacto en un formato claro y estandarizado. La documentación incluye ejemplos, estructuras de datos y guías para entornos de prueba.
                 </p>
                 <div class="flex flex-col gap-4">
                     <div
@@ -1257,30 +1238,30 @@
 
     <div class="ticker-wrap reveal">
         <div class="ticker">
-            <div class="ticker-item">API.0 <span>●</span></div>
-            <div class="ticker-item">Low Latency <span>●</span></div>
-            <div class="ticker-item">Factores de Emisión Globales <span>●</span></div>
-            <div class="ticker-item">Inversiones · Operaciones · Transacciones <span>●</span></div>
-            <div class="ticker-item">Pipeline Auditable <span>●</span></div>
+            <div class="ticker-item"><span data-i18n="ticker.item1">API.0</span> <span>●</span></div>
+            <div class="ticker-item"><span data-i18n="ticker.item2">Low Latency</span> <span>●</span></div>
+            <div class="ticker-item"><span data-i18n="ticker.item3">Factores de Emisión Globales</span> <span>●</span></div>
+            <div class="ticker-item"><span data-i18n="ticker.item4">Inversiones · Operaciones · Transacciones</span> <span>●</span></div>
+            <div class="ticker-item"><span data-i18n="ticker.item5">Pipeline Auditable</span> <span>●</span></div>
 
-            <div class="ticker-item">API.0 <span>●</span></div>
-            <div class="ticker-item">Low Latency <span>●</span></div>
-            <div class="ticker-item">Factores de Emisión Globales <span>●</span></div>
-            <div class="ticker-item">Inversiones · Operaciones · Transacciones <span>●</span></div>
-            <div class="ticker-item">Pipeline Auditable <span>●</span></div>
+            <div class="ticker-item"><span data-i18n="ticker.item1">API.0</span> <span>●</span></div>
+            <div class="ticker-item"><span data-i18n="ticker.item2">Low Latency</span> <span>●</span></div>
+            <div class="ticker-item"><span data-i18n="ticker.item3">Factores de Emisión Globales</span> <span>●</span></div>
+            <div class="ticker-item"><span data-i18n="ticker.item4">Inversiones · Operaciones · Transacciones</span> <span>●</span></div>
+            <div class="ticker-item"><span data-i18n="ticker.item5">Pipeline Auditable</span> <span>●</span></div>
         </div>
     </div>
 
     <footer class="py-24 md:py-32 relative z-10">
         <div class="container mx-auto px-6 relative z-10 text-center">
             <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter normal-case reveal"
-                style="letter-spacing: -2px;">
+                style="letter-spacing: -2px;" data-i18n="footer.title">
                 Climate Intelligence Platform
             </h2>
 
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 reveal">
                 <a href="contact.html"
-                    class="px-10 py-5 border-2 border-gray-800 text-gray-800 text-lg font-bold rounded-full hover:bg-gray-800 hover:text-white transition-colors">
+                    class="px-10 py-5 border-2 border-gray-800 text-gray-800 text-lg font-bold rounded-full hover:bg-gray-800 hover:text-white transition-colors" data-i18n="footer.cta">
                     Contactanos
                 </a>
             </div>
@@ -1473,6 +1454,213 @@
                 });
             }
         });
+
+        // ====== INTERNATIONALIZATION ======
+        const translations = {
+            es: {
+                // Nav
+                'nav.solutions': 'SOLUCIONES',
+                'nav.features': 'FUNCIONES',
+                'nav.integrate': '¿CÓMO INTEGRAR?',
+                'nav.cta': 'ACCEDER A LA API',
+                // Hero
+                'hero.description': 'La plataforma de inteligencia climática para instituciones financieras. Cálculo de emisiones de portafolios de inversiones, operaciones y transacciones de tarjetas en un solo sistema confiable.',
+                'hero.cta': 'VER TECNOLOGÍA',
+                // Problem Section
+                'problem.title1': 'Desafío del',
+                'problem.title2': 'sector financiero.',
+                'problem.description': 'Las instituciones financieras concentran la mayor parte de su impacto en carteras de crédito e inversión, pero los datos climáticos suelen ser incompletos, dispersos o difíciles de integrar.',
+                'problem.description.bold': 'RASTROCERO unifica en una plataforma los motores de cálculo de emisiones financiadas, operativas y transaccionales, generando información estructurada e infraestructura de datos para análisis, riesgo y estrategia.',
+                'problem.item1.title': 'Impacto en portafolios',
+                'problem.item1.desc': 'Más del 90% de la huella climática de un banco proviene de sus inversiones y préstamos.',
+                'problem.item2.title': 'Procesos fragmentados',
+                'problem.item2.desc': 'La medición exige múltiples fuentes, metodologías y factores de emisión. Unificamos ese proceso en un sistema confiable.',
+                'problem.item3.title': 'Expectativa regulatoria creciente',
+                'problem.item3.desc': 'Supervisores e inversionistas buscan indicadores comparables y metodologías reconocidas como GHG Protocol y PCAF.',
+                // Products Section
+                'products.subtitle': 'Ecosistema completo',
+                'products.title1': 'Three interfaces.',
+                'products.title2': 'One goal.',
+                // Product 1 - Dashboard
+                'product1.badge': 'Dashboard',
+                'product1.title': 'Visualización integrada para equipos de sostenibilidad y riesgo',
+                'product1.description': 'El dashboard reúne los resultados generados por la API —emisiones financiadas, operativas y transaccionales— en una interfaz clara. Permite analizar tendencias, comparar segmentos y monitorear la evolución del portafolio.',
+                'product1.feature1': 'Vista unificada de portafolios, empresas y transacciones',
+                'product1.feature2': 'Filtros por categoría, período y tipo de actividad',
+                'product1.feature3': 'Perfiles de usuario según rol',
+                // Product 2 - Enterprise Calculator
+                'product2.badge': 'Enterprise Calculator',
+                'product2.title': 'Cálculo corporativo de emisiones (Scope 1, 2 y 3)',
+                'product2.description': 'Herramienta guiada para estimar la huella operativa de empresas: energía, combustibles, flota, residuos y cadena de valor. Utiliza factores de emisión globales y específicos por país para asegurar consistencia metodológica.',
+                'product2.feature1': 'Factores de emisión globales y por país',
+                'product2.feature2': 'Emisiones directas e indirectas bajo GHG Protocol',
+                'product2.feature3': 'Resultados integrados automáticamente al dashboard',
+                // Product 3 - Financed Emissions
+                'product3.badge': 'Financed Emissions',
+                'product3.title': 'Cálculo de emisiones financiadas bajo metodología PCAF',
+                'product3.description': 'Motor especializado para estimar las emisiones asociadas a carteras de crédito e inversión. Aplica factores de atribución según tipo de activo y calidad de datos disponibles, siguiendo los lineamientos de PCAF (Partnership for Carbon Accounting Financials).',
+                'product3.feature1': 'Cobertura de préstamos corporativos, hipotecas y project finance',
+                'product3.feature2': 'Puntaje de calidad de datos (Data Quality Score)',
+                'product3.feature3': 'Cálculo de intensidad de emisiones por millón invertido',
+                // Product 4 - Transactional Engine
+                'product4.badge': 'Transactional Engine',
+                'product4.title': 'Emisiones por transacción en tiempo real',
+                'product4.description': 'La API recibe los datos transaccionales del banco, clasifica cada operación y estima su impacto climático según la categoría del comercio. Los resultados pueden integrarse en la app del banco, en productos verdes o en análisis internos.',
+                'product4.stat1': 'Tiempo real',
+                'product4.stat1.desc': 'Cálculo por operación',
+                'product4.stat2': '100%',
+                'product4.stat2.desc': 'Compatible con cualquier core bancario',
+                'product4.feature1': 'Datos listos para productos, insights o reportes',
+                // Features Section
+                'features.subtitle': 'System Architecture',
+                'features.title': 'Climate Intelligence Engine',
+                'features.description': 'Infraestructura diseñada para instituciones financieras: cálculos consistentes, trazabilidad completa y modelos actualizables. El motor unifica metodologías y factores de emisión para asegurar precisión y escalabilidad.',
+                'features.version': 'VERSION',
+                'features.uptime': 'UPTIME',
+                // Feature Cards
+                'feature1.title': 'Factores de emisión globales',
+                'feature1.description': 'Base de datos energética global con intensidad de carbono por país, actualizada anualmente.',
+                'feature1.badge': 'LIVE DATA',
+                'feature2.title': 'Low',
+                'feature2.title2': 'Latency',
+                'feature2.subtitle': 'Procesamiento en milisegundos',
+                'feature2.description': 'El motor procesa solicitudes en tiempos reducidos, soportando cargas de nivel bancario sin comprometer precisión.',
+                'feature3.title': 'Metodologías reconocidas',
+                'feature4.title': 'Trazabilidad completa',
+                'feature4.description': 'Cada cálculo conserva factores, supuestos y versiones, listo para auditorías internas y externas.',
+                'feature4.badge': 'EN PRODUCCIÓN',
+                // Developers Section
+                'dev.subtitle': 'For Technical Teams',
+                'dev.title': 'API.0',
+                'dev.description': 'La API REST permite enviar datos de portafolios, empresas y transacciones para obtener cálculos de impacto en un formato claro y estandarizado. La documentación incluye ejemplos, estructuras de datos y guías para entornos de prueba.',
+                // Ticker
+                'ticker.item1': 'API.0',
+                'ticker.item2': 'Low Latency',
+                'ticker.item3': 'Factores de Emisión Globales',
+                'ticker.item4': 'Inversiones · Operaciones · Transacciones',
+                'ticker.item5': 'Pipeline Auditable',
+                // Footer
+                'footer.title': 'Climate Intelligence Platform',
+                'footer.cta': 'Contactanos'
+            },
+            en: {
+                // Nav
+                'nav.solutions': 'SOLUTIONS',
+                'nav.features': 'FEATURES',
+                'nav.integrate': 'HOW TO INTEGRATE?',
+                'nav.cta': 'ACCESS THE API',
+                // Hero
+                'hero.description': 'The climate intelligence platform for financial institutions. Portfolio emissions, operations, and card transactions calculated in one reliable system.',
+                'hero.cta': 'VIEW TECHNOLOGY',
+                // Problem Section
+                'problem.title1': 'Challenge for the',
+                'problem.title2': 'financial sector.',
+                'problem.description': 'Financial institutions concentrate most of their impact in credit and investment portfolios, but climate data is often incomplete, scattered, or difficult to integrate.',
+                'problem.description.bold': 'RASTROCERO unifies financed, operational, and transactional emissions calculation engines in one platform, generating structured information and data infrastructure for analysis, risk, and strategy.',
+                'problem.item1.title': 'Portfolio impact',
+                'problem.item1.desc': 'Over 90% of a bank\'s climate footprint comes from its investments and loans.',
+                'problem.item2.title': 'Fragmented processes',
+                'problem.item2.desc': 'Measurement requires multiple sources, methodologies, and emission factors. We unify that process in a reliable system.',
+                'problem.item3.title': 'Growing regulatory expectations',
+                'problem.item3.desc': 'Regulators and investors seek comparable indicators and recognized methodologies like GHG Protocol and PCAF.',
+                // Products Section
+                'products.subtitle': 'Complete ecosystem',
+                'products.title1': 'Three interfaces.',
+                'products.title2': 'One goal.',
+                // Product 1 - Dashboard
+                'product1.badge': 'Dashboard',
+                'product1.title': 'Integrated visualization for sustainability and risk teams',
+                'product1.description': 'The dashboard brings together API-generated results—financed, operational, and transactional emissions—in a clear interface. Analyze trends, compare segments, and monitor portfolio evolution.',
+                'product1.feature1': 'Unified view of portfolios, companies, and transactions',
+                'product1.feature2': 'Filters by category, period, and activity type',
+                'product1.feature3': 'User profiles by role',
+                // Product 2 - Enterprise Calculator
+                'product2.badge': 'Enterprise Calculator',
+                'product2.title': 'Corporate emissions calculation (Scope 1, 2 & 3)',
+                'product2.description': 'Guided tool to estimate corporate operational footprint: energy, fuels, fleet, waste, and value chain. Uses global and country-specific emission factors to ensure methodological consistency.',
+                'product2.feature1': 'Global and country-specific emission factors',
+                'product2.feature2': 'Direct and indirect emissions under GHG Protocol',
+                'product2.feature3': 'Results automatically integrated into the dashboard',
+                // Product 3 - Financed Emissions
+                'product3.badge': 'Financed Emissions',
+                'product3.title': 'Financed emissions calculation under PCAF methodology',
+                'product3.description': 'Specialized engine to estimate emissions associated with credit and investment portfolios. Applies attribution factors by asset type and data quality, following PCAF (Partnership for Carbon Accounting Financials) guidelines.',
+                'product3.feature1': 'Coverage for corporate loans, mortgages, and project finance',
+                'product3.feature2': 'Data Quality Score',
+                'product3.feature3': 'Emissions intensity calculation per million invested',
+                // Product 4 - Transactional Engine
+                'product4.badge': 'Transactional Engine',
+                'product4.title': 'Real-time transaction emissions',
+                'product4.description': 'The API receives bank transactional data, classifies each operation, and estimates its climate impact by merchant category. Results can be integrated into the bank\'s app, green products, or internal analysis.',
+                'product4.stat1': 'Real time',
+                'product4.stat1.desc': 'Per-operation calculation',
+                'product4.stat2': '100%',
+                'product4.stat2.desc': 'Compatible with any banking core',
+                'product4.feature1': 'Data ready for products, insights, or reports',
+                // Features Section
+                'features.subtitle': 'System Architecture',
+                'features.title': 'Climate Intelligence Engine',
+                'features.description': 'Infrastructure designed for financial institutions: consistent calculations, complete traceability, and updateable models. The engine unifies methodologies and emission factors to ensure precision and scalability.',
+                'features.version': 'VERSION',
+                'features.uptime': 'UPTIME',
+                // Feature Cards
+                'feature1.title': 'Global emission factors',
+                'feature1.description': 'Global energy database with carbon intensity by country, updated annually.',
+                'feature1.badge': 'LIVE DATA',
+                'feature2.title': 'Low',
+                'feature2.title2': 'Latency',
+                'feature2.subtitle': 'Millisecond processing',
+                'feature2.description': 'The engine processes requests in reduced times, supporting bank-level loads without compromising precision.',
+                'feature3.title': 'Recognized methodologies',
+                'feature4.title': 'Complete traceability',
+                'feature4.description': 'Each calculation preserves factors, assumptions, and versions, ready for internal and external audits.',
+                'feature4.badge': 'IN PRODUCTION',
+                // Developers Section
+                'dev.subtitle': 'For Technical Teams',
+                'dev.title': 'API.0',
+                'dev.description': 'The REST API allows sending portfolio, company, and transaction data to obtain impact calculations in a clear, standardized format. Documentation includes examples, data structures, and sandbox guides.',
+                // Ticker
+                'ticker.item1': 'API.0',
+                'ticker.item2': 'Low Latency',
+                'ticker.item3': 'Global Emission Factors',
+                'ticker.item4': 'Investments · Operations · Transactions',
+                'ticker.item5': 'Auditable Pipeline',
+                // Footer
+                'footer.title': 'Climate Intelligence Platform',
+                'footer.cta': 'Contact us'
+            }
+        };
+
+        let currentLang = localStorage.getItem('rc-lang') || 'es';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('rc-lang', lang);
+
+            // Update button states
+            document.getElementById('lang-es').classList.toggle('text-rcGreen', lang === 'es');
+            document.getElementById('lang-es').classList.toggle('text-gray-400', lang !== 'es');
+            document.getElementById('lang-en').classList.toggle('text-rcGreen', lang === 'en');
+            document.getElementById('lang-en').classList.toggle('text-gray-400', lang !== 'en');
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Initialize language
+        document.getElementById('lang-es').addEventListener('click', () => setLanguage('es'));
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+
+        // Set initial language
+        setLanguage(currentLang);
     </script>
 </body>
 

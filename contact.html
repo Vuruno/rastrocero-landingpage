@@ -494,10 +494,19 @@
         <a href="index.html" class="brand-logo flex-shrink-0">
             <video src="img/animation_120px.mp4" autoplay loop muted playsinline class="h-12 md:h-14 w-auto object-contain"></video>
         </a>
-        
-        <a href="index.html" class="text-sm font-bold text-gray-600 hover:text-rcGreen transition-colors">
-            ← Volver al inicio
-        </a>
+
+        <div class="flex items-center gap-4 md:gap-6">
+            <!-- Language Selector -->
+            <div class="lang-selector flex items-center gap-1 text-xs font-bold tracking-wide">
+                <button id="lang-es" class="lang-btn px-2 py-1 rounded transition-all text-rcGreen">ES</button>
+                <span class="text-gray-300">|</span>
+                <button id="lang-en" class="lang-btn px-2 py-1 rounded transition-all text-gray-400 hover:text-gray-600">EN</button>
+            </div>
+
+            <a href="index.html" class="text-sm font-bold text-gray-600 hover:text-rcGreen transition-colors" data-i18n="contact.back">
+                ← Volver al inicio
+            </a>
+        </div>
     </nav>
 
     <!-- FORM WRAPPER -->
@@ -507,8 +516,8 @@
             <!-- HERO TEXT -->
             <div class="hero-section reveal">
                 <h1 class="text-3xl md:text-5xl font-black mb-4 tracking-tight" style="letter-spacing: -2px;">
-                    Empecemos a
-                    <span class="text-rcGreen">trabajar juntos</span>
+                    <span data-i18n="contact.hero1">Empecemos a</span>
+                    <span class="text-rcGreen" data-i18n="contact.hero2">trabajar juntos</span>
                 </h1>
             </div>
 
@@ -516,49 +525,49 @@
                 
                 <!-- SECCIÓN 1: INFORMACIÓN BÁSICA -->
                 <div class="form-section reveal">
-                    <h2 class="section-title">Información básica</h2>
+                    <h2 class="section-title" data-i18n="contact.section1.title">Información básica</h2>
                     <div class="section-divider"></div>
-                    
+
                     <div class="grid grid-cols-2 gap-4 mb-4">
                         <div>
-                            <label class="form-label">Nombre<span class="required">*</span></label>
+                            <label class="form-label"><span data-i18n="form.firstName">Nombre</span><span class="required">*</span></label>
                             <input type="text" name="firstName" class="form-input" required>
                         </div>
                         <div>
-                            <label class="form-label">Apellido<span class="required">*</span></label>
+                            <label class="form-label"><span data-i18n="form.lastName">Apellido</span><span class="required">*</span></label>
                             <input type="text" name="lastName" class="form-input" required>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-2 gap-4 mb-4">
                         <div>
-                            <label class="form-label">Cargo<span class="required">*</span></label>
+                            <label class="form-label"><span data-i18n="form.position">Cargo</span><span class="required">*</span></label>
                             <input type="text" name="position" class="form-input" required>
                         </div>
                         <div>
-                            <label class="form-label">Empresa<span class="required">*</span></label>
+                            <label class="form-label"><span data-i18n="form.company">Empresa</span><span class="required">*</span></label>
                             <input type="text" name="company" class="form-input" required>
                         </div>
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label">Tipo de empresa<span class="required">*</span></label>
+                        <label class="form-label"><span data-i18n="form.companyType">Tipo de empresa</span><span class="required">*</span></label>
                         <select name="companyType" class="form-select" required>
-                            <option value="">Selecciona una opción</option>
-                            <option value="financial">Institución financiera</option>
-                            <option value="fintech">Fintech / Pagos</option>
-                            <option value="corporate">Empresa corporativa</option>
-                            <option value="consultant">Consultor / Asesor</option>
+                            <option value="" data-i18n="form.selectOption">Selecciona una opción</option>
+                            <option value="financial" data-i18n="form.companyType.financial">Institución financiera</option>
+                            <option value="fintech" data-i18n="form.companyType.fintech">Fintech / Pagos</option>
+                            <option value="corporate" data-i18n="form.companyType.corporate">Empresa corporativa</option>
+                            <option value="consultant" data-i18n="form.companyType.consultant">Consultor / Asesor</option>
                         </select>
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="form-label">País / Región<span class="required">*</span></label>
+                            <label class="form-label"><span data-i18n="form.country">País / Región</span><span class="required">*</span></label>
                             <input type="text" name="country" class="form-input" required>
                         </div>
                         <div>
-                            <label class="form-label">Correo electrónico corporativo<span class="required">*</span></label>
+                            <label class="form-label"><span data-i18n="form.email">Correo electrónico corporativo</span><span class="required">*</span></label>
                             <input type="email" name="email" class="form-input" required>
                         </div>
                     </div>
@@ -566,37 +575,37 @@
 
                 <!-- SECCIÓN 2: PRODUCTO DE INTERÉS -->
                 <div class="form-section reveal">
-                    <h2 class="section-title">Producto de interés</h2>
+                    <h2 class="section-title" data-i18n="contact.section2.title">Producto de interés</h2>
                     <div class="section-divider"></div>
-                    
-                    <label class="form-label">¿Qué producto de RASTROCERO te interesa?<span class="required">*</span></label>
+
+                    <label class="form-label"><span data-i18n="form.productQuestion">¿Qué producto de RASTROCERO te interesa?</span><span class="required">*</span></label>
                     <div class="form-radio-group">
                         <label class="form-radio-label">
                             <input type="radio" name="product" value="transactional" required>
                             <div class="radio-content">
-                                <div class="font-semibold text-sm">Índice Transaccional</div>
-                                <div class="text-xs text-gray-600">Medición de emisiones por transacción en tiempo real</div>
+                                <div class="font-semibold text-sm" data-i18n="form.product.transactional">Índice Transaccional</div>
+                                <div class="text-xs text-gray-600" data-i18n="form.product.transactional.desc">Medición de emisiones por transacción en tiempo real</div>
                             </div>
                         </label>
                         <label class="form-radio-label">
                             <input type="radio" name="product" value="financed" required>
                             <div class="radio-content">
-                                <div class="font-semibold text-sm">Calculadora de Emisiones Financiadas</div>
-                                <div class="text-xs text-gray-600">Cálculo de impacto en carteras de crédito e inversión</div>
+                                <div class="font-semibold text-sm" data-i18n="form.product.financed">Calculadora de Emisiones Financiadas</div>
+                                <div class="text-xs text-gray-600" data-i18n="form.product.financed.desc">Cálculo de impacto en carteras de crédito e inversión</div>
                             </div>
                         </label>
                         <label class="form-radio-label">
                             <input type="radio" name="product" value="operational" required>
                             <div class="radio-content">
-                                <div class="font-semibold text-sm">Calculadora de Actividades Operativas</div>
-                                <div class="text-xs text-gray-600">Medición de emisiones corporativas (Scope 1, 2 y 3)</div>
+                                <div class="font-semibold text-sm" data-i18n="form.product.operational">Calculadora de Actividades Operativas</div>
+                                <div class="text-xs text-gray-600" data-i18n="form.product.operational.desc">Medición de emisiones corporativas (Scope 1, 2 y 3)</div>
                             </div>
                         </label>
                         <label class="form-radio-label">
                             <input type="radio" name="product" value="multiple" required>
                             <div class="radio-content">
-                                <div class="font-semibold text-sm">Más de uno / No estoy seguro</div>
-                                <div class="text-xs text-gray-600">Necesito orientación sobre cuál me conviene</div>
+                                <div class="font-semibold text-sm" data-i18n="form.product.multiple">Más de uno / No estoy seguro</div>
+                                <div class="text-xs text-gray-600" data-i18n="form.product.multiple.desc">Necesito orientación sobre cuál me conviene</div>
                             </div>
                         </label>
                     </div>
@@ -604,113 +613,113 @@
 
                 <!-- SECCIÓN 3A: ÍNDICE TRANSACCIONAL -->
                 <div id="section-transactional" class="form-section hidden reveal">
-                    <h2 class="section-title">Índice Transaccional</h2>
+                    <h2 class="section-title" data-i18n="form.section.transactional">Índice Transaccional</h2>
                     <div class="section-divider"></div>
-                    
+
                     <div class="mb-4">
-                        <label class="form-label">¿Qué tipo de transacciones te interesa analizar?</label>
-                        <p class="help-text mb-3">Selecciona todas las que apliquen</p>
+                        <label class="form-label" data-i18n="form.transactional.question">¿Qué tipo de transacciones te interesa analizar?</label>
+                        <p class="help-text mb-3" data-i18n="form.selectAll">Selecciona todas las que apliquen</p>
                         <div class="form-checkbox-group">
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="transactionTypes[]" value="credit">
-                                <span class="checkbox-content text-sm">Tarjetas de crédito</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.transactional.credit">Tarjetas de crédito</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="transactionTypes[]" value="debit">
-                                <span class="checkbox-content text-sm">Tarjetas de débito</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.transactional.debit">Tarjetas de débito</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="transactionTypes[]" value="qr">
-                                <span class="checkbox-content text-sm">Pagos QR / instantáneos</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.transactional.qr">Pagos QR / instantáneos</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="transactionTypes[]" value="other">
-                                <span class="checkbox-content text-sm">Otros medios de pago</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.transactional.other">Otros medios de pago</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="transactionTypes[]" value="unsure">
-                                <span class="checkbox-content text-sm">No estoy seguro todavía</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.unsure">No estoy seguro todavía</span>
                             </label>
                         </div>
                     </div>
 
                     <div>
-                        <label class="form-label">¿Para qué te gustaría usar el Índice Transaccional?<span class="required">*</span></label>
+                        <label class="form-label"><span data-i18n="form.transactional.useQuestion">¿Para qué te gustaría usar el Índice Transaccional?</span><span class="required">*</span></label>
                         <select name="transactionalUse" class="form-select">
-                            <option value="">Selecciona una opción</option>
-                            <option value="customer">Visualización de huella para clientes</option>
-                            <option value="analysis">Análisis agregado de emisiones</option>
-                            <option value="reports">Reportes internos o regulatorios</option>
-                            <option value="engagement">Engagement / insights de consumo</option>
+                            <option value="" data-i18n="form.selectOption">Selecciona una opción</option>
+                            <option value="customer" data-i18n="form.transactional.use.customer">Visualización de huella para clientes</option>
+                            <option value="analysis" data-i18n="form.transactional.use.analysis">Análisis agregado de emisiones</option>
+                            <option value="reports" data-i18n="form.transactional.use.reports">Reportes internos o regulatorios</option>
+                            <option value="engagement" data-i18n="form.transactional.use.engagement">Engagement / insights de consumo</option>
                         </select>
                     </div>
                 </div>
 
                 <!-- SECCIÓN 3B: EMISIONES FINANCIADAS -->
                 <div id="section-financed" class="form-section hidden reveal">
-                    <h2 class="section-title">Calculadora de Emisiones Financiadas</h2>
+                    <h2 class="section-title" data-i18n="form.section.financed">Calculadora de Emisiones Financiadas</h2>
                     <div class="section-divider"></div>
-                    
+
                     <div class="mb-4">
-                        <label class="form-label">¿Qué tipo de exposiciones te interesa medir?</label>
-                        <p class="help-text mb-3">Selecciona todas las que apliquen</p>
+                        <label class="form-label" data-i18n="form.financed.question">¿Qué tipo de exposiciones te interesa medir?</label>
+                        <p class="help-text mb-3" data-i18n="form.selectAll">Selecciona todas las que apliquen</p>
                         <div class="form-checkbox-group">
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="exposureTypes[]" value="corporate">
-                                <span class="checkbox-content text-sm">Créditos corporativos</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.financed.corporate">Créditos corporativos</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="exposureTypes[]" value="project">
-                                <span class="checkbox-content text-sm">Project finance</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.financed.project">Project finance</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="exposureTypes[]" value="mortgage">
-                                <span class="checkbox-content text-sm">Hipotecas / real estate</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.financed.mortgage">Hipotecas / real estate</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="exposureTypes[]" value="sovereign">
-                                <span class="checkbox-content text-sm">Exposición soberana</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.financed.sovereign">Exposición soberana</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="exposureTypes[]" value="investments">
-                                <span class="checkbox-content text-sm">Inversiones</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.financed.investments">Inversiones</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="exposureTypes[]" value="unsure">
-                                <span class="checkbox-content text-sm">No estoy seguro todavía</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.unsure">No estoy seguro todavía</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label">Motivación principal<span class="required">*</span></label>
+                        <label class="form-label"><span data-i18n="form.financed.motivation">Motivación principal</span><span class="required">*</span></label>
                         <select name="financedMotivation" class="form-select">
-                            <option value="">Selecciona una opción</option>
-                            <option value="regulatory">Reportes regulatorios / sostenibilidad</option>
-                            <option value="risk">Gestión de riesgo</option>
-                            <option value="investors">Requerimientos de inversores</option>
-                            <option value="strategic">Análisis estratégico del portafolio</option>
+                            <option value="" data-i18n="form.selectOption">Selecciona una opción</option>
+                            <option value="regulatory" data-i18n="form.financed.motivation.regulatory">Reportes regulatorios / sostenibilidad</option>
+                            <option value="risk" data-i18n="form.financed.motivation.risk">Gestión de riesgo</option>
+                            <option value="investors" data-i18n="form.financed.motivation.investors">Requerimientos de inversores</option>
+                            <option value="strategic" data-i18n="form.financed.motivation.strategic">Análisis estratégico del portafolio</option>
                         </select>
                     </div>
 
                     <div>
-                        <label class="form-label">¿En qué etapa estás hoy?<span class="required">*</span></label>
+                        <label class="form-label"><span data-i18n="form.financed.stageQuestion">¿En qué etapa estás hoy?</span><span class="required">*</span></label>
                         <div class="form-radio-group">
                             <label class="form-radio-label">
                                 <input type="radio" name="financedStage" value="exploring">
-                                <span class="radio-content text-sm">Explorando el tema</span>
+                                <span class="radio-content text-sm" data-i18n="form.financed.stage.exploring">Explorando el tema</span>
                             </label>
                             <label class="form-radio-label">
                                 <input type="radio" name="financedStage" value="seeking">
-                                <span class="radio-content text-sm">Buscando una solución estructurada</span>
+                                <span class="radio-content text-sm" data-i18n="form.financed.stage.seeking">Buscando una solución estructurada</span>
                             </label>
                             <label class="form-radio-label">
                                 <input type="radio" name="financedStage" value="improving">
-                                <span class="radio-content text-sm">Ya calculamos emisiones y queremos mejorar</span>
+                                <span class="radio-content text-sm" data-i18n="form.financed.stage.improving">Ya calculamos emisiones y queremos mejorar</span>
                             </label>
                             <label class="form-radio-label">
                                 <input type="radio" name="financedStage" value="unsure">
-                                <span class="radio-content text-sm">No estoy seguro</span>
+                                <span class="radio-content text-sm" data-i18n="form.unsureShort">No estoy seguro</span>
                             </label>
                         </div>
                     </div>
@@ -718,94 +727,94 @@
 
                 <!-- SECCIÓN 3C: ACTIVIDADES OPERATIVAS -->
                 <div id="section-operational" class="form-section hidden reveal">
-                    <h2 class="section-title">Calculadora de Actividades Operativas</h2>
+                    <h2 class="section-title" data-i18n="form.section.operational">Calculadora de Actividades Operativas</h2>
                     <div class="section-divider"></div>
-                    
+
                     <div class="mb-4">
-                        <label class="form-label">¿Qué alcances te interesa cubrir?</label>
-                        <p class="help-text mb-3">Selecciona todos los que apliquen</p>
+                        <label class="form-label" data-i18n="form.operational.scopeQuestion">¿Qué alcances te interesa cubrir?</label>
+                        <p class="help-text mb-3" data-i18n="form.selectAll">Selecciona todos los que apliquen</p>
                         <div class="form-checkbox-group">
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="scopes[]" value="scope1">
                                 <div class="checkbox-content">
-                                    <div class="font-semibold text-sm">Alcance 1 — Emisiones directas</div>
-                                    <div class="text-xs text-gray-600">Combustibles, flota propia, procesos</div>
+                                    <div class="font-semibold text-sm" data-i18n="form.operational.scope1">Alcance 1 — Emisiones directas</div>
+                                    <div class="text-xs text-gray-600" data-i18n="form.operational.scope1.desc">Combustibles, flota propia, procesos</div>
                                 </div>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="scopes[]" value="scope2">
                                 <div class="checkbox-content">
-                                    <div class="font-semibold text-sm">Alcance 2 — Emisiones por consumo de energía comprada</div>
-                                    <div class="text-xs text-gray-600">Electricidad, vapor</div>
+                                    <div class="font-semibold text-sm" data-i18n="form.operational.scope2">Alcance 2 — Emisiones por consumo de energía comprada</div>
+                                    <div class="text-xs text-gray-600" data-i18n="form.operational.scope2.desc">Electricidad, vapor</div>
                                 </div>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="scopes[]" value="scope3">
                                 <div class="checkbox-content">
-                                    <div class="font-semibold text-sm">Alcance 3 — Otras emisiones indirectas</div>
-                                    <div class="text-xs text-gray-600">Compras, viajes, logística, proveedores</div>
+                                    <div class="font-semibold text-sm" data-i18n="form.operational.scope3">Alcance 3 — Otras emisiones indirectas</div>
+                                    <div class="text-xs text-gray-600" data-i18n="form.operational.scope3.desc">Compras, viajes, logística, proveedores</div>
                                 </div>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="scopes[]" value="unsure">
-                                <span class="checkbox-content text-sm">No estoy seguro todavía</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.unsure">No estoy seguro todavía</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label">¿Qué tipo de actividades operativas te interesa incluir?</label>
-                        <p class="help-text mb-3">Selecciona todas las que apliquen</p>
+                        <label class="form-label" data-i18n="form.operational.activitiesQuestion">¿Qué tipo de actividades operativas te interesa incluir?</label>
+                        <p class="help-text mb-3" data-i18n="form.selectAll">Selecciona todas las que apliquen</p>
                         <div class="form-checkbox-group">
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="activities[]" value="electricity">
-                                <span class="checkbox-content text-sm">Electricidad</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.operational.electricity">Electricidad</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="activities[]" value="fuels">
-                                <span class="checkbox-content text-sm">Combustibles</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.operational.fuels">Combustibles</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="activities[]" value="travel">
-                                <span class="checkbox-content text-sm">Viajes corporativos</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.operational.travel">Viajes corporativos</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="activities[]" value="goods">
-                                <span class="checkbox-content text-sm">Bienes y servicios</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.operational.goods">Bienes y servicios</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="activities[]" value="logistics">
-                                <span class="checkbox-content text-sm">Transporte / logística</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.operational.logistics">Transporte / logística</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="activities[]" value="other">
-                                <span class="checkbox-content text-sm">Otros</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.other">Otros</span>
                             </label>
                             <label class="form-checkbox-label">
                                 <input type="checkbox" name="activities[]" value="unsure">
-                                <span class="checkbox-content text-sm">No estoy seguro</span>
+                                <span class="checkbox-content text-sm" data-i18n="form.unsureShort">No estoy seguro</span>
                             </label>
                         </div>
                     </div>
 
                     <div>
-                        <label class="form-label">Situación actual<span class="required">*</span></label>
+                        <label class="form-label"><span data-i18n="form.operational.statusLabel">Situación actual</span><span class="required">*</span></label>
                         <div class="form-radio-group">
                             <label class="form-radio-label">
                                 <input type="radio" name="operationalStatus" value="none">
-                                <span class="radio-content text-sm">No calculamos emisiones operativas</span>
+                                <span class="radio-content text-sm" data-i18n="form.operational.status.none">No calculamos emisiones operativas</span>
                             </label>
                             <label class="form-radio-label">
                                 <input type="radio" name="operationalStatus" value="manual">
-                                <span class="radio-content text-sm">Lo hacemos de forma manual</span>
+                                <span class="radio-content text-sm" data-i18n="form.operational.status.manual">Lo hacemos de forma manual</span>
                             </label>
                             <label class="form-radio-label">
                                 <input type="radio" name="operationalStatus" value="external">
-                                <span class="radio-content text-sm">Lo hacemos con apoyo externo</span>
+                                <span class="radio-content text-sm" data-i18n="form.operational.status.external">Lo hacemos con apoyo externo</span>
                             </label>
                             <label class="form-radio-label">
                                 <input type="radio" name="operationalStatus" value="unsure">
-                                <span class="radio-content text-sm">No estoy seguro</span>
+                                <span class="radio-content text-sm" data-i18n="form.unsureShort">No estoy seguro</span>
                             </label>
                         </div>
                     </div>
@@ -813,20 +822,21 @@
 
                 <!-- SECCIÓN 4: MENSAJE FINAL -->
                 <div class="form-section reveal">
-                    <h2 class="section-title">¿Cómo podemos ayudarte?</h2>
+                    <h2 class="section-title" data-i18n="contact.section3.title">¿Cómo podemos ayudarte?</h2>
                     <div class="section-divider"></div>
-                    
-                    <label class="form-label">Mensaje adicional</label>
-                    <textarea 
-                        name="message" 
-                        class="form-textarea" 
+
+                    <label class="form-label" data-i18n="form.additionalMessage">Mensaje adicional</label>
+                    <textarea
+                        name="message"
+                        class="form-textarea"
+                        data-i18n-placeholder="form.messagePlaceholder"
                         placeholder="Contanos brevemente qué estás buscando, si hay algún contexto regulatorio o una necesidad específica que te gustaría explorar."
                     ></textarea>
                 </div>
 
                 <!-- SUBMIT BUTTON -->
                 <div class="text-center reveal">
-                    <button type="submit" class="btn-brand btn-submit px-10 py-3 text-base font-black">
+                    <button type="submit" class="btn-brand btn-submit px-10 py-3 text-base font-black" data-i18n="contact.submit">
                         Enviar solicitud
                     </button>
                 </div>
@@ -943,7 +953,8 @@
 
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Enviando...';
+            const lang = localStorage.getItem('rc-lang') || 'es';
+            submitBtn.textContent = translations[lang]['form.sending'];
             submitBtn.disabled = true;
 
             // Get form data
@@ -970,12 +981,15 @@
 
                 if (response.ok) {
                     // Show success message
+                    const successTitle = lang === 'en' ? 'Message sent!' : '¡Mensaje enviado!';
+                    const successMsg = lang === 'en' ? 'Thank you for your interest. We will contact you soon.' : 'Gracias por tu interés. Nos pondremos en contacto contigo pronto.';
+                    const backBtn = lang === 'en' ? 'Back to home' : 'Volver al inicio';
                     this.innerHTML = `
                         <div class="form-section text-center py-12">
                             <div class="text-6xl mb-4">✓</div>
-                            <h2 class="text-2xl font-bold mb-4 text-rcGreen">¡Mensaje enviado!</h2>
-                            <p class="text-gray-600 mb-6">Gracias por tu interés. Nos pondremos en contacto contigo pronto.</p>
-                            <a href="index.html" class="btn-brand inline-block px-8 py-3 text-sm font-bold">Volver al inicio</a>
+                            <h2 class="text-2xl font-bold mb-4 text-rcGreen">${successTitle}</h2>
+                            <p class="text-gray-600 mb-6">${successMsg}</p>
+                            <a href="index.html" class="btn-brand inline-block px-8 py-3 text-sm font-bold">${backBtn}</a>
                         </div>
                     `;
                 } else {
@@ -983,11 +997,233 @@
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente o escríbenos a rastrocero.py@gmail.com');
+                const errorMsg = lang === 'en'
+                    ? 'There was an error submitting the form. Please try again or write to rastrocero.py@gmail.com'
+                    : 'Hubo un error al enviar el formulario. Por favor, intenta nuevamente o escríbenos a rastrocero.py@gmail.com';
+                alert(errorMsg);
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }
         });
+
+        // ====== INTERNATIONALIZATION ======
+        const translations = {
+            es: {
+                'contact.back': '← Volver al inicio',
+                'contact.hero1': 'Empecemos a',
+                'contact.hero2': 'trabajar juntos',
+                'contact.section1.title': 'Información básica',
+                'contact.section2.title': 'Producto de interés',
+                'contact.section3.title': '¿Cómo podemos ayudarte?',
+                'contact.submit': 'Enviar solicitud',
+                // Section 1 - Basic info
+                'form.firstName': 'Nombre',
+                'form.lastName': 'Apellido',
+                'form.position': 'Cargo',
+                'form.company': 'Empresa',
+                'form.companyType': 'Tipo de empresa',
+                'form.selectOption': 'Selecciona una opción',
+                'form.companyType.financial': 'Institución financiera',
+                'form.companyType.fintech': 'Fintech / Pagos',
+                'form.companyType.corporate': 'Empresa corporativa',
+                'form.companyType.consultant': 'Consultor / Asesor',
+                'form.country': 'País / Región',
+                'form.email': 'Correo electrónico corporativo',
+                // Section 2 - Product
+                'form.productQuestion': '¿Qué producto de RASTROCERO te interesa?',
+                'form.product.transactional': 'Índice Transaccional',
+                'form.product.transactional.desc': 'Medición de emisiones por transacción en tiempo real',
+                'form.product.financed': 'Calculadora de Emisiones Financiadas',
+                'form.product.financed.desc': 'Cálculo de impacto en carteras de crédito e inversión',
+                'form.product.operational': 'Calculadora de Actividades Operativas',
+                'form.product.operational.desc': 'Medición de emisiones corporativas (Scope 1, 2 y 3)',
+                'form.product.multiple': 'Más de uno / No estoy seguro',
+                'form.product.multiple.desc': 'Necesito orientación sobre cuál me conviene',
+                // Section 3A - Transactional
+                'form.section.transactional': 'Índice Transaccional',
+                'form.transactional.question': '¿Qué tipo de transacciones te interesa analizar?',
+                'form.selectAll': 'Selecciona todas las que apliquen',
+                'form.transactional.credit': 'Tarjetas de crédito',
+                'form.transactional.debit': 'Tarjetas de débito',
+                'form.transactional.qr': 'Pagos QR / instantáneos',
+                'form.transactional.other': 'Otros medios de pago',
+                'form.unsure': 'No estoy seguro todavía',
+                'form.unsureShort': 'No estoy seguro',
+                'form.transactional.useQuestion': '¿Para qué te gustaría usar el Índice Transaccional?',
+                'form.transactional.use.customer': 'Visualización de huella para clientes',
+                'form.transactional.use.analysis': 'Análisis agregado de emisiones',
+                'form.transactional.use.reports': 'Reportes internos o regulatorios',
+                'form.transactional.use.engagement': 'Engagement / insights de consumo',
+                // Section 3B - Financed
+                'form.section.financed': 'Calculadora de Emisiones Financiadas',
+                'form.financed.question': '¿Qué tipo de exposiciones te interesa medir?',
+                'form.financed.corporate': 'Créditos corporativos',
+                'form.financed.project': 'Project finance',
+                'form.financed.mortgage': 'Hipotecas / real estate',
+                'form.financed.sovereign': 'Exposición soberana',
+                'form.financed.investments': 'Inversiones',
+                'form.financed.motivation': 'Motivación principal',
+                'form.financed.motivation.regulatory': 'Reportes regulatorios / sostenibilidad',
+                'form.financed.motivation.risk': 'Gestión de riesgo',
+                'form.financed.motivation.investors': 'Requerimientos de inversores',
+                'form.financed.motivation.strategic': 'Análisis estratégico del portafolio',
+                'form.financed.stageQuestion': '¿En qué etapa estás hoy?',
+                'form.financed.stage.exploring': 'Explorando el tema',
+                'form.financed.stage.seeking': 'Buscando una solución estructurada',
+                'form.financed.stage.improving': 'Ya calculamos emisiones y queremos mejorar',
+                // Section 3C - Operational
+                'form.section.operational': 'Calculadora de Actividades Operativas',
+                'form.operational.scopeQuestion': '¿Qué alcances te interesa cubrir?',
+                'form.operational.scope1': 'Alcance 1 — Emisiones directas',
+                'form.operational.scope1.desc': 'Combustibles, flota propia, procesos',
+                'form.operational.scope2': 'Alcance 2 — Emisiones por consumo de energía comprada',
+                'form.operational.scope2.desc': 'Electricidad, vapor',
+                'form.operational.scope3': 'Alcance 3 — Otras emisiones indirectas',
+                'form.operational.scope3.desc': 'Compras, viajes, logística, proveedores',
+                'form.operational.activitiesQuestion': '¿Qué tipo de actividades operativas te interesa incluir?',
+                'form.operational.electricity': 'Electricidad',
+                'form.operational.fuels': 'Combustibles',
+                'form.operational.travel': 'Viajes corporativos',
+                'form.operational.goods': 'Bienes y servicios',
+                'form.operational.logistics': 'Transporte / logística',
+                'form.other': 'Otros',
+                'form.operational.statusLabel': 'Situación actual',
+                'form.operational.status.none': 'No calculamos emisiones operativas',
+                'form.operational.status.manual': 'Lo hacemos de forma manual',
+                'form.operational.status.external': 'Lo hacemos con apoyo externo',
+                // Section 4 - Final
+                'form.additionalMessage': 'Mensaje adicional',
+                'form.messagePlaceholder': 'Contanos brevemente qué estás buscando, si hay algún contexto regulatorio o una necesidad específica que te gustaría explorar.',
+                'form.sending': 'Enviando...'
+            },
+            en: {
+                'contact.back': '← Back to home',
+                'contact.hero1': "Let's start",
+                'contact.hero2': 'working together',
+                'contact.section1.title': 'Basic information',
+                'contact.section2.title': 'Product of interest',
+                'contact.section3.title': 'How can we help you?',
+                'contact.submit': 'Submit request',
+                // Section 1 - Basic info
+                'form.firstName': 'First name',
+                'form.lastName': 'Last name',
+                'form.position': 'Position',
+                'form.company': 'Company',
+                'form.companyType': 'Company type',
+                'form.selectOption': 'Select an option',
+                'form.companyType.financial': 'Financial institution',
+                'form.companyType.fintech': 'Fintech / Payments',
+                'form.companyType.corporate': 'Corporate company',
+                'form.companyType.consultant': 'Consultant / Advisor',
+                'form.country': 'Country / Region',
+                'form.email': 'Corporate email',
+                // Section 2 - Product
+                'form.productQuestion': 'Which RASTROCERO product interests you?',
+                'form.product.transactional': 'Transactional Index',
+                'form.product.transactional.desc': 'Real-time transaction emission measurement',
+                'form.product.financed': 'Financed Emissions Calculator',
+                'form.product.financed.desc': 'Impact calculation for credit and investment portfolios',
+                'form.product.operational': 'Operational Activities Calculator',
+                'form.product.operational.desc': 'Corporate emissions measurement (Scope 1, 2 and 3)',
+                'form.product.multiple': 'More than one / Not sure',
+                'form.product.multiple.desc': 'I need guidance on which one suits me',
+                // Section 3A - Transactional
+                'form.section.transactional': 'Transactional Index',
+                'form.transactional.question': 'What type of transactions are you interested in analyzing?',
+                'form.selectAll': 'Select all that apply',
+                'form.transactional.credit': 'Credit cards',
+                'form.transactional.debit': 'Debit cards',
+                'form.transactional.qr': 'QR / instant payments',
+                'form.transactional.other': 'Other payment methods',
+                'form.unsure': 'Not sure yet',
+                'form.unsureShort': 'Not sure',
+                'form.transactional.useQuestion': 'What would you like to use the Transactional Index for?',
+                'form.transactional.use.customer': 'Footprint visualization for customers',
+                'form.transactional.use.analysis': 'Aggregated emissions analysis',
+                'form.transactional.use.reports': 'Internal or regulatory reports',
+                'form.transactional.use.engagement': 'Engagement / consumption insights',
+                // Section 3B - Financed
+                'form.section.financed': 'Financed Emissions Calculator',
+                'form.financed.question': 'What types of exposures are you interested in measuring?',
+                'form.financed.corporate': 'Corporate loans',
+                'form.financed.project': 'Project finance',
+                'form.financed.mortgage': 'Mortgages / real estate',
+                'form.financed.sovereign': 'Sovereign exposure',
+                'form.financed.investments': 'Investments',
+                'form.financed.motivation': 'Main motivation',
+                'form.financed.motivation.regulatory': 'Regulatory / sustainability reports',
+                'form.financed.motivation.risk': 'Risk management',
+                'form.financed.motivation.investors': 'Investor requirements',
+                'form.financed.motivation.strategic': 'Strategic portfolio analysis',
+                'form.financed.stageQuestion': 'What stage are you at today?',
+                'form.financed.stage.exploring': 'Exploring the topic',
+                'form.financed.stage.seeking': 'Looking for a structured solution',
+                'form.financed.stage.improving': 'We already calculate emissions and want to improve',
+                // Section 3C - Operational
+                'form.section.operational': 'Operational Activities Calculator',
+                'form.operational.scopeQuestion': 'What scopes are you interested in covering?',
+                'form.operational.scope1': 'Scope 1 — Direct emissions',
+                'form.operational.scope1.desc': 'Fuels, own fleet, processes',
+                'form.operational.scope2': 'Scope 2 — Purchased energy consumption emissions',
+                'form.operational.scope2.desc': 'Electricity, steam',
+                'form.operational.scope3': 'Scope 3 — Other indirect emissions',
+                'form.operational.scope3.desc': 'Purchases, travel, logistics, suppliers',
+                'form.operational.activitiesQuestion': 'What type of operational activities are you interested in including?',
+                'form.operational.electricity': 'Electricity',
+                'form.operational.fuels': 'Fuels',
+                'form.operational.travel': 'Corporate travel',
+                'form.operational.goods': 'Goods and services',
+                'form.operational.logistics': 'Transportation / logistics',
+                'form.other': 'Other',
+                'form.operational.statusLabel': 'Current status',
+                'form.operational.status.none': 'We do not calculate operational emissions',
+                'form.operational.status.manual': 'We do it manually',
+                'form.operational.status.external': 'We do it with external support',
+                // Section 4 - Final
+                'form.additionalMessage': 'Additional message',
+                'form.messagePlaceholder': 'Tell us briefly what you are looking for, if there is any regulatory context or specific need you would like to explore.',
+                'form.sending': 'Sending...'
+            }
+        };
+
+        let currentLang = localStorage.getItem('rc-lang') || 'es';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('rc-lang', lang);
+
+            // Update button states
+            document.getElementById('lang-es').classList.toggle('text-rcGreen', lang === 'es');
+            document.getElementById('lang-es').classList.toggle('text-gray-400', lang !== 'es');
+            document.getElementById('lang-en').classList.toggle('text-rcGreen', lang === 'en');
+            document.getElementById('lang-en').classList.toggle('text-gray-400', lang !== 'en');
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update placeholder translations
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Initialize language
+        document.getElementById('lang-es').addEventListener('click', () => setLanguage('es'));
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+
+        // Set initial language
+        setLanguage(currentLang);
     </script>
 </body>
 </html>
