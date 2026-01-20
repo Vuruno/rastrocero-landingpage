@@ -44,11 +44,15 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
         body {
             background-color: var(--c-white);
             color: var(--c-grey);
             font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
         }
 
         /* ====== SVG BACKGROUND ====== */
@@ -490,20 +494,20 @@
         </svg>
     </div>
 
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 md:px-12 md:py-6 transition-all duration-300 box-border">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-3 py-3 sm:px-6 sm:py-4 md:px-12 md:py-6 transition-all duration-300 box-border">
         <a href="index.html" class="brand-logo flex-shrink-0">
-            <video src="img/animation_120px.mp4" autoplay loop muted playsinline class="h-12 md:h-14 w-auto object-contain"></video>
+            <video src="img/animation_120px.mp4" autoplay loop muted playsinline class="h-10 sm:h-12 md:h-14 w-auto object-contain"></video>
         </a>
 
-        <div class="flex items-center gap-4 md:gap-6">
+        <div class="flex items-center gap-2 sm:gap-4 md:gap-6">
             <!-- Language Selector -->
             <div class="lang-selector flex items-center gap-1 text-xs font-bold tracking-wide">
-                <button id="lang-es" class="lang-btn px-2 py-1 rounded transition-all text-rcGreen">ES</button>
+                <button id="lang-es" class="lang-btn px-1 sm:px-2 py-1 rounded transition-all text-rcGreen">ES</button>
                 <span class="text-gray-300">|</span>
-                <button id="lang-en" class="lang-btn px-2 py-1 rounded transition-all text-gray-400 hover:text-gray-600">EN</button>
+                <button id="lang-en" class="lang-btn px-1 sm:px-2 py-1 rounded transition-all text-gray-400 hover:text-gray-600">EN</button>
             </div>
 
-            <a href="index.html" class="text-sm font-bold text-gray-600 hover:text-rcGreen transition-colors" data-i18n="contact.back">
+            <a href="index.html" class="text-xs sm:text-sm font-bold text-gray-600 hover:text-rcGreen transition-colors" data-i18n="contact.back">
                 ← Volver al inicio
             </a>
         </div>
@@ -1186,7 +1190,10 @@
             }
         };
 
-        let currentLang = localStorage.getItem('rc-lang') || 'es';
+        // Check for URL parameter first (allows sharing links like ?lang=en)
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlLang = urlParams.get('lang');
+        let currentLang = urlLang && ['es', 'en'].includes(urlLang) ? urlLang : (localStorage.getItem('rc-lang') || 'es');
 
         function setLanguage(lang) {
             currentLang = lang;

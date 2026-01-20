@@ -51,11 +51,15 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
         body {
             background-color: var(--c-white);
             color: var(--c-grey);
             font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
         }
 
         /* ====== FULL PAGE SVG BACKGROUND ====== */
@@ -708,10 +712,10 @@
     </div>
 
     <nav id="navbar"
-        class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 md:px-12 md:py-6 transition-all duration-300 box-border bg-white/90 backdrop-blur-md">
+        class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-3 py-3 sm:px-6 sm:py-4 md:px-12 md:py-6 transition-all duration-300 box-border bg-white/90 backdrop-blur-md">
         <a href="#" class="brand-logo flex-shrink-0">
             <video src="img/animation_120px.mp4" autoplay loop muted playsinline
-                class="h-12 md:h-14 w-auto object-contain"></video>
+                class="h-10 sm:h-12 md:h-14 w-auto object-contain"></video>
         </a>
 
         <div class="hidden md:flex gap-8 text-xs font-bold tracking-widest text-gray-500">
@@ -720,17 +724,18 @@
             <a href="#developers" class="hover:text-rcGreen transition-colors" data-i18n="nav.integrate">¿CÓMO INTEGRAR?</a>
         </div>
 
-        <div class="flex items-center gap-4 md:gap-6">
+        <div class="flex items-center gap-2 sm:gap-4 md:gap-6">
             <!-- Language Selector -->
             <div class="lang-selector flex items-center gap-1 text-xs font-bold tracking-wide">
-                <button id="lang-es" class="lang-btn px-2 py-1 rounded transition-all text-rcGreen">ES</button>
+                <button id="lang-es" class="lang-btn px-1 sm:px-2 py-1 rounded transition-all text-rcGreen">ES</button>
                 <span class="text-gray-300">|</span>
-                <button id="lang-en" class="lang-btn px-2 py-1 rounded transition-all text-gray-400 hover:text-gray-600">EN</button>
+                <button id="lang-en" class="lang-btn px-1 sm:px-2 py-1 rounded transition-all text-gray-400 hover:text-gray-600">EN</button>
             </div>
 
             <a href="contact.html"
-                class="btn-brand text-xs font-black tracking-wide px-5 py-3 md:text-sm md:px-10 md:py-4 flex-shrink-0" data-i18n="nav.cta">
-                ACCEDER A LA API
+                class="btn-brand text-[10px] sm:text-xs font-black tracking-wide px-3 py-2 sm:px-5 sm:py-3 md:text-sm md:px-10 md:py-4 flex-shrink-0">
+                <span class="sm:hidden" data-i18n="nav.cta.short">ACCEDER API</span>
+                <span class="hidden sm:inline" data-i18n="nav.cta">ACCEDER A LA API</span>
             </a>
         </div>
     </nav>
@@ -1463,6 +1468,7 @@
                 'nav.features': 'FUNCIONES',
                 'nav.integrate': '¿CÓMO INTEGRAR?',
                 'nav.cta': 'ACCEDER A LA API',
+                'nav.cta.short': 'ACCEDER API',
                 // Hero
                 'hero.description': 'La plataforma de inteligencia climática para instituciones financieras. Cálculo de emisiones de portafolios de inversiones, operaciones y transacciones de tarjetas en un solo sistema confiable.',
                 'hero.cta': 'VER TECNOLOGÍA',
@@ -1549,6 +1555,7 @@
                 'nav.features': 'FEATURES',
                 'nav.integrate': 'HOW TO INTEGRATE?',
                 'nav.cta': 'ACCESS THE API',
+                'nav.cta.short': 'ACCESS API',
                 // Hero
                 'hero.description': 'The climate intelligence platform for financial institutions. Portfolio emissions, operations, and card transactions calculated in one reliable system.',
                 'hero.cta': 'VIEW TECHNOLOGY',
@@ -1631,7 +1638,10 @@
             }
         };
 
-        let currentLang = localStorage.getItem('rc-lang') || 'es';
+        // Check for URL parameter first (allows sharing links like ?lang=en)
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlLang = urlParams.get('lang');
+        let currentLang = urlLang && ['es', 'en'].includes(urlLang) ? urlLang : (localStorage.getItem('rc-lang') || 'es');
 
         function setLanguage(lang) {
             currentLang = lang;
