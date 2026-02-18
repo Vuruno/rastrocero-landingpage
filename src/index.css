@@ -9,6 +9,10 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--color-background);
   color: white;

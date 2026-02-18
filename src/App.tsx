@@ -39,7 +39,7 @@ export default function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
-        <div className="bg-background text-white antialiased">
+        <div className="bg-background text-white antialiased overflow-x-hidden">
           <ScrollToTop />
           <Navbar />
           <Routes>

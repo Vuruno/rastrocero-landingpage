@@ -88,9 +88,9 @@ export function ProblemSection() {
               </div>
 
               {/* Scroll-triggered labels */}
-              <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute inset-0 pointer-events-none z-20">
                 <span
-                  className="absolute top-[30%] right-[20%] text-accent-pink font-mono text-xs font-bold transition-all duration-500 delay-100"
+                  className="absolute top-[22%] right-[12%] text-accent-pink font-mono text-xs font-bold transition-all duration-500 delay-100"
                   style={{
                     opacity: inView ? 1 : 0,
                     transform: inView ? 'translateY(0)' : 'translateY(16px)',
@@ -99,7 +99,7 @@ export function ProblemSection() {
                   +2.4kg CO2e
                 </span>
                 <span
-                  className="absolute bottom-[30%] left-[20%] text-accent-purple font-mono text-xs font-bold transition-all duration-500 delay-200"
+                  className="absolute bottom-[22%] left-[12%] text-accent-purple font-mono text-xs font-bold transition-all duration-500 delay-200"
                   style={{
                     opacity: inView ? 1 : 0,
                     transform: inView ? 'translateY(0)' : 'translateY(16px)',

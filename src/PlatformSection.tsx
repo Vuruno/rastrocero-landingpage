@@ -5,7 +5,7 @@ import { useLanguage } from './i18n/LanguageContext'
 /* ── Illustration 1: Data → Structured Climate Info ── */
 function DataFlowIllustration({ inputs, output, outputSub }: { inputs: readonly string[]; output: string; outputSub: string }) {
   return (
-    <div className="relative w-full aspect-[4/3] rounded-2xl border border-white/[0.08] bg-white/[0.03] overflow-hidden group">
+    <div className="relative w-full aspect-square md:aspect-[4/3] rounded-2xl border border-white/[0.08] bg-white/[0.03] overflow-hidden group">
       {/* Gradient glow */}
       <div className="absolute -top-20 -right-20 w-60 h-60 bg-accent-purple/15 rounded-full blur-[80px] group-hover:bg-accent-purple/25 transition-all duration-700" />
 
@@ -193,7 +193,7 @@ export function PlatformSection() {
                 <div className="w-10 h-10 rounded-xl bg-accent-purple/10 border border-accent-purple/20 flex items-center justify-center">
                   <Database className="w-5 h-5 text-accent-purple" />
                 </div>
-                <h3 className="text-xl font-bold text-white normal-case" style={{ letterSpacing: '-0.5px' }}>
+                <h3 className="text-xl font-bold text-white normal-case" style={{ letterSpacing: '-0.5px', lineHeight: 1.25 }}>
                   {p.s1.title}
                 </h3>
               </div>
@@ -225,7 +225,7 @@ export function PlatformSection() {
                 <div className="w-10 h-10 rounded-xl bg-accent-pink/10 border border-accent-pink/20 flex items-center justify-center">
                   <GitBranch className="w-5 h-5 text-accent-pink" />
                 </div>
-                <h3 className="text-xl font-bold text-white normal-case" style={{ letterSpacing: '-0.5px' }}>
+                <h3 className="text-xl font-bold text-white normal-case" style={{ letterSpacing: '-0.5px', lineHeight: 1.25 }}>
                   {p.s2.title}
                 </h3>
               </div>
@@ -249,7 +249,7 @@ export function PlatformSection() {
                 <div className="w-10 h-10 rounded-xl bg-accent-violet/10 border border-accent-violet/20 flex items-center justify-center">
                   <BarChart3 className="w-5 h-5 text-accent-violet" />
                 </div>
-                <h3 className="text-xl font-bold text-white normal-case" style={{ letterSpacing: '-0.5px' }}>
+                <h3 className="text-xl font-bold text-white normal-case" style={{ letterSpacing: '-0.5px', lineHeight: 1.25 }}>
                   {p.s3.title}
                 </h3>
               </div>
